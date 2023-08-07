@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/modulo4_penalty_functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Introducción." href="modulo10_CQM.html" />
+    <link rel="prev" title="9. Introducción." href="Modulo3_desarrollarQUBO.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/modulo4_penalty_functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-de-una-funcion-de-penalizacion">10.1. Construcción de una función de penalización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-igualdad">10.2. Restricciones de igualdad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-desigualdad">10.3. Restricciones de desigualdad.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-n-reinas">10.4. Problema de las N-reinas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-de-lagrange">10.5. Coeficientes de Lagrange</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="penalty-functions"></span><h1><span class="section-number">10. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p id="index-0">En este apartado vamos a desarrollar las denominadas funciones de penalización que junto con el valor comunmente llamado <span class="math notranslate nohighlight">\(\gamma\)</span> o coeficiente  de lagrange son las que nos van a permitir introducir en los programas tipo QUBO o Ising las restricciones del problema planteado.</p>
+<p>De una forma muy resumida, se puede decir que una <em>función de penalización</em> es aquella función que devuelve sus valores mínimos cuando el valor de las variables cumplen con las condiciones de la restricción planteada. Por lo tanto el valor de esta función es la penalización que añadiremos cuando no se cumplen las restricciones planteadas en el problema, haciendo por lo tanto que la solución para estos últimos casos sea <em>menos óptima</em>.</p>
+<p>La idea de las funciones de penalización es la siguiente: supongamos que queremos minimizar una función <span class="math notranslate nohighlight">\(f\)</span> sujeta a cierta restricciones, es decir se tiene el siguiente problema:</p>
+<div class="math notranslate nohighlight">
+\[ min \, f(x)\]</div>
+<div class="math notranslate nohighlight">
+\[s.t.\quad x_1+x_2 \le 1 \]</div>
+<p>Entonces podemos intentar transformar <span class="math notranslate nohighlight">\(f\)</span> en otra función <span class="math notranslate nohighlight">\(g\)</span> de manera que los valores que no cumplen la restricción tomarán valores “grandes” en <span class="math notranslate nohighlight">\(g\)</span>. Entonces de una forma mucho más perfilada, se puede definir la función de penalización de la siguiente manera:</p>
+<p><strong>Definición:</strong> Sean <span class="math notranslate nohighlight">\(P\)</span> (esta va a ser la función de penalización) y <span class="math notranslate nohighlight">\(f\)</span> funciones de <span class="math notranslate nohighlight">\(\{0,1\}^N \)</span> en <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, r una restricción e <span class="math notranslate nohighlight">\(y=argmin\{f(z):z\,cumple\,la\,restricción\,r \}\)</span>, es decir, y es el punto donde se alcanza el mínimo de <span class="math notranslate nohighlight">\(f\)</span> pero restringido a los valores que cumplen con la restricción r. Diremos que <span class="math notranslate nohighlight">\(P\)</span> es una <em>función de penalización</em> para la restricción r si para los valores de x que <strong>no</strong> satisfacen r, se cumple que <span class="math notranslate nohighlight">\(f(x)+p(x)&gt;f(y)\)</span> y además <span class="math notranslate nohighlight">\(p(z)=0\)</span> para los valores z que cumplen con la restricción r.</p>
+<p>De esta manera, añadiendo mediante suma y multiplicada por el coeficiente de lagrange dicha función de penalización a la función <span class="math notranslate nohighlight">\(f\)</span> de coste, se tendrá que las mejores soluciones serán aquellas que cumplen con la restricción.</p>
+<section id="construccion-de-una-funcion-de-penalizacion">
+<h2><span class="section-number">10.1. </span>Construcción de una función de penalización.<a class="headerlink" href="#construccion-de-una-funcion-de-penalizacion" title="Permalink to this heading">#</a></h2>
+<p>En este apartado vamos a ver un ejemplo de cómo podemos construir una función de penalización, para ello supongamos que tenemos la siguiente restricción: <span class="math notranslate nohighlight">\(x_1+x_2\le 1\)</span>.</p>
+<p>Aunque la anterior restricción es una restricción de desigualdad y para ello existe un método general de construcción, como se verá en un  apartado posterior titulado <a class="reference internal" href="#restricciones-desigualdad"><span class="std std-ref">restricciones de desigualdad</span></a>, aquí vamos a ver cómo construir esta función de penalización de una forma diferente y más eficiente, ya que de esta manera se evita el incremento del número de variables.</p>
+<p>La idea que subyace en este tipo de construcción es otorgar el valor de cero si se cumple la restricción y 1 si no se cumple. Es decir mínima energía si cumplimos restricción y mayor energía si no se cumple. Entonces para ello podemos construir para este ejemplo la siguiente tabla de la verdad que contiene el cruce de cada uno de los valores de las variable <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, y en la tercer fila el valor 0 ó 1 dependiendo si se cumple o no la restricción.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x1</p></th>
+<th class="head"><p>x2</p></th>
+<th class="head"><p>x1+x2&lt;=1?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>La función de penalización que vamos buscando tiene el siguiente formato:</p>
+<div class="math notranslate nohighlight">
+\[ ax_1+bx_2+cx_1x_2+d\]</div>
+<p>Entonces vamos a calcular los valores de a,b,c y d de tal manera que al sustituir <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span> por los correspondientes valores de las dos primeras columnas de cada fila de la tabla de la verdad anterior, se obtenga el valor de la tercera columna de dicha tabla de la verdad. Es decir de esta manera vamos a tener un sistema fácil de resolver de cuatro ecuaciones con cuatro incógnitas.</p>
+<ul class="simple">
+<li><p>Si tomamos el par de valores de x1 y x2 (0,0) se tendrá que d=0</p></li>
+<li><p>Si tomamos el par de valores de x1 y x2 (0,1) se tendrá que b=0</p></li>
+<li><p>Si tomamos el par de valores de x1 y x2 (1,0) se tendrá que a=0</p></li>
+<li><p>Si tomamos el par de valores de x1 y x2 (1,1) se tendrá que c=1</p></li>
+</ul>
+<p>En consecuencia, en este caso  la función de penalización será <span class="math notranslate nohighlight">\(x_1\cdot x_2\)</span></p>
+<p>En la siguiente tablas se muestran las funciones de penalización utilizadas con mayor frecuencia, y su deducción se puede obtener fácilmente siguiendo los pasos marcados en el párrafo anterior:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Restricción</p></th>
+<th class="head"><p>penalty function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x+y&lt;=1</p></td>
+<td><p>x.y</p></td>
+</tr>
+<tr class="row-odd"><td><p>x+y&gt;=1</p></td>
+<td><p>1-x-y+x.y</p></td>
+</tr>
+<tr class="row-even"><td><p>x+y=1</p></td>
+<td><p>1-x-y+2xy</p></td>
+</tr>
+<tr class="row-odd"><td><p>x&lt;=y</p></td>
+<td><p>x-xy</p></td>
+</tr>
+<tr class="row-even"><td><p>x+y+z&lt;=1</p></td>
+<td><p>xy+xz+yz</p></td>
+</tr>
+<tr class="row-odd"><td><p>x=y</p></td>
+<td><p>x+y-2xy</p></td>
+</tr>
+</tbody>
+</table>
+<p>A continuación se muestra una función que permite calcular funciones de penalización de una forma rápida y cómoda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_rank</span>
+
+<span class="k">def</span> <span class="nf">penalties</span><span class="p">(</span><span class="n">expresion</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Con esta función se van a obtener los coeficientes de una ecuación de penatys, utilizada en QUBO</span>
+<span class="sd">    </span>
+<span class="sd">    Parámetros:</span>
+<span class="sd">    expresión: es la expresión que se debe avaluar para definir los penaltys</span>
+<span class="sd">    n: Puede ser 2 ´0 3. Indica el número  de variables a tener en cuenta</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Definimos esta función, para obtener el factorial de un número, es decir Cn,m</span>
+    <span class="k">def</span> <span class="nf">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">resul</span><span class="o">=</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">m</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">resul</span>    
+    
+    <span class="c1"># definimos el número de combinaciones que se pueden dar</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">n</span><span class="p">)])</span>
+    
+    <span class="c1"># Calculamos los términos independientes</span>
+    <span class="n">independiente</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">independiente</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">independiente</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="nb">eval</span><span class="p">(</span><span class="n">expresion</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">independiente</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="nb">eval</span><span class="p">(</span><span class="n">expresion</span><span class="p">)</span>
+    <span class="c1"># Calculamos los productos cruzados o cuadráticos, </span>
+    <span class="c1">#es decir xy, xz, yz        </span>
+    <span class="n">cruzados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nb">int</span><span class="p">(</span><span class="n">comb</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">))))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">combinaciones</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">cruzados</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">combinaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">combinaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">combinaciones</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">2</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">combinaciones</span><span class="p">)):</span>
+                <span class="n">cruzados</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">combinaciones</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">combinaciones</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+    
+    <span class="c1"># Ahora obtenemos la matriz B de la Expresión Bx=y               </span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">cruzados</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">)),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># borramos la última fila para resolver el sistema, ya que es c.l. del resto</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">independiente</span> <span class="o">=</span> <span class="n">independiente</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># obtenemos el resultado</span>
+    <span class="n">resul</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">independiente</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">*x+(</span><span class="si">{}</span><span class="s2">*y)+(</span><span class="si">{}</span><span class="s2">*xy)+(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resul</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">*x+(</span><span class="si">{}</span><span class="s2">*y)+(</span><span class="si">{}</span><span class="s2">*z)+(</span><span class="si">{}</span><span class="s2">*xy)+(</span><span class="si">{}</span><span class="s2">*xz)+(</span><span class="si">{}</span><span class="s2">*yz)+(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resul</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="n">resul</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La utilización de la función  anterior es muy fácil y a continuación se muestran algunos ejemplos, con la finalidad de que sirvan de ejemplo para entender el uso de la misma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penalties</span><span class="p">(</span><span class="s2">&quot;x + y == z&quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.0*x+(1.0*y)+(1.0*z)+(-1.0*xy)+(-2.0*xz)+(-2.0*yz)+(0.0)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penalties</span><span class="p">(</span><span class="s2">&quot;x+y==2&quot;</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.0*x+(0.0*y)+(-1.0*xy)+(1.0)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta es la puerta NOT</span>
+<span class="n">penalties</span><span class="p">(</span><span class="s2">&quot;x!=y&quot;</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;-1.0*x+(-1.0*y)+(2.0*xy)+(1.0)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dependiendo del tipo de restricción existen también otros procedimientos de calcular estas funciones de penalización que se pasan a desarrollar en los siguientes apartados.</p>
+</section>
+<section id="restricciones-de-igualdad">
+<h2><span class="section-number">10.2. </span>Restricciones de igualdad<a class="headerlink" href="#restricciones-de-igualdad" title="Permalink to this heading">#</a></h2>
+<p>Supongamos que tenemos una restrcción de igualdad de la forma <span class="math notranslate nohighlight">\(a=p(x_1,...,x_n)\)</span>, siendo p un polinomio de grado 1 en las variables <span class="math notranslate nohighlight">\(x_1,...,x_n\)</span>. Se cumple entonces que la función <span class="math notranslate nohighlight">\(f=:\left(a-p(x_{1},...,x-n)\right)^{2}\)</span> toma su valor mínimo 0 en los puntos para los cuales p=a. De esta manera, encontrar <span class="math notranslate nohighlight">\(x_1,...,x_n\)</span> tales que <span class="math notranslate nohighlight">\(p(x_1,...,x_n)=a\)</span> coincide con encontrar los valores <span class="math notranslate nohighlight">\(x_1,...,x_n\)</span> donde <span class="math notranslate nohighlight">\(f\)</span> alcanza el mínimo. Por lo tanto la función <span class="math notranslate nohighlight">\(f\)</span> anterior se corresponde con una función de penalización para la restricción lineal <span class="math notranslate nohighlight">\(a=p(x_1,...,x_n)\)</span>. Una vez que se consigue esto, sólo queda multiplicar la función de penalización <span class="math notranslate nohighlight">\(f\)</span> por un valor <span class="math notranslate nohighlight">\(\gamma\)</span> que llamaremos <em>coeficiente de lagrange</em>, de manera que se garantice que las mejores soluciones son aquellas que satisfacen la restricción lineal.</p>
+<p>En consecuencia, supongamos que queremos minimizar la función <span class="math notranslate nohighlight">\(g(x_1,...,x_n)\)</span> sujeto a la condición lineal de que <span class="math notranslate nohighlight">\(f(x_1,...x_n)=0\)</span>, siendo f un polinomio de grado 1. Entonces se tomaría como función de coste la siguiente función:</p>
+<div class="math notranslate nohighlight">
+\[h(x_1,...,x_n)=g(x_1,...,x_n)+\gamma\cdot f^2(x_1,...,x_n) \]</div>
+<p>donde <span class="math notranslate nohighlight">\(\gamma\)</span> es el denominado <strong>coeficiente de Lagrange</strong>. Si <span class="math notranslate nohighlight">\(\gamma\)</span> tiene un valor suficientemente alto, tendremos entonces que cuando <strong>no</strong> se satisfaga la restricción de la función <span class="math notranslate nohighlight">\(f\)</span>, la función de coste tomará valores más altos
+que en aquellos puntos donde <strong>sí</strong> se cumpla la restricción correspondiente a la función <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>Se darán  más detalles sobre un correcto ajuste de los coeficientes de Lagrange en la sección denominada <a class="reference internal" href="#coeficientes-lagrange"><span class="std std-ref">coeficientes de Lagrange</span></a> un poco más adelante.</p>
+<p>Una vez que hemos explicado cómo construir funciones de penalización que garanticen que se cumplen restricciones
+lineales de igualdad, explicaremos como garantizar que se cumplen las restricciones de desigualdad.</p>
+</section>
+<section id="restricciones-de-desigualdad">
+<span id="restricciones-desigualdad"></span><h2><span class="section-number">10.3. </span>Restricciones de desigualdad.<a class="headerlink" href="#restricciones-de-desigualdad" title="Permalink to this heading">#</a></h2>
+<p id="index-1">Otras de las posibles restricciones que pueden aparecer al modelizar un problema en un formato de tipo QUBO son las restricciones de desigualdad. En estos casos se convierten en restricciones de igualdad introduciendo <em>variables de holgura</em> (o slack variables).</p>
+<p>Como en las modelizaciones QUBO las variables <em>deben ser binarias</em>, estas variables deben introducirse expresándose de manera binaria. Veámoslo con el siguiente ejemplo.</p>
+<p>Supongamos que tenemos la restricción <span class="math notranslate nohighlight">\(f(x_1,...,x_n)\le b\)</span> y sea m el mínimo de <span class="math notranslate nohighlight">\(f\)</span>. Calculemos el número <span class="math notranslate nohighlight">\(na:=(log_2(b-m))+1\)</span>. Podemos convertir entonces la restricción de desigualdad anterior en otra de igualdad de la siguiente manera: <span class="math notranslate nohighlight">\(f(x_1,...,x_n)+\sum_{j=0}^{na}2^j\cdot a_j=b\)</span>.</p>
+<p>Este método tiene el inconveniente de que aumenta el número de variables necesarias en el modelo por cada restricción de desigualdad, añadiendo gran cantidad de cúbits de cara a su programación.</p>
+<p>La solución óptima consiste en encontrar una función de penalización <span class="math notranslate nohighlight">\(P\)</span> que tome el mismo valor cuando se cumpla la restricción, y valores grandes cuando no. De esta manera evitaríamos introducir variables auxiliares extra. Sin embargo, encontrar estas funciones de penalización suele ser en ocasiones un trabajo bastante complicado.</p>
+<p>No obstante lo anterior, vamos a desarrollar con mayor detalle, como pasar de una restricción de desigualdad a otra de igualdad, en los casos en los que la restricción tiene el siguiente formato (que suele ser muy común en este tipo de problemas):</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{n}m_ix_i \le d\]</div>
+<p>Para simplificar los siguientes cálculos, denotamos <span class="math notranslate nohighlight">\(Y_i=m_ix_i\)</span>, quedando la expresión anterior de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=1}^{n}Y_i \le d\]</div>
+<p>Transformamos la inecuación anterior en una igualdad, de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}Y_i +s = d \]</div>
+<p>Y ahora pasamos todo a un miembro y elevamos al cuadrado:</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{i=}^{n}Y_{i}+s+(-d)\right)^{2}=0\]</div>
+<p>La variable s es una variable de holgura que nos permite pasar de una inecuación a una ecuación. Desarrollando la expresión anterior se tiene lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{i=1}^{n}Y_{i}\right)^{2}+\sum_{i=1}^{n}2sY_{i}-\sum_{i=0}^{n}2dY_{i}+s^{2}-2sd+d^{2}\]</div>
+<p>Finalmente y desarrollando el primer sumatorio se tiene la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}Y_{i}^{2}+\sum_{i=1}^{n}\sum_{j=i+1}^{n}2Y_{i}Y_{j}+\sum_{i=1}^{n}2sY_{i}-\sum_{i=0}^{n}2dY_{i}+s^{2}-2sd+d^{2}\]</div>
+<p>Rehaciendo la expresión <span class="math notranslate nohighlight">\(Y_i=m_ix_i\)</span>, introducimos de nuevo nuestras variables. Pero en vez de usar la notación <span class="math notranslate nohighlight">\(x_i\)</span> usaremos <span class="math notranslate nohighlight">\(q_i\)</span>, denotando que nuestras variables ya son cubits. Por lo tanto quedaría lo siguiente.</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}m_{i}^{2}q_{i}+\sum_{i=1}^{n}\sum_{j=i+1}^{n}2m_{i}m_{j}q_{i}q_{j}+\sum_{i=1}^{n}2sm_{i}q_{i}-\sum_{i=0}^{n}2dm_{i}q_{i}+s^{2}-2sd+d^{2}\]</div>
+<p>Y ahora simplificando sumatorios, se obtiene lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}\left(m_{i}^{2}-2dm_{i}\right)q_{i}+\sum_{i=1}^{n}\sum_{j=i+1}^{n}2m_{i}m_{j}q_{i}q_{j}+\sum_{i=1}^{n}2sm_{i}q_{i}+s^{2}-2sd+d^{2}\]</div>
+<p>Para terminar el proceso, debemos representar la variable de holgura <span class="math notranslate nohighlight">\(s\)</span> como una variable compuesta por cubits. Estas variables auxiliares tienen la propiedad de sólo poder obtener valores 0 ó 1 por lo que se hace la siguiente igualdad</p>
+<div class="math notranslate nohighlight">
+\[s=\sum_{k=0}^{m}2^{k}s_{k},\qquad m=\left[log_{2}d\right]-1\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(s_k\)</span> es cada cubit que representa la variable auxiliar. De esta forma introducimos las variables en las ecuaciones y minimizamos el so de cubits a los estrictamente necesarios. Sustituyendo esto último en la ecuación anterior y simplificando los sumatorios resultantes queda la ecuación final que buscamos:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}\left(m_{i}^{2}-2dm_{i}\right)q_{i}+\sum_{i=1}^{n}\sum_{j=i+1}^{n}2m_{1}m_{j}q_{i}q_{j}+\sum_{i=1}^{n}\sum_{k=0}^{m}m{_i}2^{k+1}q_{i}s_{k}+\]</div>
+<div class="math notranslate nohighlight">
+\[+\sum_{k=0}^{m}\left(2^{2k}-d2^{k+1}\right)s_{k}+\sum_{k=0}^{m}\sum_{t=k+1}^{m}2^{k+t+1}s_{k}s_{t}+d^{2}\]</div>
+<p>De la expresión anterior, modificando los valores de n, el vector de valores <span class="math notranslate nohighlight">\(m\)</span> y el valor <span class="math notranslate nohighlight">\(d\)</span>, podemos obtener la función de penalización de muchas de las restricciones que implican desigualdad, ahorrando de esta forma tiempo en el cálculo de cada función y pudiendo implementar una función general que genere estas penalizaciones o restricciones de desigualdad.</p>
+</section>
+<section id="problema-de-las-n-reinas">
+<span id="n-reinas"></span><h2><span class="section-number">10.4. </span>Problema de las N-reinas.<a class="headerlink" href="#problema-de-las-n-reinas" title="Permalink to this heading">#</a></h2>
+<p>Introducimos en este apartado, el problema de las N-reinas pues a él nos referiremos en el apartado posterior. Este problema consiste en lo siguiente:</p>
+<p>Dado un tablero de ajedrez de tamaño NxN y disponer N reinas de tal manera que las mismas no se puedan atacar, es decir dispuesta una reina en una casilla del tablero, no puede haber otra en una casilla de la  horizontal, ni en la vertical ni en diagonal.</p>
+<p>La explicación del problema la podemos ver en el siguiente vídeo: <a class="reference external" href="https://youtu.be/ZGKSoTUaphU">https://youtu.be/ZGKSoTUaphU</a></p>
+<p>La explicación del código se puede ver en : <a class="reference external" href="https://youtu.be/3wVwpPzoyDs">https://youtu.be/3wVwpPzoyDs</a></p>
+<p>Nuestra función a minimizar será:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+f(x) =  -\sum_i^n \sum_j^n x_{i,j} +   \lambda\sum_{i_1}^n \sum_{i_2}^n \sum_{i_3}^n \sum_{i_4}^n J_{i_1,i_2,i_3,i_4}x_{i_1,i_2}x_{i_3,i_4}
+\end{equation}\)</span></p>
+<p>donde <span class="math notranslate nohighlight">\(x_{i,j}\)</span> valdrá 1 si en la casilla (i,j) hay una dama y 0 si no.</p>
+<p>Daremos además a <span class="math notranslate nohighlight">\(J_{i_1,i_2,i_3,i_4}\)</span> el valor 1 si las casillas <span class="math notranslate nohighlight">\((i_1,i_2)\)</span> y <span class="math notranslate nohighlight">\((i_3, i_4)\)</span> están conectadas y 0 en otro caso.</p>
+<p id="index-2">qubovert lo encontramos en <a class="reference external" href="https://qubovert.readthedocs.io/en/latest/">https://qubovert.readthedocs.io/en/latest/</a>.</p>
+<p>El código que se utiliza para resolver el problema lo ponemos a continuación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qubovert</span>
+
+<span class="c1">#size = 4</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">lagrange</span> <span class="o">=</span> <span class="n">size</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># Creamos las variables de nuestro modelo</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">qubovert</span><span class="o">.</span><span class="n">QUBO</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">Q</span><span class="o">.</span><span class="n">create_var</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Creamos las variables x_i y x_j</span>
+        
+<span class="c1"># Añadimos el primer bloque de la función objetivo</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">Q</span><span class="p">[(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,)]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        
+<span class="c1"># Incluimos las restricciones finales</span>
+<span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i3</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i4</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i1</span> <span class="o">==</span> <span class="n">i3</span> <span class="ow">or</span> <span class="n">i2</span> <span class="o">==</span> <span class="n">i4</span> <span class="ow">or</span> <span class="n">i1</span> <span class="o">-</span> <span class="n">i3</span> <span class="o">==</span> <span class="n">i2</span> <span class="o">-</span> <span class="n">i4</span> <span class="ow">or</span> <span class="n">i1</span> <span class="o">-</span> <span class="n">i3</span> <span class="o">==</span> <span class="n">i4</span> <span class="o">-</span> <span class="n">i2</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">i1</span> <span class="o">==</span> <span class="n">i3</span> <span class="ow">and</span> <span class="n">i2</span> <span class="o">==</span> <span class="n">i4</span><span class="p">):</span>
+                        <span class="n">Q</span><span class="p">[(</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">i1</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">i3</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">lagrange</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">qubovert</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#size = 4</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;qubovert&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya tenemos definido nuestro qubo. Vale -1 para los coeficientes individuales y gamma = 16 (<span class="math notranslate nohighlight">\(=2^N=2^4=16\)</span>) cuando los cuadrados están conectados</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lo hacemos para que dwave lo admita</span>
+<span class="n">dwave_dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">dwave_dic</span><span class="p">[(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dwave_dic</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neal</span> <span class="kn">import</span> <span class="n">SimulatedAnnealingSampler</span>
+<span class="c1">#from dwave.system import DWaveSampler, EmbeddingComposite</span>
+
+
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># número de veces que ejecutamos el sistema</span>
+
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">SimulatedAnnealingSampler</span><span class="p">()</span>
+<span class="c1">#sampler = EmbeddingComposite(DWaveSampler())</span>
+
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_qubo</span><span class="p">(</span><span class="n">dwave_dic</span><span class="p">,</span> <span class="n">num_reads</span> <span class="o">=</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">solution</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;x_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="coeficientes-de-lagrange">
+<span id="coeficientes-lagrange"></span><h2><span class="section-number">10.5. </span>Coeficientes de Lagrange<a class="headerlink" href="#coeficientes-de-lagrange" title="Permalink to this heading">#</a></h2>
+<p>Una de las tareas más importantes para realizar una buena modelización QUBO es el ajuste de los coeficientes de Lagrange. En muchos artículos que abordan problemas mediante el algoritmo <em>Quantum Annealing</em> se proponen diversas modelizaciones sin hacer referencia sobre los valores que deben tener los coeficientes de Lagrange.</p>
+<p>Una buena modelización con unos malos coeficientes de  Lagrange provocará que el algoritmo de atemperamiento cuántico no arroje buenos resultados. En muchas modelizaciones el ajuste de estos coeficientes resulta ser una tarea complicada y delicada.</p>
+<p>Si los coeficientes de Lagrange no son lo suficientemente grandes, aparecerán soluciones que no cumplen
+ciertas restricciones.</p>
+<p>Si por el contrario toman valores demasiado grandes, el algoritmo se atascará en soluciones que garanticen que se cumplen ciertas restricciones y no conseguirá buenos valores de la función objetivo o en otras restricciones.</p>
+<p>Podemos apreciar este hecho con el código correspondiente al problema de las N-reinas que encontramos en el <a class="reference internal" href="#n-reinas"><span class="std std-ref">anterior apartado</span></a>. Si tomamos en el código lagrange = size ^2 (es decir, la variable de nombre lagrange se obtiene al elevar al cuadrado la variable de nombre size, que son las reinas a tener en cuenta), tendremos que el algoritmo deja de encontrar soluciones para el problema a partir de <span class="math notranslate nohighlight">\(N \ge 11\)</span>.</p>
+<p>Si por el contrario tomamos en el código lagrange = 2, el algoritmo proporciona soluciones para valores de
+N tan grandes como 100. El caso óptimo en el que el algoritmo de Quantum Annealing proporciona resultados realmente buenos se produce cuando el óptimo está suficientemente alejado del resto de valores y no existen puntos para los cuales la función toma valores grandes muy alejados del resto.</p>
+<p>Vamos a tratar de mostrar algunos resultados que nos ayuden a estimar los coeficientes de Lagrange. El problema de estimar los coeficientes de Lagrange no es un problema novedoso del Quantum Annealing. En el artículo <a href="https://www.sciencedirect.com/science/article/abs/pii/S1572528620300281" target="_blank"> “Penalty and partitioning techniques to improve performance of QUBO solvers” </a>, se realiza un estudio sobre cómo estimar estos coeficientes
+cuando se está realizando una modelización QUBO previamente a aplicar annealing clásico.</p>
+<p id="index-3">Dicho artículo propone unas condiciones que ha de cumplir el coeficiente de Lagrange cuando el algoritmo heurístico con el que se va a resolver el problema es de tipo 1-flip. Los algoritmos heurísticos de tipo 1-flip son aquellos en los que, para pasar de una posible solución a una nueva, simplemente se produce un cambio en una de las variables que forma el modelo.
+Esta condición conduce a un caso más sencillo para el cual el coeficiente de Lagrange debe cumplir condiciones menos restrictivas. Sin embargo, algunos de los resultados de los que se habla son similares a los que vamos a manejar ahora.</p>
+<p>Tratemos de generalizar lo expuesto en el artículo citado a estimar el valor que debe tomar <span class="math notranslate nohighlight">\(\lambda\)</span> para cada penalización en el caso del <em>Quantum Annealing</em>.</p>
+<p>Supongamos que tenemos una función de coste <span class="math notranslate nohighlight">\(h(x_1,...,x_n)=g(x_1,...,x_n)+\lambda f(x_1,...,x_n)\)</span>, donde <span class="math notranslate nohighlight">\(g\)</span> es la función que queremos minimizar y <span class="math notranslate nohighlight">\(f\)</span> representa una restricción que queremos que se satisfaga.</p>
+<p>Sea <span class="math notranslate nohighlight">\(y\in \{0,1\}^n\)</span> y <span class="math notranslate nohighlight">\(x\in \{y:f(y)=0 \}\)</span>, es decir los puntos donde se hace cero la función que representa la restricción. Supongamos que <span class="math notranslate nohighlight">\(x_0\)</span> es el valor que minimiza <span class="math notranslate nohighlight">\(g\)</span> y además cumple que <span class="math notranslate nohighlight">\(f(x_0)=0\)</span>, es decir seria la solución de nuestro problema. Entonces necesitaremos que se cumpla para todo y lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[g(y)+\lambda f(y)&gt;g(x_{0})+\lambda f(x_{0})=g(x_{0})\]</div>
+<p>Si tomamos como <span class="math notranslate nohighlight">\(p=min\{f(y):f(y)&gt;0, y\in \{0,1\}^n\}\)</span> tendremos que para todo y:</p>
+<div class="math notranslate nohighlight">
+\[g(y)+\lambda f(y)&gt;g(y)+p\lambda \ge min \, g(y)+\lambda p\]</div>
+<p>por lo que si garantizamos que <span class="math notranslate nohighlight">\(min\, g(y)+\lambda p &gt;g(x_0)\)</span> tendremos que se cumplirá lo que buscamos. Como en muchos casos calcular <span class="math notranslate nohighlight">\(g(x_0)\)</span> será equivalente a resolver el problema, es suficiente con tomar</p>
+<div class="math notranslate nohighlight">
+\[\lambda&gt;\frac{1}{p}\left(g(x)-\underset{y}{min}g(y)\right)\]</div>
+<p>siendo x uno de los puntos donde se cumple que f(x)=0.</p>
+<p>Todos los mínimos que aparecen en el párrafo anterior se corresponden con el mínimo de cierta función en un conjunto de valores finito, por lo que existen, son finitos y se cumple que <span class="math notranslate nohighlight">\(p \ne 0\)</span>.</p>
+<p>Si no fuese sencillo estimar un valor de g(x), podría sustituirse por <span class="math notranslate nohighlight">\(\underset{y}{max}\,g(y)\)</span>.</p>
+<p>Estimar de manera exacta el valor p se correspondería con resolver el denominado problema de suma 0, cuya complejidad
+computacional es <span class="math notranslate nohighlight">\(2^n\)</span> . Sin embargo, si la precisión de los coeficientes de f se corresponde con <span class="math notranslate nohighlight">\(10^{-m}\)</span>, podría simplemente aproximarse p por el valor <span class="math notranslate nohighlight">\(a10^{-m}\)</span> con <span class="math notranslate nohighlight">\(a\in(0,1)\)</span>.</p>
+<p>A pesar de esto, como comentamos anteriormente, <span class="math notranslate nohighlight">\(\lambda\)</span> no debe ser excesivamente grande ya que ocasionará que la función a minimizar presente mínimos locales con valores mucho menores que los de su alrededor.</p>
+<p>Por lo tanto, trataremos de ajustar <span class="math notranslate nohighlight">\(\lambda\)</span> de manera que sea lo menor posible tratando de satisfacer la desigualdad</p>
+<div class="math notranslate nohighlight">
+\[\lambda&gt;\frac{1}{p}\left(g(x)-\underset{y}{min}g(y)\right)\]</div>
+<p>Apliquemos lo que se acaba de exponer el problema de la N-Reinas visto en el anterior apartado. En este caso la función de coste es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+f(x) =  -\sum_i^n \sum_j^n x_{i,j} +   \lambda\sum_{i_1}^n \sum_{i_2}^n \sum_{i_3}^n \sum_{i_4}^n J_{i_1,i_2,i_3,i_4}x_{i_1,i_2}x_{i_3,i_4}
+\end{equation}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Modulo3_desarrollarQUBO.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modulo10_CQM.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-de-una-funcion-de-penalizacion">10.1. Construcción de una función de penalización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-igualdad">10.2. Restricciones de igualdad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-desigualdad">10.3. Restricciones de desigualdad.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-n-reinas">10.4. Problema de las N-reinas.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-de-lagrange">10.5. Coeficientes de Lagrange</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>12. Programación entera. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Programacion_Entera';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Índice" href="../genindex.html" />
+    <link rel="prev" title="11. Introducción." href="modulo10_CQM.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/Programacion_Entera.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Programación entera.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Programación entera.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">13. Programación entera mixta.</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="programacion-entera">
+<h1><span class="section-number">12. </span>Programación entera.<a class="headerlink" href="#programacion-entera" title="Permalink to this heading">#</a></h1>
+<p>Un problema de programación lineal entera (PLE) consiste en un problema de optimización de una función lineal en presencia de restricciones lineales con la condición añadida de que alguna o todas sus variables han de ser enteras. A continuación vamos a resolver un problemas de programación lineal con variables binarias.</p>
+<p><strong>Problema</strong>. Una empresa está planificando la inversión a realizar en los próximos 3 trimestres en 5 proyectos de investigación. En la siguiente tabla aparece detallado el presupuesto disponible por trimestre, la inversión que se debe realizar por proyecto y trimestre y el beneficio que se espera obtener con cada proyecto. Todos los datos aparecen en millones de euros.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><td colspan=2>Trimestre</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Proyecto</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>Beneficio</p></td>
+</tr>
+<tr class="row-odd"><td><p>————————-</p></td>
+<td><p>—-</p></td>
+<td><p>—-</p></td>
+<td><p>—-</p></td>
+<td><p>———–</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>8</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>4</p></td>
+<td><p>7</p></td>
+<td><p>10</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>7</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>8</p></td>
+<td><p>6</p></td>
+<td><p>10</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>Presupuesto <br> disponible</p></td>
+<td><p>25</p></td>
+<td><p>25</p></td>
+<td><p>25</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Se desa conocer los proyectos en los que se debe invertir para maximizar el beneficio obtenido.</p>
+<p>Obsérvese que no buscamos la cantidad a invertir en cada proyecto puesto que esta cantidad es fija y sólo depende delproyecto elegido. La única decisión que debemos tomar es si invertimos o no en un proyecto u otro con el fin de obtener el mayor beneficio posible sin superar el presupuesto disponible. Consideramos entonces las siguiente variables binarias</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_{i}=\begin{cases}
+1 &amp; si\ se\ invierte\ en\ el\ proyecto\ i\\
+0 &amp; en\ caso\ contrario
+\end{cases}\end{split}\]</div>
+<p>Entonces el modelo matemático a resolver sería el  siguiente:</p>
+<div class="math notranslate nohighlight">
+\[
+max\qquad20x_{1}+40x_{2}+20x_{3}+15x_{4}+30x_{5}
+\]</div>
+<p>sujeto a</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+5x_{1}++4x_{2}+3x_{3}+7x_{4}+8x_{5}\le25\\
+x_{1}+7x_{2}+9x_{3}+4x_{4}+6x_{5}\le25\\
+8x_{1}+10x_{2}+2x_{3}+x_{4}+10x_{5}\le24\\
+x_{1},x_{2},x_{3},x_{4},x_{5}\in\{0,1\}
+\end{array}
+\end{split}\]</div>
+<p>Todas las variables presentes en este problema están restringidas a tomar los valores 0 ó 1 y por lo tanto estaremos en presencia de un problema de Programación 0-1 o binario. La solución a este problema sería en invertir en todos los proyectos salvo el 5 y obtener así un beneficio de 95 millones de euros. Veamos a continuación cómo lo resolvemos con O’Cean.</p>
+<p>Lo primero es importar el módulo correspondiente y después definir las variables binaria</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Binary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Definimos las variables bianrias</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x3&quot;</span><span class="p">)</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x4&quot;</span><span class="p">)</span>
+<span class="n">x5</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación instanciamos una clase de <code class="docutils literal notranslate"><span class="pre">ConstrainedQuadraticModel()</span></code>y definimos la función objetivo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+<span class="n">objetive</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">x1</span><span class="o">-</span><span class="mi">40</span><span class="o">*</span><span class="n">x2</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">x3</span><span class="o">-</span><span class="mi">15</span><span class="o">*</span><span class="n">x4</span><span class="o">-</span><span class="mi">30</span><span class="o">*</span><span class="n">x5</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">objetive</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez definida la función objetivo, se procede a indicar las restricciones que debemos tener en cuenta para resolver el problema.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x1</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">x2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">x3</span><span class="o">+</span><span class="mi">7</span><span class="o">*</span><span class="n">x4</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="n">x5</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R1&quot;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="mi">7</span><span class="o">*</span><span class="n">x2</span><span class="o">+</span><span class="mi">9</span><span class="o">*</span><span class="n">x3</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">x4</span><span class="o">+</span><span class="mi">6</span><span class="o">*</span><span class="n">x5</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">x1</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">x2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">x5</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;R3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ahora</span> <span class="n">ya</span> <span class="n">tan</span> <span class="n">sólo</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">utilizar</span> <span class="n">un</span> <span class="n">solver</span> <span class="n">para</span> <span class="n">resolver</span> <span class="n">el</span> <span class="n">problema</span> <span class="n">planteado</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">Ahora</span> <span class="n">ya</span> <span class="n">tan</span> <span class="n">sólo</span> <span class="n">tenemos</span> <span class="n">que</span> <span class="n">utilizar</span> <span class="n">un</span> <span class="n">solver</span> <span class="n">para</span> <span class="n">resolver</span> <span class="n">el</span> <span class="n">problema</span> <span class="n">planteado</span><span class="o">.</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>                
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>  
+<span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;x1&#39;: 1.0, &#39;x2&#39;: 1.0, &#39;x3&#39;: 1.0, &#39;x4&#39;: 1.0, &#39;x5&#39;: 0.0}, energy=-95.0, num_occurrences=1, is_satisfied=array([ True,  True,  True]), is_feasible=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver el resultado obtenido es el que inicialmente habíamos comentado, es decir se eligen los primeros cuatro proyectos y se descarta el quinto.</p>
+<p>Pero podríamos imponer más restricciones a nuestro problema, como pueden ser las siguientes:</p>
+<p>a) Se debe invertir como mucho en tres proyectos.</p>
+<p>b) Se debe invertir o en el proyecto 1 o en el proyecto 5 (o en ambos)</p>
+<p>c) Si se invierte en el proyecto 4  se debe invertir en el 3</p>
+<p>d) Si se invierte en los proyecto 2 ó 3 se debe invertir en el proyecto 5</p>
+<p>Estas condiciones las debemos trasladar a formulaciones matemáticas de la siguiente manera:</p>
+<p>a) <span class="math notranslate nohighlight">\(x_{1}+x_{2}+x_{3}+x_{4}+x_{5}\le 3\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(x_{1}+x_{5}\ge1\)</span></p>
+<p>c) <span class="math notranslate nohighlight">\(x_3 \ge x_4\)</span></p>
+<p>d) <span class="math notranslate nohighlight">\(x_2+x_3 \le x_5\)</span></p>
+<p>El implementar todas estas condiciones en nuestro modelo, se hace de una forma fácil. Por ejemplo implementemos la condición reflejada en el aparatdo a). Se haría de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># se debe invertir como mucho en tres proyectos</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="o">&lt;=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;R4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>                
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>  
+<span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;x1&#39;: 0.0, &#39;x2&#39;: 1.0, &#39;x3&#39;: 1.0, &#39;x4&#39;: 0.0, &#39;x5&#39;: 1.0}, energy=-90.0, num_occurrences=1, is_satisfied=array([ True,  True,  True,  True]), is_feasible=True)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="programacion-entera-mixta">
+<h1><span class="section-number">13. </span>Programación entera mixta.<a class="headerlink" href="#programacion-entera-mixta" title="Permalink to this heading">#</a></h1>
+<p>Como ampliación de un problema de programación de variables 0-1, a continuación vamos a resolver un problema donde se mezclan variables 0-1 con variables de tipo entero.</p>
+<p><strong>Problema</strong>. Una pequeña empresa puede producir 4 tipos de artículos y estima que para el próximo período podrá vender todo lo que fabrica de los productos 1 y 3, pero como mucho tendrá demanda para 30 unidades del producto 2 y 10 del producto 4. La empresa tiene capacidad para producir un máximo de 110 artículos de cualquier tipo y combinación. A continuación se detalla el coste de producción por unidad producida, el coste fijo de producción y el precio de venta unitario de cada artículo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Producto</p></th>
+<th class="head"><p>Coste de <br> producción</p></th>
+<th class="head"><p>Coste fijo</p></th>
+<th class="head"><p>P.V.P</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>300</p></td>
+<td><p>60</p></td>
+<td><p>450</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>450</p></td>
+<td><p>20</p></td>
+<td><p>650</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>500</p></td>
+<td><p>70</p></td>
+<td><p>600</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>200</p></td>
+<td><p>60</p></td>
+<td><p>450</p></td>
+</tr>
+</tbody>
+</table>
+<p>Formular el modelo matemático para determinar las unidades que se deben producir de cada artículo para maximizar los beneficios de la empresa.</p>
+<p>Si consideramos únicamente las variables <span class="math notranslate nohighlight">\(x_i\)</span> = unidades del producto i que debe fabricar el próximo período, la función de beneficios no se podrá formular de una forma correcta. Téngase en cuenta que los costes fijos no dependen de la cantidad producida, sino de la decisión de producir o no producir. Necesitamos por lo tanto variables que hagan referencia a esta decisión. Estas variables serán de tipo binario, y se definirán de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}y_{i}=\begin{cases}
+1 &amp; si\ se\ fabrica\ el\ art\acute{\imath}culo\ i\\
+0 &amp; en\ caso\ contrario
+\end{cases}\end{split}\]</div>
+<p>Con estas consideraciones, se podría formular el problema de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[max\quad150x_{1}+200x_{2}+100x_{3}+250x_{4}-60y_{1}-20y_{2}-70y_{3}-60y_{4}\]</div>
+<p>Sujeto a:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c}
+x_{1}+x_{2}+x_{3}+x_{4}\le110\\
+x_{2}\le30\\
+x_{4}\le10\\
+x_{1},x_{2},x_{3},x_{4}\ge0\\
+y_{1},y_{2},y_{3},y_{4}\in\{0,1\}
+\end{array}\end{split}\]</div>
+<p>La solución óptima a este problema va a ser la siguiente</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{c}
+x_{1}=70,\ x_{2}=30,\ x_{3}=0,\ x_{4}=10\\
+y_{1}=y_{2}=y_{3}=y_{4}=0
+\end{array}\)</span></p>
+<p>Y entonces, claramente no se va a respetar la relación entre variables de producción y variables de decisión ya que estamos produciendo sin incurrir en ningún coste fijo. Esto es debido a que no se ha incluido ninguna relación matemática entre estos dos tipos de variables, esto es, no aparece reflejada la condición: “si <span class="math notranslate nohighlight">\(x_i&gt;0\)</span> entonces ha de ser <span class="math notranslate nohighlight">\(y_i=1\)</span>”. Sea M una constante arbitrariamente grande y consideremos las restricciones:</p>
+<div class="math notranslate nohighlight">
+\[x_{i}\le My_{i}\quad i=1,2,3,4\]</div>
+<p>Si estas desigualdades son añadidas al modelo aseguramos que <span class="math notranslate nohighlight">\(y_i=1\)</span> siempre que <span class="math notranslate nohighlight">\(x_i \gt 0\)</span>. Téngase en cuenta que en caso contrario, obligatoriamente <span class="math notranslate nohighlight">\(x_i=0\)</span>. De esta manera, si hay producción del artículo i obligatoriamente se incurre en el coste fijo asociado. No obstante, estas desigualdades pueden ser modificadas: si <span class="math notranslate nohighlight">\(y_i=1\)</span>, la restricción <span class="math notranslate nohighlight">\(x_i \le My_i\)</span> se traduce en <span class="math notranslate nohighlight">\(x_i \le M\)</span>, siendo M una constante suficientemente grande. Teniendo esto presente, el problema se debe formular de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[max\quad150x_{1}+200x_{2}+100x_{3}+250x_{4}-60y_{1}-20y_{2}-70y_{3}-60y_{4}\]</div>
+<p>Sujeto a:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c}
+x_{1}+x_{2}+x_{3}+x_{4}\le110\\
+x_{1}\le 110 y_1\\
+x_{2}\le30 y_2\\
+x_{3}\le 110 y_3\\
+x_{4}\le10 y_4\\
+x_{1},x_{2},x_{3},x_{4}\ge0\\
+y_{1},y_{2},y_{3},y_{4}\in\{0,1\}
+\end{array}\end{split}\]</div>
+<p>Teniendo en cuenta todo esto procedemos a formular el problema para que se pueda resolver con O’Cean.</p>
+<p>Importamos las clases que necesitamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Binary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos las variables correspondientes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
+<span class="n">x2</span><span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">x3</span><span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;x3&quot;</span><span class="p">)</span>
+<span class="n">x4</span><span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;x4&quot;</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">y1</span><span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;y1&quot;</span><span class="p">)</span>
+<span class="n">y2</span><span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;y2&quot;</span><span class="p">)</span>
+<span class="n">y3</span><span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;y3&quot;</span><span class="p">)</span>
+<span class="n">y4</span><span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;y4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos la función objetivo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+<span class="n">objetive</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">150</span><span class="o">*</span><span class="n">x1</span><span class="o">-</span><span class="mi">200</span><span class="o">*</span><span class="n">x2</span><span class="o">-</span><span class="mi">100</span><span class="o">*</span><span class="n">x3</span><span class="o">-</span><span class="mi">250</span><span class="o">*</span><span class="n">x4</span><span class="o">+</span><span class="mi">60</span><span class="o">*</span><span class="n">y1</span><span class="o">+</span><span class="mi">20</span><span class="o">*</span><span class="n">y2</span><span class="o">+</span><span class="mi">70</span><span class="o">*</span><span class="n">y3</span><span class="o">+</span><span class="mi">60</span><span class="o">*</span><span class="n">y4</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">objetive</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Añadimos las correspondientes restricciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">+</span><span class="n">x4</span> <span class="o">&lt;=</span> <span class="mi">110</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R1&quot;</span><span class="p">)</span>
+<span class="c1"># observar que las variables deben estar a la izquierda del signo &lt;=</span>
+<span class="c1"># Si no lo hacemos así, obtendremos un error</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="mi">110</span><span class="o">*</span><span class="n">y1</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="mi">30</span><span class="o">*</span><span class="n">y2</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R3&quot;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x3</span><span class="o">-</span><span class="mi">110</span><span class="o">*</span><span class="n">y3</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R4&quot;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">x4</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">y4</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;R5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;R5&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora resolvemos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>                
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>             
+<span class="nb">print</span><span class="p">(</span><span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;x1&#39;: 73.0, &#39;x2&#39;: 30.0, &#39;x3&#39;: 0.0, &#39;x4&#39;: 10.0, &#39;y1&#39;: 1.0, &#39;y2&#39;: 1.0, &#39;y3&#39;: 0.0, &#39;y4&#39;: 0.0}, energy=-19370.0, num_occurrences=1, is_satisfied=array([ True,  True,  True, False, False]), is_feasible=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos observa que la solución anterior no es factible, y por lo tanto debemos establecer el filtro correspondiente, para obtener esa solución factible de la siguiente manera</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;x1&#39;: 70.0, &#39;x2&#39;: 30.0, &#39;x3&#39;: 0.0, &#39;x4&#39;: 10.0, &#39;y1&#39;: 1.0, &#39;y2&#39;: 1.0, &#39;y3&#39;: 0.0, &#39;y4&#39;: 1.0}, energy=-18860.0, num_occurrences=1, is_satisfied=array([ True,  True,  True,  True,  True]), is_feasible=True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Supongamos ahora que el fabricante impone las siguientes restricciones:</p>
+<p>a) Si se produce del artículo 1 se debe producir del artículo 2.</p>
+<p>b) Si se produce del artículo 4 no debe producirse nada del artículo 3</p>
+<p>c) Se debe producir obligatoriamente de los artículos 2,3 y 4</p>
+<p>d) Si se producen más de 30 unidades del artículo 1, se deben producir al menos 10 unidades del artículo 2</p>
+<p>e) Si se producen más de 30 unidades del artículo 1, se deben producir como mucho 10 unidades del artículo 2</p>
+<p>Veamos a continuación, cómo poder incorporar estas restricciones con fórmulas matemáticas.</p>
+<p>a) Debemos expresar que si <span class="math notranslate nohighlight">\(x_1\)</span> &gt; 0 entonces <span class="math notranslate nohighlight">\(x_2\)</span> &gt; 0, con desigualdad estricta. Entonces para introducir esta consideración se deben incorporar dos números M y m que permitan la siguiente restricción: <span class="math notranslate nohighlight">\(x_1\le My_1\)</span> y <span class="math notranslate nohighlight">\(x_2 \ge my_1\)</span>. De esta manera se tiene que si <span class="math notranslate nohighlight">\(x_1&gt;0\)</span> entonces <span class="math notranslate nohighlight">\(y_1=1\)</span> y por lo tanto <span class="math notranslate nohighlight">\(x_2\ge m\)</span>.</p>
+<p>b) Se debe verificar que si <span class="math notranslate nohighlight">\(x_4&gt;0\)</span> entonces <span class="math notranslate nohighlight">\(x_3=0\)</span> o lo que es equivalente: si <span class="math notranslate nohighlight">\(y_4=1\)</span> entonces <span class="math notranslate nohighlight">\(y_3=0\)</span>. Por lo tanto no puede darse el caso que ambas variables tomen el valor de 1 y por lo tanto la restricción sería la siguiente: <span class="math notranslate nohighlight">\(y_3+y_4 \le 1\)</span>.</p>
+<p>c)El producir obligatoriamente algún artículo de los tipos 2, 3, 4 es equivalente a incorporar la restricción: <span class="math notranslate nohighlight">\(y_2+y_3+y_4=3\)</span>.</p>
+<p>d) Se debe reflejar que si <span class="math notranslate nohighlight">\(x_1 &gt; 30\)</span> entonces <span class="math notranslate nohighlight">\(x_2 \ge 10\)</span>. En este caso necesitamos una variable binaria más que haga referencia al hecho de producir más de 30 unidades del artículo 1, puesto que la variable <span class="math notranslate nohighlight">\(y_1\)</span> sólo indica si hay o no producción del artículo 1. Por lo tanto definimos esta variable auxiliar de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z=\begin{cases}
+1 &amp; si\ x_{1}&gt;30\\
+0 &amp; caso\ contrario
+\end{cases}\end{split}\]</div>
+<p>Entonces la condición de que <span class="math notranslate nohighlight">\(x_1&gt;30\)</span> queda clara de la siguiente manera: <span class="math notranslate nohighlight">\(x_1-30 \le Mz\)</span>, siendo M una constante suficientemente grande. Obsérvese que si <span class="math notranslate nohighlight">\(x_1&gt;30\)</span> no puede ser z=0 ya que en este caso, la restricción  <span class="math notranslate nohighlight">\(x_1-30 \le Mz\)</span> es equivalente a  <span class="math notranslate nohighlight">\(x_1-30 \le 0\)</span>. Ahora basta añadir <span class="math notranslate nohighlight">\(x_2 \ge 10z\)</span> con <span class="math notranslate nohighlight">\(z \in {0,1}\)</span> y entonces si z=1 entonces <span class="math notranslate nohighlight">\(x_2 \ge 10\)</span>.</p>
+<p>e) La condición es equivalente a que si <span class="math notranslate nohighlight">\(x_1 &gt; 30 \)</span> entonces <span class="math notranslate nohighlight">\(x_2 \le 10\)</span>. Igualmente se toma</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z=\begin{cases}
+1 &amp; si\ x_{1}&gt;30\\
+0 &amp; caso\ contrario
+\end{cases}\end{split}\]</div>
+<p>y <span class="math notranslate nohighlight">\(x_1-30 \le Mz\)</span> con M constante suficientemente grande, y entonces se añade la desigualdad <span class="math notranslate nohighlight">\(x_2-10 \le M(1-z)\)</span> con <span class="math notranslate nohighlight">\(z \in {0,1}\)</span>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modulo10_CQM.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../genindex.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Índice</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Programación entera.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">13. Programación entera mixta.</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

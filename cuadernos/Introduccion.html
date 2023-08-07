@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Introduccion';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Instalación de Ocean" href="Instalacion.html" />
+    <link rel="prev" title="Programación cuántica" href="../introduccion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción.</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/Introduccion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Introducción.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cubit">2. El cubit.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">3. DWave.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">4. Modelos soportados por Ocean.</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><span class="section-number">1. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>En este apartado se va a abordar un enfoque especial de optimización de funciones basado enla computación cuántica, hoy en día en proceso de madurez pero con grandes esperanzas de cara al futuro para poder resolver con ellas problemas presentes hoy en día con la computación tipo bit existente.</p>
+<p>Existen diferentes enfoque de implementación de la computación cuántica, liderando estos enfoques diversas empresas punteras en la matería.</p>
+<p>En este sentido, el modelo de <strong>circuitos cuánticos</strong> es el que está recibiendo más atención por parte de diversas
+empresas como IBM, Google o Riggeti para construir un computador cuántico capaz de resolver problemas con aplicación real.</p>
+<p>Estos computadores están basados en puertas cuánticas, similares a las puertas lógicas que se usan en la computación tradicional, pero que en vez de usar lógica booleana, manipulan los estados de superposición de los cúbits que pasan por esas puertas.</p>
+<p>Sin embargo, el computador que se va a utilizar en este trabajo utiliza otro paradigma, el llamado <strong>quantum anneling</strong> (recocido cuántico) o computación adiabática cuántica.</p>
+<p>Antes de hablar de este paradigma de computación, hay que entender algunos conceptos básicos como por ejemplo el cúbit que es la unidad mínima de información en este tipo de máquinas, y sus propiedades, que son las que brindan a estas máquinas su capacidad masiva de computación.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="el-cubit">
+<h1><span class="section-number">2. </span>El cubit.<a class="headerlink" href="#el-cubit" title="Permalink to this heading">#</a></h1>
+<p>En la informática tradicional, un bit es la unidad mínima de información. Los bits tienen dos estados: el 0 y el 1. Estos
+estados vienen representados por distintos niveles de voltaje.</p>
+<p>En informática cuántica, los <strong>cúbits</strong>, al igual que los bits tienen dos estados (los cuales pueden ser tomados con probabilidades ciertas probabilidades); pero estos se representan con propiedades cuánticas tales como el “spin” de una partícula o el campo magnético de un superconductor en temperaturas cercanas al cero absoluto. Sin embargo, los cúbits al estar representados con estos fenómenos, la información que codificamos en ellos goza de propiedades cuánticas como la <em>superposición y el entrelazamiento</em>.</p>
+<p>La <em>superposición</em>  es el fenómeno por el cual un cúbit está en un estado indeterminado de sus dos estados básicos. Este estado se puede describir como la combinación lineal de sus estados básicos. Matemáticamente se describe así :</p>
+<div class="math notranslate nohighlight">
+\[Q = a|0 \rangle+b|1 \rangle \]</div>
+<p>Los coeficientes a y b son las denominadas amplitudes de probabilidad. Para saber con cuanta probabilidad se medirá cada estado en el cúbit, se obtiene el cuadrado de cada término. De esta manera, <span class="math notranslate nohighlight">\(a^2\)</span> es la probabilidad de medir el estado <span class="math notranslate nohighlight">\(|0 \rangle\)</span> (más bien que <em>colapse</em> hacia el estado <span class="math notranslate nohighlight">\(|0\rangle\)</span>) en el cúbit y <span class="math notranslate nohighlight">\(b^2\)</span> la probabilidad de medir <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p>
+<p>Como es evidente, ambos valores tienen que obedecer la expresión <span class="math notranslate nohighlight">\(a^2 +b^2 = 1\)</span>. Esto es así porque la suma de la probabilidad de todos los sucesos posibles debe ser exactamente igual a 1. De esta forma, se puede definir el cúbit que tiene el 50% de medir <span class="math notranslate nohighlight">\(|0\rangle\)</span> y 50% de medir <span class="math notranslate nohighlight">\(|1\rangle\)</span> sería <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}|0\rangle +\frac{1}.{\sqrt{2}}|1\rangle \)</span></p>
+<p>Un sistema de mútiples cubits, supongamos 2 cubits similares al de arriba descrito, se definiría como el producto tensorial de ambos cubits:</p>
+<div class="math notranslate nohighlight">
+\[1/\sqrt{2}(|0\rangle + |1\rangle) \otimes 1/\sqrt{2}(|0\rangle + |1\rangle) \]</div>
+<p>Pero para verlo de forma más clara se escribe con la siguiente notación donde se perciben todos los estados posibles del sistema:</p>
+<div class="math notranslate nohighlight">
+\[ S=1/2(|00\rangle+|01\rangle+|10\rangle+|11\rangle)\]</div>
+<p>Si en este sistema midiésemos el primer cúbit, recibiríamos <span class="math notranslate nohighlight">\(|0\rangle\)</span> o <span class="math notranslate nohighlight">\(|1\rangle\)</span> con la misma probabilidad. Después de esta acción, medir el segundo cúbit sería totalmente igual que en el cúbit anterior, recibiríamos un resultado aleatorio. En este sistema los cúbits son independientes y no se afectan los unos a los otros.</p>
+<p>Usando la superposición de cúbits se pueden crear sistemas de N cúbits donde se representan <span class="math notranslate nohighlight">\(2^N\)</span> estados con los que operar todos a la vez. Es la superposición la que encierra la potencia de estas máquinas.</p>
+<p>El entrelazamiento es un caso particular de superposición entre objetos cuánticos. Supongamos el siguiente sistema:</p>
+<div class="math notranslate nohighlight">
+\[ S=|10\rangle + |01\rangle \]</div>
+<p>En este caso los cúbits están entrelazados. Si midiésemos el primer cúbit, automáticamente determinaríamos el estado del cúbit siguiente.</p>
+<p>Otra forma de saber si un sistema de cúbits están entrelazados es intentando factorizar el sistema en sus cúbits fundamentales. Es decir, si ese sistema es posible construirlo a través del producto tensorial entre cúbits. Si no es el caso, el sistema es un sistema entrelazado.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dwave">
+<h1><span class="section-number">3. </span>DWave.<a class="headerlink" href="#dwave" title="Permalink to this heading">#</a></h1>
+<p>DWave es una empresa canadiense dedicada exclusivamente a la investigación y comercialización de computadores cuánticos. Al contrario que otras empresas, que intentan mediante puertas cuánticas lograr un computador cuántico general, DWave tras unos intentos poco exitosos, centró su investigación en este paradigma de computación adiabática. Tras esa decisión, la empresa ha conseguido grandes logros; como ofrecer al público el primer omputador cuántico de 7000 cúbits.</p>
+<p>Esta empresa ha desarrollado un software denominado SDK (software development kit) que permite a los usuarios interactuar con los ordenadores de esa empresa (conocidos como QPUs, es decir quantum processing units) así como con los <em>solvers</em> híbridos, utilizando para ello programas escritos en python.</p>
+<p>La api a utilizar para realizar estas tareas la podemos encontrar <a href="https://docs.ocean.dwavesys.com/en/stable/getting_started.html" target="_blank"> en este enlace </a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modelos-soportados-por-ocean">
+<h1><span class="section-number">4. </span>Modelos soportados por Ocean.<a class="headerlink" href="#modelos-soportados-por-ocean" title="Permalink to this heading">#</a></h1>
+<p>Como puede verse en la documentación que ofrece D-Wave Ocean, son soportados cuatro modelos básicos para expresar el problema a optimizar como una función objetivo y submitirlo para encontrar la solución buscada.</p>
+<ul>
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/concepts/bqm.html#bqm-sdk" target="_blank"> Binary Quadratic Models </a>. Conocidos también por la iniciales BQM, y son modelos sin restricciones (aunque las restricciones se pueden añadir mediante <em>funciones de penalización</em>) construidos en base a variables binarias. Este tipo de modelos, tienen dos subcategorías: Modelos <em>Ising</em> ( cuyas variables binarias pueden tomar los valores -1 ó 1, y los modelos QUBO, cuyas variables pueden tomar los valores 0 ó 1).</p></li>
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/concepts/cqm.html#cqm-sdk" target="_blank"> Constrained Quadratic Models </a> . Conocidos también con las iniciales CQM pueden tener restricciones y las variables pueden ser de tipo real (aunque en la actualidad este tipo de variables no están soportadas para interacciones cuadráticas), entero o binario.</p>
+<p>Este tipo de modelos, son normalmente utilizados para aplicaciones sobre problemas de optimización que pueden incluir variables de tipo entero y/o binario así como una o más restricciones.</p>
+</li>
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/concepts/dqm.html#dqm-sdk" target="_blank"> Discrete Quadratic Models </a>. También conocidos por las siglas DQM de tal manera que no admiten restricciones ( por regla general estas restricciones se introducen mediante funciones de penalización).</p></li>
+</ul>
+<p><strong>NOTA</strong>. Ocean también ofrece soporte para los <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#higher-order" target="_blak"> modelos denominados de orden superior </a> y son modelos que no están restringidos a interacciones cuadráticas.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../introduccion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Programación cuántica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Instalacion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Instalación de Ocean</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Introducción.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cubit">2. El cubit.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">3. DWave.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">4. Modelos soportados por Ocean.</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

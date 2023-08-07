@@ -1,0 +1,895 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Modulo3_desarrollarQUBO';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Introducción." href="modulo4_penalty_functions.html" />
+    <link rel="prev" title="7. Introducción a Ocean." href="modulo2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/Modulo3_desarrollarQUBO.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">9.1. Multiplicación de polinomios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">9.2. Problema inicial básico.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">9.3. Formulación problemas QUBO (o Ising).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">9.4. Problema partición grafo.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><span class="section-number">9. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p id="index-0">Como ya se ha comentado en capítulos anteriores, los problemas de tipo QUBO, se basan en formular el problema a optimizar mediante expresiones matemáticas de la forma siguiente (<a href="https://en.wikipedia.org/wiki/Quadratic_unconstrained_binary_optimization" target="_blank"> ver en wikipedia </a>):</p>
+<div class="math notranslate nohighlight">
+\[E_{qubo}(a_{i},b_{ij};x_{i})=\sum_{i}a_{i}x_{i}+\sum_{i&lt;j}b_{ijj}x_{i}\cdot x_{j}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(x_i\in\{0,1\}\)</span>.</p>
+<p>En este capítulo vamos a aprender a formular problemas de este tipo y adaptarlos a los requerimientos exigidos por los ordenadores de D-Wave, para que se puedan resolver mediante programación cuántica, si bien es de advertir que cuando el problema planteado no tenga una entidad considerable se procederá a resolverlo desde el ordenador personal con la finalidad de no agotar los escasos recursos gratuitos que ofrece D-Wave. Para problemas de mayor entidad, lógicamente se pueden utilizar los solvers que ofrece esa compañía para lanzarlos en ordenadores cuánticos reales.</p>
+<p>Antes de seguir adelante, y dado que en este tipo de trabajos suele ser bastante habitual multiplicar polinomios, vamos a refrescar estos conceptos a fin de que el lector se familiarice con ellos (lógicamente el lector que ya tenga esos conocimientos puede saltar este apartado)</p>
+<section id="multiplicacion-de-polinomios">
+<span id="multiplicacion-polinomios"></span><h2><span class="section-number">9.1. </span>Multiplicación de polinomios.<a class="headerlink" href="#multiplicacion-de-polinomios" title="Permalink to this heading">#</a></h2>
+<p id="index-1">Para comenzar este apartado, se remite al lector a que <a href="https://www.youtube.com/watch?v=jpD_BugTR6I" target="_blank"> visualice este vídeo </a>.</p>
+<p>De todas y a modo de ejemplo a continuación se muestra un desarrollo matemático, en el que se puede ver la metodología existente para realizar esta tarea.</p>
+<p><img alt="Multiplicación polinomios" src="../_images/polinomios_multiplicacion.PNG" /></p>
+<p>Como se verá en aparados posteriores, otra de las necesidades que se tiene en este campo de optimiación aplicando metodología QUBO es desarrollar expresiones de la forma  <span class="math notranslate nohighlight">\(\left(\left(\sum_{i=0}^{n}x_{i}\right)-c\right)^{2}\)</span>, cuyo desarrollo matemático sería el siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\left(\left(\sum_{i=0}^{n}x_{i}\right)-c\right)^{2}=\left(\sum_{i}x_{i}\right)^{2}-2c\sum_{i}x_{i}+c^{2}=\]</div>
+<div class="math notranslate nohighlight">
+\[=\sum_{i}x_{i}^{2}+2\cdot\left(\sum_{i=0}^{n}\sum_{j&gt;i}^{n}x_{i}x_{j}\right)-2c\left(\sum_{i=0}^{n}x_{i}\right)+c^{2}\]</div>
+</section>
+<section id="problema-inicial-basico">
+<h2><span class="section-number">9.2. </span>Problema inicial básico.<a class="headerlink" href="#problema-inicial-basico" title="Permalink to this heading">#</a></h2>
+<p>Para ir entrando en materia, vamos a comenzar con un problema básico consistente en lo siguiente. Supongamos que queremos asignar un color (y sólo uno) a cada una de las regiones de un mapa.</p>
+<p>A este tipo de problemas se le suele designar como “exactamente uno” o también “one-hot”, y para su resolución vamos a crear tres variables binarias (iniciales de cada color a utilizar) que las denominaremos: r,g,b (iniciales de red, green y blue en inglés).</p>
+<p>En este caso el problema consiste en cómo escribir una función que se minimice cuando exactamente una de estas variables es igual a 1. En este caso estaremos también cuando por ejemplo se quiera poner una restricción en la forma siguiente:</p>
+<div class="math notranslate nohighlight">
+\[r+g+b=1 \]</div>
+<p>En este caso la formulación QUBO que debe implementarse es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[(1-r-g-b)^{2}=1-r-g-b+2br+2gr+2bg\]</div>
+<p>Observar que a la igualdad anterior se llega multiplicando el polinomio consigo mismo y teniendo en cuenta que al trabajar con variables binarias que sólo toman los valores 0 ó 1 entonces se tiene que <span class="math notranslate nohighlight">\(x_i^2=1\)</span>.</p>
+<p>La formulación de este problema utilizando programación de tipo QUBO sería la siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span><span class="p">,</span> <span class="n">to_networkx_graph</span>
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">)</span>
+
+<span class="c1"># añadimos los términos lineales</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Añadimos los términos cuadráticos</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En la programación QUBO, este tipo de problemas también se puede representar como un objeto de tipo networks, de tal manera que en los vértices se situarían los valores de los términos lineales, y en los arcos (edges) estarían los valores de los términos cuadráticos. A continuación se muestra cómo poder este diagrama en el ejemplo con el que estamos trabajando.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">),</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">980</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">),</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">980</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\networkx\drawing\nx_pylab.py:105,</span> in <span class="ni">draw</span><span class="nt">(G, pos, ax, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Draw the graph G with Matplotlib.</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd">     Draw the graph as a simple representation with no node</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span><span class="sd">     https://networkx.org/documentation/latest/auto_examples/index.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">cf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación procedemos a utilizar el solver ExatSolver para encontrar los valores que minimizan la expresión anterior y comprobar que realmente las soluciones óptimas (que tienen menor energía), son las que sólo tienen un valor 1 en sólo una de las tres variables con las que trabajamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactSolver</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  blue green red energy num_oc.
+1    0     0   1   -1.0       1
+3    0     1   0   -1.0       1
+7    1     0   0   -1.0       1
+0    0     0   0    0.0       1
+2    0     1   1    0.0       1
+4    1     1   0    0.0       1
+6    1     0   1    0.0       1
+5    1     1   1    3.0       1
+[&#39;BINARY&#39;, 8 rows, 8 samples, 3 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos observar en la salida anterior, las soluciones son las que esperamos.</p>
+<p><img alt="Soluciones QUBO" src="../_images/soluciones_1.PNG" /></p>
+<p>Las tres primeras soluciones son las que estábamos buscando y son las que tienen menor energía del sistema y por lo tanto son las que minimizan la ecuación de la función objetivo con la que trabajamos. El restos de soluciones (excited states) se corresponden con estados excitados y por lo tanto no son posiciones en las que se alcanza una menor energía del sistema.</p>
+<p>El problema anterior tiene pocas variables y entonces se pueden definir una a una como así se ha hecho anteriormente, pero en los problemas reales nos encontramos con muchas variables y combinaciones dos a dos  de las mimas lo cual dificulta la formulación del problema como se ha hecho anteriormente.</p>
+<p>Con el código que sigue, se pretende indicar al lector un posible camino a seguir para formular que contengan muchas más variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definimos una lista con los nombres de las variables</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">]</span>
+<span class="c1"># Añadimos las variables mediante un bucle for</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+    <span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utilizamos la librería itertools para hacer todas las combinaciones</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="n">combinaciones</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">combinaciones</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;red&#39;, &#39;blue&#39;), (&#39;red&#39;, &#39;green&#39;), (&#39;blue&#39;, &#39;green&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">combinacion</span> <span class="ow">in</span> <span class="n">combinaciones</span><span class="p">:</span>
+        <span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="n">combinacion</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">combinacion</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">),</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">980</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/acbeeacee42f660c15bb5da8ac140831eb652f9b1dc859995045c157ee0c4c7d.png" src="../_images/acbeeacee42f660c15bb5da8ac140831eb652f9b1dc859995045c157ee0c4c7d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  blue green red energy num_oc.
+1    0     0   1   -2.0       1
+3    0     1   0   -2.0       1
+7    1     0   0   -2.0       1
+0    0     0   0    0.0       1
+2    0     1   1    0.0       1
+4    1     1   0    0.0       1
+6    1     0   1    0.0       1
+5    1     1   1    6.0       1
+[&#39;BINARY&#39;, 8 rows, 8 samples, 3 variables]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formulacion-problemas-qubo-o-ising">
+<h2><span class="section-number">9.3. </span>Formulación problemas QUBO (o Ising).<a class="headerlink" href="#formulacion-problemas-qubo-o-ising" title="Permalink to this heading">#</a></h2>
+<p id="index-2">En este tipo de problemas, normalmente se formulan vía una función objetivo, que siempre es para minimizar (por lo tanto si lo que se quiere es maximizar, lo que se hace es cambiar el signo de la función objetivo) y una serie de restricciones o condiciones que deben verificar las variables de problema planteado. Por lo tanto la fórmula genérica en este tipo de problemas es la siguiente:</p>
+<center><br>
+Ising ó QUBO = min(objetivo+$\gamma \cdot$(restricciones))
+    </center><br>
+El valor de $gamma$ es el denominado *parámetro de lagrange*.
+<p>Por lo tanto lo que se debe fijar es la función objetivo y las restricciones que deben cumplirse. Normalmente estas restricciones se ponen de acuerdo al concepto de funciones de penalización, o penalty functions que <a class="reference internal" href="modulo4_penalty_functions.html#penalty-functions"><span class="std std-ref">veremos en el siguiente capítulo</span></a>.</p>
+<p>Veamos un ejemplo sobre la implementación de un problema BQM. Supongamos que tenemos el siguiente conjunto de números: {17,21,19}, se trata de elegir dos números de manera que la suma sea la mínima posible.</p>
+<p>Para resolver este problema, lo primero que haremos será definir las variables <span class="math notranslate nohighlight">\(x_i\)</span> que tendrá un valor 1 si el número i-ésimo es seleccionado y cero en caso contrario. Por lo tanto la función a minimizar sería la siguiente (función objetivo):</p>
+<div class="math notranslate nohighlight">
+\[min(17x_{1}+21x_{2}+19x_{3})\]</div>
+<p>La restricción sería que elijamos sólo dos números, lo cual escrito en formulación matemática implica lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ x_1+x_2+x_3=2 \]</div>
+<p>Para incluir esta restricción en un problema QUBO, debemos calcular lo siguiente: <span class="math notranslate nohighlight">\((x_1+x_2+x_3-2)^2\)</span>, que realmente es una función de penalización, de manera que va a valer cero para los números que cumplen esta restricción y un valor suficientemente alto para los que no lo cumplen (que viene representado por el parámetro de Lagrange <span class="math notranslate nohighlight">\(\gamma\)</span>). En consecuencia el problema QUBO quedaría expresado de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ min \,(17x_{1}+21x_{2}+19x_{3})+\gamma(x_1+x_2+x_3-2)^2\]</div>
+<p>Ahora lo que procede es desarrollar la expresión <span class="math notranslate nohighlight">\((x_1+x_2+x_3-2)^2\)</span>, para ello simplemente utilizamos la expresión obtenida <a class="reference internal" href="#multiplicacion-polinomios"><span class="std std-ref">un apartado anterior</span></a>, o bien multiplicamos dos veces el polinomio y al final se obtiene la  siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[x_1+x_2+x_3+2x_1x_2+2x_2x_3+2x_2x_3-4x_1-4x_2-4x_3+4 =\]</div>
+<div class="math notranslate nohighlight">
+\[ =-3x_1-3x_2-3x_3+2x_1x_2+2x_1x_3+2x_2x_3\]</div>
+<p>En consecuencia la función que nos queda es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ min \,(17x_{1}+21x_{2}+19x_{3})+\gamma(-3x_1-3x_2-3x_3+2x_1x_2+2x_1x_3+2x_2x_3)\]</div>
+<p>Tomemos por ejemplo <span class="math notranslate nohighlight">\(\gamma=5\)</span> y entonces nos quedaría los siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ min \, (2x_1+6x_2+4x_3+10x_1x_2+10x_1x_2+10x_2x_3)\]</div>
+<p>Por lo tanto resolvemos este último problema de la siguiente forma</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span><span class="p">,</span> <span class="n">to_networkx_graph</span>
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">)</span>
+
+<span class="c1"># añadimos los términos lineales</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;x_1&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;x_2&quot;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s2">&quot;x_3&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Añadimos los términos cuadráticos</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;x_1&quot;</span><span class="p">,</span><span class="s2">&quot;x_2&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;x_1&quot;</span><span class="p">,</span><span class="s2">&quot;x_3&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s2">&quot;x_2&quot;</span><span class="p">,</span><span class="s2">&quot;x_3&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bqm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;x_1&#39;: 2.0, &#39;x_2&#39;: 6.0, &#39;x_3&#39;: 4.0}, {(&#39;x_2&#39;, &#39;x_1&#39;): 10.0, (&#39;x_3&#39;, &#39;x_1&#39;): 10.0, (&#39;x_3&#39;, &#39;x_2&#39;): 10.0}, 0.0, &#39;BINARY&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactSolver</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  x_1 x_2 x_3 energy num_oc.
+0   0   0   0    0.0       1
+1   1   0   0    2.0       1
+7   0   0   1    4.0       1
+3   0   1   0    6.0       1
+6   1   0   1   16.0       1
+2   1   1   0   18.0       1
+4   0   1   1   20.0       1
+5   1   1   1   42.0       1
+[&#39;BINARY&#39;, 8 rows, 8 samples, 3 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos observar, las soluciones que se devuelven con este solver son todas las posibles ordenadas de menor a mayor energía. Por lo tanto, debemos seleccionar las factibles y de entre ellas la que tenga menor energía. Veamos algunas propiedades del objeto response.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dimod.sampleset.SampleSet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">():</span>   
+    <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_1&#39;: 0, &#39;x_2&#39;: 0, &#39;x_3&#39;: 0}
+{&#39;x_1&#39;: 1, &#39;x_2&#39;: 0, &#39;x_3&#39;: 0}
+{&#39;x_1&#39;: 0, &#39;x_2&#39;: 0, &#39;x_3&#39;: 1}
+{&#39;x_1&#39;: 0, &#39;x_2&#39;: 1, &#39;x_3&#39;: 0}
+{&#39;x_1&#39;: 1, &#39;x_2&#39;: 0, &#39;x_3&#39;: 1}
+{&#39;x_1&#39;: 1, &#39;x_2&#39;: 1, &#39;x_3&#39;: 0}
+{&#39;x_1&#39;: 0, &#39;x_2&#39;: 1, &#39;x_3&#39;: 1}
+{&#39;x_1&#39;: 1, &#39;x_2&#39;: 1, &#39;x_3&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_1&#39;: 1, &#39;x_2&#39;: 0, &#39;x_3&#39;: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">h</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">())):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">()[</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+1
+2
+2
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a seleccionar a continuación las soluciones factibles y entre ellas la primera que se obtenga.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">h</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">())):</span>
+    <span class="n">a</span> <span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">()[</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">()[</span><span class="n">h</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_1&#39;: 1, &#39;x_2&#39;: 0, &#39;x_3&#39;: 1}
+{&#39;x_1&#39;: 1, &#39;x_2&#39;: 1, &#39;x_3&#39;: 0}
+{&#39;x_1&#39;: 0, &#39;x_2&#39;: 1, &#39;x_3&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por lo tanto la solución buscada sería elegir el primero y último número.</p>
+<p>Notar que este problema sería mucho más fácil resolverlo si lo construimos y resolvemos con modelo CQM (sontrained quadratic model) que se verá en un <a class="reference internal" href="modulo10_CQM.html#cqm"><span class="std std-ref">capítulo posterior</span></a>.</p>
+</section>
+<section id="problema-particion-grafo">
+<h2><span class="section-number">9.4. </span>Problema partición grafo.<a class="headerlink" href="#problema-particion-grafo" title="Permalink to this heading">#</a></h2>
+<p>En este apartado vamos a resolver otro problema mediante la programación QUBO. Este problema va a consistir en los siguiente: Dado un grafo G, debemos dividir este grafo en dos conjuntos de tal manera que los dos grupos tengan el mismo numero de vértices, y que los arcos (edges) entre los dos conjuntos sean lo menos posibles.</p>
+<p><img alt="ejemplo partición" src="../_images/grafo1.PNG" /></p>
+<p>En este ejemplo la <em>función objetivo</em> será construida bajo la idea de que el número de arcos entre los dos conjuntos sea el menor posible, y la restricción será que el número de vértices en cada uno de los dos conjuntos sea el mismo.</p>
+<p>Para resolver este problema llamemos a un conjunto de vértices A y el otro B, y definamos las siguientes variables binarias.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_{i}=\begin{cases}
+1 &amp; si\ nodo\ i\ est\acute{a}\ en\ A\\
+0 &amp; en\ caso\ contrario
+\end{cases}\end{split}\]</div>
+<p>Para construir la función objetivo, vamos a construir una función de penalización en base a la tabla de la verdad que se muestra a continuación.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x1</p></th>
+<th class="head"><p>x2</p></th>
+<th class="head"><p>coste arco (x1,x2)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Expliquemos cómo hemos construido esta tabla de la verdad, pues es un procedimiento que se suele utilizar en la programación QUBO para construir funciones de penalización.</p>
+<p>Las dos primeras columna de la tabla muestran los diferentes conjuntos de pares de valor que se pueden formar con x1 y x2, y la tercera columna muestra el valor 0 (menor energia), cuando los dos valores indican pertenencia al mismo conjunto y el valor 1 (mayor energía) cuando son de conjuntos diferentes, puesto que es esto último lo que queremos penalizar.</p>
+<p>Ahora lo que queremos es encontrar una función matemática que exprese esa situación, y además esta forma matemática deber ser una forma cuadrática, por ser este tipo de expresiones las que acepta QUBO. Por lo tanto la forma matemática deberá tener la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[ ax_1+bx_2+cx_1x_2+d \]</div>
+<p>Haremos que esta forma matemática cumpla las condiciones de la tabla de la verdad anterior, por lo tanto para el par de valores (0,0) debe valer 0 y en consecuencia d=0.</p>
+<p>Para el par de valores (0,1) se tiene lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[a\cdot 0+b=1\]</div>
+<p>Por lo tanto b=-1. Actuando de la misma manera para el par de valores (1,0) se obtiene que a=-1. Finalmente para el (1,1), se tiene: <span class="math notranslate nohighlight">\(1+1+c=0\)</span> y por lo tanto c=-2. En consecuencia, para par de nodos de la red x1 y x2 se debe tener como función de penalización la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ x_i+x_j-2x_ix_j\]</div>
+<p>En resumen, la función objetivo que buscamos es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{(i,j)\in E}(x_{i}+x_{j}-2x_{i}x_{j})\]</div>
+<p>Evaluemos ahora cómo deben ser las restricciones, teniendo en cuenta que los dos conjuntos deben tener el mismo tamaño. Llamamos N al número total de nodos de la red, y entonces el número de nodos en el conjunto A sería: <span class="math notranslate nohighlight">\(\sum_{i=1}^{N}x_i=N/2\)</span></p>
+<p>Hagamos que la restricción anterior tenga un formato tal que QUBO lo pueda interpretar y para ello lo que debemos de dar los siguientes pasos.</p>
+<p>debemos pasar todos los elementos de la igualdad anterior a un miembro y elevar al cuadrado, es decir debemos de calcular:</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{N}{2}-\sum_{i=1}^{N}x_{i}\right)^{2}\]</div>
+<p>Calculamos el cuadrado de esa diferencia y se obtiene</p>
+<div class="math notranslate nohighlight">
+\[\frac{N}{4}-N\sum_{i=1}^{N}x_{i}+\left(\sum_{i=1}^{N}x_{i}\right)^{2}\]</div>
+<p>Ahora eliminamos la constante y se tiene:</p>
+<p><span class="math notranslate nohighlight">\(-N\sum_{i=1}^{N}x_{i}+\left(\sum_{i=1}^{N}x_{i}\right)^{2}\)</span></p>
+<p>En consecuencia, la expresión QUBO que debemos tener en cuenta para minimizar es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[min\ \sum_{(i,j)\in E}(x_{i}+x_{j}-2x_{i}x_{j})+\gamma\cdot\left(-N\sum_{i=1}^{N}x_{i}+\left(\sum_{i=1}^{N}x_{i}\right)^{2}\right)\]</div>
+<p>La última expresión es una suma elevada al cuadrado que QUBO no entiende, por lo que la debemos cambiar ese formato. A continuación, hacemos eso:</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{i=1}^{N}x_{i}\right)^{2}=\sum_{i=1}^{N}x_{i}^{2}+\sum_{i=1}^{N}\sum_{j&gt;i}2x_{i}x_{j}=\sum_{i=1}^{N}x_{i}+\sum_{i=1}^{N}\sum_{j&gt;i}2x_{i}x_{j}\]</div>
+<p>Por lo tanto la expresión nos queda de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[min\ \sum_{(i,j)\in E}(x_{i}+x_{j}-2x_{i}x_{j})+\gamma\left(-N\sum_{i=1}^{N}x_{i}+\sum_{i=1}^{N}x_{i}+\sum_{i=1}^{N}\sum_{j&gt;i}^{N}2x_{i}x_{j}\right)\]</div>
+<p>Simplificando la expresión anterior se tiene como expresión a tener en cuenta para el problema QUBO la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[min\ (2\gamma-2)\sum_{(i,j)\in E}x_{i}x_{j}+\sum_{(i,j)\in E}(x_{i}+x_{j})+\gamma\left(-N\sum_{i=1}^{N}x_{i}+\sum_{i=1}^{N}x_{i}\right)\]</div>
+<p>Podemos simplificar aún más la expresión anterior, hasta dejarla como</p>
+<div class="math notranslate nohighlight">
+\[min\ (2\gamma-2)\sum_{(i,j)\in E}x_{i}x_{j}+\sum_{(i,j)\in E}(x_{i}+x_{j})+\gamma\left(1-N\right)\left(\sum_{i=1}^{N}x_{i}\right)\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modulo2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Introducción a Ocean.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modulo4_penalty_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">9.1. Multiplicación de polinomios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">9.2. Problema inicial básico.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">9.3. Formulación problemas QUBO (o Ising).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">9.4. Problema partición grafo.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

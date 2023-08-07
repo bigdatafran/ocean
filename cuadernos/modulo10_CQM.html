@@ -1,0 +1,927 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/modulo10_CQM';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. Programación entera." href="Programacion_Entera.html" />
+    <link rel="prev" title="10. Introducción." href="modulo4_penalty_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/modulo10_CQM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">11.1. Modelo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">11.2. Características más relevantes de CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">11.3. Instanciar in objeto CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">11.4. CQM Variables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">11.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">11.5.1. Objetivos cuadráticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">11.6. Restricciones de un modelo CQM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">11.7. CQM sampler.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">11.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">11.9. Ampliar conocimientos.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="cqm"></span><h1><span class="section-number">11. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p id="index-0">La clase <em>Constrained Quadratic Model</em> nos permite resolver problemas de optimización con un planteamiento fácil y sin necesidad de definir funciones de penalización como ya se ha explicado en procedimientos anteriores. Por este motivo se constituye en  un herramienta muy potente y sencilla para ser utilizada dentro del campo de la optimización de recursos.</p>
+<section id="modelo">
+<h2><span class="section-number">11.1. </span>Modelo.<a class="headerlink" href="#modelo" title="Permalink to this heading">#</a></h2>
+<p>La especificación matemática de esta modelo es la siguiente:</p>
+<p><strong>Minimizar la función objetivo:</strong></p>
+<div class="math notranslate nohighlight">
+\[\sum_{i}a_{i}x_{i}+\sum_{i\le j}b_{ij}x_{i}x_{j}+c\]</div>
+<p><strong>Sujeto a la restricción:</strong></p>
+<div class="math notranslate nohighlight">
+\[\sum_{i}a_{i}^{(m)}x_{i}+\sum_{i\le j}b_{ij}^{(m)}x_{i}x_{j}+c^{(m)}\ \odot\ 0\quad\quad m=1,...,M \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\{x_i\}_{i=1,...N}\)</span> puede ser binario, enteros o continuas (en este momento variables reales no esstán soportadas para interacciones cuadráticas). <span class="math notranslate nohighlight">\(a_i, b_{i,j},c\)</span> son valores reales, <span class="math notranslate nohighlight">\(\odot\,\in \{\ge,\le,= \}\)</span> y M es el número de restricciones.</p>
+<p>Los atributos y métodos de esta clase se pueden encontrar <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#dimod.ConstrainedQuadraticModel" target="_blank"> en este enlace </a>.</p>
+</section>
+<section id="caracteristicas-mas-relevantes-de-cqm">
+<h2><span class="section-number">11.2. </span>Características más relevantes de CQM.<a class="headerlink" href="#caracteristicas-mas-relevantes-de-cqm" title="Permalink to this heading">#</a></h2>
+<p>El solver CQM es otro solver híbrido disponible en Leap. Como se muestra en el diagrama, es el mejor solucionador híbrido para problemas con restricciones. Curiosamente, también  lo hace bastante bien en QUBOs.</p>
+<p><img alt="Perfomance CQM" src="../_images/cqmperfomance.PNG" /></p>
+<p>Soporta problemas binarios y de valores enteros, así como modelos que tienen una combinación de tipos de variables. Por ejemplo, la optimización de carteras utiliza variables enteras y la programación de tiendas de trabajo puede utilizar ambas: binarias para seleccionar las máquinas y enteras para determinar en qué intervalo de tiempo deben coincidir la máquina y los trabajos.</p>
+<p>El objeto CQM de Ocean nos permite formular y añadir restricciones al modelo de forma más intuitiva, especialmente con la introducción de la matemática simbólica en Ocean 4.</p>
+<p>Soporta de forma nativa hasta 100.000 restricciones de igualdad y/o desigualdad, con términos lineales y cuadráticos.</p>
+<p>Además soporta el denominado <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/intro/intro_symbolic_math.html" target="_blank"> <em>symbolic math</em> </a> para expresar de una forma muy intuitiva para el ser humano las expresiones para la función objetivo o para las restricciones que se quieren incorpoprar al modelo.</p>
+<p>De forma abreviada, los pasos a seguir para constrior este tipo de modelos son los siguientes:</p>
+<p>1.- Definir las variables.</p>
+<p>2.- Crear un objeto de tipo CQM</p>
+<p>3.- Construir y añadir la/las función/es objetivo.</p>
+<p>4.- Construir y añadir las restricciones.</p>
+<p>5.- Enviar lo programado al solucionador CQM.</p>
+<p>6.- Procesar los resultados.</p>
+</section>
+<section id="instanciar-in-objeto-cqm">
+<h2><span class="section-number">11.3. </span>Instanciar in objeto CQM.<a class="headerlink" href="#instanciar-in-objeto-cqm" title="Permalink to this heading">#</a></h2>
+<p id="index-1">CQM es un objeto de la librería dimod, y se instancia de la siguiente manera:</p>
+<blockquote>
+<div><p>from dimod import CQM</p>
+<p>cqm = CQM()</p>
+</div></blockquote>
+<p>Sin embargo CQM sampler está en dwave.system:</p>
+<blockquote>
+<div><p>from dwave.system import LeapHybridCQMSampler</p>
+<p>sampler = LeapHybridCQMSampler()</p>
+</div></blockquote>
+</section>
+<section id="cqm-variables">
+<h2><span class="section-number">11.4. </span>CQM Variables.<a class="headerlink" href="#cqm-variables" title="Permalink to this heading">#</a></h2>
+<p id="index-2">Cuando se trabaja con CQM se necesita definir explícitamente las variables con las que se va a trabajar. A continuación vamosa a ver algún ejemplo de construcción de estas variables.</p>
+<p>Comenzamos definiendo variables de tipo binario (toma valores 0 ó 1) o de tipo Spin (toma valores 1 ó -1)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">Spin</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;x&#39;: 1.0}, {}, 0.0, &#39;BINARY&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Spin</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;s&#39;: 1.0}, {}, 0.0, &#39;SPIN&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como vemos en los ejemplos anteriores, en estos casos podemos trabajar en el espacio binari o de Spin y dimod nos ofrece las herramientas correspondientes para usar constructores para ser utilizados para crear variables binarias o de Spin. Estos constructores de los ejemplos anteriores crean un BQM con una sola variables que tiene un sesgo lineal igual a 1.</p>
+<p>Fijarse en que la cadena entre paréntesis se convierte en la etiqueta de la variable en el BQM que se genera.</p>
+<p>Cuando se crean estas variables de tipo entero, sin especificar singún otro parámetro al constructor, entonces los valores que pueden tomar están en el intervalo <span class="math notranslate nohighlight">\([-2^53, 2^53]\)</span>, sin embargo un ejercicio de buenas prácticas al definir estas variables consiste en definir en la construcción de las mismas un valor máximo y/o un valor mínimo. A continuación se muestra un ejemplo que nos muestra cómo poder conseguir esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Integer</span>
+
+<span class="c1"># mala práctica</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">)</span>
+
+<span class="c1"># Buena práctica</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QuadraticModel({&#39;i&#39;: 1.0}, {}, 0.0, {&#39;i&#39;: &#39;INTEGER&#39;}, dtype=&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al meter estos límites a las variables enteras se reduce el espacio de soluciones lo cual es muy útil para el solucionador del problema.</p>
+<p>Como hemos podido comprobar, una variables entera para Ocean es un modelo cuadrático que contiene una variables con un sesgo lineal igual a 1.</p>
+<p>Lógicamente en los problemas de gran envergadura, definir una a una las variables de la forma descrita anteriormente, supone un esfuerzo enorme e incluso en algunos casos inabordable, si el número de variables a tener en cuanta es cuantioso. Para estas situaciones, Python nos ofrece mecanismos muy interesantes y que ahorran gran cantidad de trabajo. A continuación se muestran dos ejemplos ilustrtivos de cómo usar estos procedimientos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># utilizamos la facilidad list comprehension de python</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">var_binarias</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;bin_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra forma puede ser la siguiente (observar que utilizamos en este caso el constructor Integers ):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Integers</span>
+<span class="c1"># Con esta forma incluimos más de una variables en una sola declaración</span>
+<span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">Integers</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Estas dos formas últimas, son las sugeridas para ser utilizadas cuando se esté familiarizado con este modelo.</p>
+<p>Existen dos formas de añadir variables a un modelo CQM. La primera es definiendo las variables como hemos visto anteriormente y luego y añadirlas al CQM a través de un objetivo o una restricción. A continuación se muestra un ejemplo de esta situación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Binary</span>
+
+<span class="c1">#Definimos las variables bianrias</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">Binary</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Creamos una instancia de CQM </span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+
+<span class="c1"># añadimos una variables a través de un objetivo o restricción</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">objective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObjectiveView({&#39;x1&#39;: 1.0}, {}, 0.0, {&#39;x1&#39;: &#39;BINARY&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado del fragmento de código anterior es un objeto CQM que tiene un objetivo con una única variable x1.</p>
+<p>La segunda forma de añadir variables a un objeto CQM es a través de la función <em>add_variable</em>. Esto añade una variable que tiene un sesgo lineal de 0 al objetivo del CQM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#cqm = ConstrainedQuadraticModel()</span>
+
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">objective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObjectiveView({&#39;x1&#39;: 1.0}, {}, 0.0, {&#39;x1&#39;: &#39;BINARY&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>El primer método tiende a ser más fácil de usar ya que nos permite construir objetivos y restricciones usando matemáticas simbólicas.</p>
+<p>Sin embargo, el segundo método es más eficaz. Por lo tanto, a medida que se escalan los problemas de CQM esto permitirá una construcción más rápida del CQM.</p>
+</section>
+<section id="funciones-objetivo-de-un-cqm">
+<h2><span class="section-number">11.5. </span>Funciones objetivo de un CQM.<a class="headerlink" href="#funciones-objetivo-de-un-cqm" title="Permalink to this heading">#</a></h2>
+<p id="index-3">Las funciones objetivo de los modelos CQM se almacenan como modelos cuadráticos. Los QM aceptan variables binarias y enteras, admiten términos lineales y cuadráticos y son similares al modelo cuadrático binario en cuanto a su funcionalidad.</p>
+<p>Existen dos formas de añadir funiones objetivo a los modelos CQM. Para mostrar estas dos formas, supongamos que nuestra función objetivo es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_i w_i \cdot x_i\]</div>
+<p>Las variables <span class="math notranslate nohighlight">\(x_i\)</span> las vamos a designar mediante <em>weights</em> y las otras por <em>x</em>. Por lo tanto lo que queremos es minimizar la suma de variables ponderadas.</p>
+<p>Entonces la primera opción es utilizar la denominada  <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/intro/intro_symbolic_math.html" target="_blank"> <em>symbolic math</em> </a>. De esta manera, Si x es una lista de variables binarias, pesos es una lista de pesos enteros y n es el número de variables binarias podemos definir y establecer la función objetivo en una línea.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una instancia de CQM </span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+
+<span class="c1">#cqm.set_objetive(quicksum(weights[i]*x[i] for i in range(n)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función <strong>quicksum</strong> es una versión optimizada de la función suma de python. Podemos utilizarla para construir funciones objetivo y restricciones.Podemos usarla para construir el objetivo lineal mostrado.</p>
+<p>La segunda opción es mucho más elaborada que la anterior, y lo que hace es construir un modelo cuadrático, añade las variables en la función objetivo y luego los pesos lineales.</p>
+<p>Una vez que tenemos un modelo cuadrático podemos añadirlo al CQM con <strong>set_objective()</strong>.</p>
+<p>Esta última opción, aunque cuesta más su creación, es más óptima que la primera, en el sentido de que es más rápida que usar matemática simbólica.</p>
+<p>Es una buena opción cuando se trabaja con modelos grandes, sin embargo para inciare en esto,  recomendamos la primera opción ya que es más intuitiva o más cercana a la expresión matemática que  se está añadiendo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#qm= dimod.QuadraticModel()</span>
+<span class="c1">#qm.add_variables_from(&#39;BINARY&#39;, range(len(weights)))</span>
+<span class="c1">#qm.add_linear_from((i,j) for i,j in zip(qm.variables,weights))</span>
+
+<span class="c1">#cqm.set_objetive(qm)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación vamos a poner en marcha los dos métodos que se han presentado anteriormente. En primer lugar vamos a crear el modelo utilizando matemática simbólica</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">CQM</span><span class="p">,</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">quicksum</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="c1">#creamos las variables de tipo Binary</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="c1"># creamos el objeto CQM y añadimos la función objetivo</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">CQM</span><span class="p">()</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="n">cqm</span><span class="o">.</span><span class="n">objective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObjectiveView({0: 1.0, 1: 2.0, 2: 3.0}, {}, 0.0, {0: &#39;BINARY&#39;, 1: &#39;BINARY&#39;, 2: &#39;BINARY&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación mostramos cómo construir el mismo modelo anterior, pero utilizando el segundo método que hemos comentado anteriormente, es decir utilizando la clase QuadraticModel().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">QM</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="c1"># creamos un modelo cuadrático</span>
+<span class="n">qm</span> <span class="o">=</span> <span class="n">QM</span><span class="p">()</span>
+
+<span class="c1">#Añadimos las variables al modelo cuadrático</span>
+<span class="n">qm</span><span class="o">.</span><span class="n">add_variables_from</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">qm</span><span class="o">.</span><span class="n">add_linear_from</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">qm</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">weights</span><span class="p">))</span>
+
+<span class="c1"># ahora ya creamos el CQM y la función objetivo</span>
+<span class="n">cqm</span><span class="o">=</span><span class="n">CQM</span><span class="p">()</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+
+<span class="n">cqm</span><span class="o">.</span><span class="n">objective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObjectiveView({0: 1.0, 1: 2.0, 2: 3.0}, {}, 0.0, {0: &#39;BINARY&#39;, 1: &#39;BINARY&#39;, 2: &#39;BINARY&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>La salida de ambas opciones es la misma. Sólo que toman una cantidad de tiempo diferente para construir el CQM.</p>
+<section id="objetivos-cuadraticos">
+<h3><span class="section-number">11.5.1. </span>Objetivos cuadráticos<a class="headerlink" href="#objetivos-cuadraticos" title="Permalink to this heading">#</a></h3>
+<p>Hasta ahora los ejemplos que hemos visto sólo muestran objetivos lineales.El solucionador CQM también admite objetivos cuadráticos.</p>
+<p>Algunas aplicaciones comunes que utilizan objetivos cuadráticos son el problema cuadrático de  la mochila cuadrática, la partición de grafos y la búsqueda conformacional.</p>
+</section>
+</section>
+<section id="restricciones-de-un-modelo-cqm">
+<h2><span class="section-number">11.6. </span>Restricciones de un modelo CQM<a class="headerlink" href="#restricciones-de-un-modelo-cqm" title="Permalink to this heading">#</a></h2>
+<p>Uno de los puntos fuertes de un modelo CQM es que le podemos añadir hasta un total de 100000 restricciones, las cuales se almacenan como un diccionario.</p>
+<p>Las restricciones se almacenan como un diccionario de modelos cuadráticos binarios (BQM, si hay sólo variables binarias) y de modelos cuadráticos binarios y cuadráticos (QM), dependiendo del tipo de variables que haya en las restricciones del problema.</p>
+<p>Las restricciones que sólo utilizan variables binarias se almacenan como BQM y las restricciones con variables enteras o mixtas se almacenan como QM.</p>
+<p>Veamos a continuación un ejemplo de modelo CQM con ¿¿¿¿¿¿dos restricciones?????? (MIRAR ESTO EN EL ORIGINAL. La primera restricción la vamos a llamar “choose 2” porque de una serie de variables binarias, nos queremos quedar sólo con dos. La restricción que ponemos es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_i x_i = 2 \]</div>
+<p>Entonces como ya hemos comentado anteriormente, también para las restricciones tenemos dos opciones:</p>
+<p>1.- Usando matemática simbólica:</p>
+<blockquote>
+<div><p>cqm,add_constraint(quicksum(x[i] for i in range(n)) ==2, label=’choose 2’)</p>
+</div></blockquote>
+<p>2.- Construir un modelo quadrático y añadirlo al modelo CQM</p>
+<blockquote>
+<div><p>qm.add_variables_from(‘BINARY’, range(n))</p>
+<p>qm.add_linear_from((i,1) for i in qm.variables)</p>
+<p>cqm.add_constraint(qm, rhs=2, sense=’==’, label=’choose 2’)</p>
+</div></blockquote>
+<p>Así pues lo que aquí planteamos es una restricción de igualdad en la que se quieren elegir dos variables binarias.</p>
+<p>En este , x representa una lista de variables binarias. Usando la matemática simbólica podemos emplear la misma técnica que hicimos con el objetivo.</p>
+<p>Podemos utilizar la función <em>quicksum</em> para sumar las variables binarias en x y utilizar el operador de igualdad para definir la restricción de igualdad.</p>
+<p>También es útil <em>incluir una etiqueta</em> para poder diferenciar las restricciones en el modelo.</p>
+<p>Con la segunda opción, tenemos que crear un modelo cuadrático, añadir las variables binarias, y luego establecer los pesos lineales, incluso cuando los pesos son uno.</p>
+<p>Al añadir un QM como una restricción con la función add_constraint, tenemos que especificar parámetros de entrada adicionales.</p>
+<p>El modelo cuadrático que construimos sólo contiene el lado izquierdo de la ecuación que se muestra. Añadimos este lado izquierdo de la restricción con la propiedad <em>add_linear_from</em> y añadimos como primer parámetro el par (i,1), indicando que tomamos la variable i-ésima, la cual está multiplicado por 1 (que en general será otro valor <span class="math notranslate nohighlight">\(w_i\)</span>)</p>
+<p>En <em>add_constraint</em>, tenemos que especificar el lado derecho de la ecuación que es el 2 en este caso. Para ello utilizamos el parámetro “sense” es el que utilizamos para definir el tipo de restricción. En este caso estamos añadiendo una restricción de igualdad como puedes ver. Además añadimos el parámetro <em>rhs</em> para indicar que es el lado derecho de la ecuación.</p>
+<p>Para ver el significado de estos términos con mayor claridad, se invita al lector para que <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/intro/intro_symbolic_math.html" target="_blank"> visite este enlace </a> y acuda al apartado “Representing Constraints” donde podrá ver un mayor detalle de todo esto.</p>
+<p>Los fragmenmtos de código que se utilizarían para implementar todo esto serían los siguientes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># primer caso</span>
+<span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">CQM</span><span class="p">,</span> <span class="n">QM</span><span class="p">,</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">quicksum</span>
+
+<span class="c1"># symbolic math</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">3</span>
+<span class="c1">#Creamos las variables binarias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="c1"># Creamos el CQM y la restricción</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">CQM</span><span class="p">()</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">==</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;choose 2&#39;</span><span class="p">)</span>
+
+<span class="n">cqm</span><span class="o">.</span><span class="n">constraints</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x23fd8b2f980&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observar que cuando construimos la restricción de esta manera, se añade al CQM como un modelo cuadrático binario.</p>
+<p>Creamos ahora el código para implementar el segundo método</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">CQM</span><span class="p">,</span> <span class="n">QM</span><span class="p">,</span> <span class="n">Binary</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="c1">#Creamos el modelo cuadrático</span>
+<span class="n">qm</span><span class="o">=</span><span class="n">QM</span><span class="p">()</span>
+
+<span class="c1"># Añadimos variables al modelo cuadrático</span>
+<span class="n">qm</span><span class="o">.</span><span class="n">add_variables_from</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">qm</span><span class="o">.</span><span class="n">add_linear_from</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qm</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
+
+<span class="c1">#creamos el CQM y le añadimos las restricciones</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">CQM</span><span class="p">()</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">qm</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sense</span><span class="o">=</span><span class="s1">&#39;==&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;choose 2&#39;</span><span class="p">)</span>
+
+
+<span class="n">cqm</span><span class="o">.</span><span class="n">constraints</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x23fd8b30940&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cabe destacar que todas las restricciones que se añaden a un CQM con la función función add_constraint se evalúan como <strong>restricciones duras</strong>, por lo que el CQM ajusta el parámetro de Lagrange para que todas las restricciones se satisfagan idealmente.</p>
+<p>Si tiene <strong>restricciones blandas</strong> que quiere tener en cuenta en su modelo, puede construir un modelo de penalización, como se ha visto en módulos anteriores del curso, y añadirlo al objetivo.</p>
+<p>En ese caso, es posible que tenga que ponderar manualmente la restricción en relación con las funciones objetivo.</p>
+<p>El solucionador CQM también soporta restricciones cuadráticas.</p>
+<p>El ejemplo que vimos sólo mostraba una restricción lineal, pero las restricciones cuadráticas tambiénse pueden añadir fácilmente.</p>
+<p>Algunas aplicaciones que utilizan restricciones cuadráticas son la programación de empleados, la optimización de carteras y la selección de ensayos clínicos.</p>
+</section>
+<section id="cqm-sampler">
+<h2><span class="section-number">11.7. </span>CQM sampler.<a class="headerlink" href="#cqm-sampler" title="Permalink to this heading">#</a></h2>
+<p>El último paso en la construcción de un programa CQM es definir el sampler y enviarle el CQM a él. Esto se consigue con las siguientes instrucciones:</p>
+<blockquote>
+<div><p>from dwave.system import LeapHybridCQMSampler</p>
+<p>cqm_sampler = LeapHybridCQMSampler()</p>
+<p>sampleset = cqm_sampler.sample_cqm(cqm, time_limit=5, label=’CQM problem’)</p>
+</div></blockquote>
+<p>El solver CQM se accede a través del LeapHybridCQMSampler en el paquete  dwave.system y la función sample_cqm es la que utilizamos para enviar un CQM al muestreador.</p>
+<p>Al igual que los otros solucionadores híbridos, el único parámetro ajustable disponible es el límite de tiempo.Por defecto, el límite de tiempo es de 5 segundos para problemas pequeños. Este valor por defecto se ajusta con el tamaño del problema.</p>
+</section>
+<section id="ejemplo-1-problema-de-la-mochila-knapsack">
+<h2><span class="section-number">11.8. </span>Ejemplo 1. Problema de la mochila. (Knapsack)<a class="headerlink" href="#ejemplo-1-problema-de-la-mochila-knapsack" title="Permalink to this heading">#</a></h2>
+<p id="index-4">En este ejemplo vamos a tratar el problema de la mochila. En este problema queremos seleccionar los artículos que vamos a meter en una mochila, camión u otro contenedor de manera que maximicemos el valor total de los artículos seleccionados.</p>
+<p>Otra restricción también que debemos tener en cuenta es que el camión  o contenedor tiene una capacidad máxima que no debemos sobrepasar.</p>
+<p>Entonces para modelar este problema, vamos a utilizar variables binarias <span class="math notranslate nohighlight">\(x_i\)</span>, tantas como artículos tenemos, de manera que esa variable vale 1 si el artículo i-ésimo es elegido y cero en caso contrario. Entonces la función objetivo va a ser la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[-\sum_{i=0}^{N-1}v_i\cdot x_i\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(v_i\)</span> es el valor del objeto i-ésimo. Ponemos el signo menos porque lo que realmente queremos es maximizar el valor, pero los ordenadores de D-Wave siempre minimizan una función, por lo que si cambiamos de signo al final el valor mínimo, se convierte en máximo.</p>
+<p>Este problema también tiene una restricción de desigualdad. El peso total de todos los artículos elegidos no puede exceder la capacidad máxima de peso de la mochila.</p>
+<p>Lo expresamos con la expresión de desigualdad que se muestra aquí, donde la minúscula w en la suma representa el peso de cada elemento y la mayúscula W es el peso máximo de la mochila.</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{i=0}^{N-1}w_i \cdot x_i \le W \]</div>
+<p>Para este ejemplo, vamos a añadir una segunda restricción. Un máximo de 2 artículos pueden caber en la <a class="reference external" href="http://mochila.Es">mochila.Es</a> decir:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=0}^{N-1} \le 2 \]</div>
+<p>Todo esto traducido en código Python, sería lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">CQM</span><span class="p">,</span> <span class="n">quicksum</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">64</span><span class="p">]</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#peso máximo admitido por el camión o mochila</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># creamos las variables binarias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+
+<span class="c1"># Construimos el objeto CQM</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">CQM</span><span class="p">()</span>
+
+<span class="c1"># Añadimos la función objetivo</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="o">-</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="c1">#Añadimos las dos restricciones</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="n">W</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;max peso&#39;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;max items&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># submitimos el problema</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para este ejemplo, vamos a ver un problema realmente pequeño que sólo tiene 5 elementos.</p>
+<p>El valor y el peso de cada elemento se define en las listas de valores y pesos.</p>
+<p>El peso máximo de la mochila se establece en 10.</p>
+<p>Empezamos creando 5 variables binarias, una para cada elemento. A continuación, creamos el CQM y establecemos el objetivo de maximizar el valor de los elementos seleccionados.</p>
+<p>Obsérvese el signo negativo delante de la multiplicación de los valores por las variables binarias. De nuevo, esto hace que el objetivo de maximización sea compatible con el solucionador CQM que naturalmente minimiza.</p>
+<p>A continuación añadimos las dos restricciones de desigualdad.</p>
+<p>En primer lugar, sumamos el peso de cada elemento por la variable binaria asociada con el artículo y establecemos la suma como menor o igual al peso máximo de la mochila.Llamamos a esta restricción “max peso”.</p>
+<p>Luego añadimos la restricción que limita el número de elementos elegidos a un máximo de 2.Esta restricción se denomina “max items”.Por último, instanciamos el muestreador CQM y le enviamos el sampler CQM.</p>
+<p>El formato del resultado que obtenemos es el que se muestra en la siguiente figura</p>
+<p><img alt="sampleset CQM" src="../_images/SamplesetCQM.PNG" /></p>
+<p>El sampler CQM devuelve un conjunto de muestras y como se desprende de la observación de la figura anterior, hay algunas diferencias entre este conjunto de muestras y los devueltos por los otros solvers.</p>
+<p>La primera es que la energía <strong>sólo se calcula a partir de la función objetivo</strong>, por lo que las restricciones no afectan a la energía.</p>
+<p>La segunda diferencia es que <strong>tenemos dos columnas adicionales</strong> en el conjunto de muestras devuelto por el solucionador CQM (<em>Constraint satisfaction array</em> y <em>soluction feasibility</em>).</p>
+<p>La columna <em>is_satisfied</em> contiene una matriz para cada muestra. La matriz contiene el estado de cada restricción en la muestra. En otras palabras, nos dice si cada restricción  fue satisfecha o no.</p>
+<p>La columna <em>is_feasible</em> nos dice si la muestra es factible. Una muestra sólo es factible si se cumplen todas las restricciones.</p>
+<p>Se observa que el solucionador CQM devuelve soluciones factibles,   así como soluciones no factibles. Informamos de la satisfacción de las restricciones individuales para que pueda  examinar las soluciones no factibles de baja energía.</p>
+<p>Dependiendo de la aplicación, puede haber casos en los que una solución de baja energía de energía vale la pena considerar, dependiendo de cuántas y cuáles restricciones son violadas.</p>
+<p><img alt="Solicionesfactibles" src="../_images/solucionadorCDQM.PNG" /></p>
+<p>Si observamos cada muestra del conjunto de muestras, podemos ver que todas las muestras devuelven soluciones que seleccionan 1 o 2 elementos, por lo que la restricción de “máximo de elementos” se cumple en todas.</p>
+<p>Recordemos que la capacidad máxima de peso de la mochila es de 10.</p>
+<p>En este ejemplo, las mejores soluciones que satisfacen ambas restricciones (las dos últimas muestras del conjunto de muestras) tienen un valor total relativamente bajo. Sus valores son 98 y 64, como se muestra a la derecha. Entonces, si podemos violar la restricción de capacidad máxima sólo un poco, podemos aumentar el valor total a 142.</p>
+<p>En algunos casos podemos tener esa flexibilidad y puede valer la pena violar la para aumentar el valor total proporcionado por el objetivo.</p>
+<p>Las programación de Ocean, nos permite entresacar información de las soluciones obtenidas, y así por ejemplo, podem os chequear las soluciones no factibles, con el código siguiente:</p>
+<blockquote>
+<div><p>muestra_nofactible = sampleset.filter(lambda d: not d.is_feasible).first</p>
+</div></blockquote>
+<p>Por el contrario, si queremos la solución factible de menor enegía, entonces lo haríamos con el siguiente código:</p>
+<blockquote>
+<div><p>muestra_factible = sampleset.filter(lambda d:  d.is_feasible).first</p>
+</div></blockquote>
+</section>
+<section id="ampliar-conocimientos">
+<h2><span class="section-number">11.9. </span>Ampliar conocimientos.<a class="headerlink" href="#ampliar-conocimientos" title="Permalink to this heading">#</a></h2>
+<p>Para el lector que quiera ampliar conocimientos sobre esta clase, puede <a href="https://www.dwavesys.com/media/0ftjce4l/measuring-performance-of-the-leap-constrained-quadratic-model-solver.pdf" target="_blank">  consultar más aspectos de este solver en este enlace</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modulo4_penalty_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Programacion_Entera.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Programación entera.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">11.1. Modelo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">11.2. Características más relevantes de CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">11.3. Instanciar in objeto CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">11.4. CQM Variables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">11.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">11.5.1. Objetivos cuadráticos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">11.6. Restricciones de un modelo CQM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">11.7. CQM sampler.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">11.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">11.9. Ampliar conocimientos.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

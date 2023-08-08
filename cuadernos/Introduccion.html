@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Introduccion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Instalación de Ocean" href="Instalacion.html" />
+    <link rel="next" title="2. Instalación de Ocean" href="Instalacion.html" />
     <link rel="prev" title="Programación cuántica" href="../introduccion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción.</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,12 +319,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Introducción.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cubit">2. El cubit.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">3. DWave.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">4. Modelos soportados por Ocean.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-qubit">1.1. El qubit.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">1.2. DWave.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">1.3. Modelos soportados por Ocean.</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -346,12 +342,11 @@ empresas como IBM, Google o Riggeti para construir un computador cuántico capaz
 <p>Estos computadores están basados en puertas cuánticas, similares a las puertas lógicas que se usan en la computación tradicional, pero que en vez de usar lógica booleana, manipulan los estados de superposición de los cúbits que pasan por esas puertas.</p>
 <p>Sin embargo, el computador que se va a utilizar en este trabajo utiliza otro paradigma, el llamado <strong>quantum anneling</strong> (recocido cuántico) o computación adiabática cuántica.</p>
 <p>Antes de hablar de este paradigma de computación, hay que entender algunos conceptos básicos como por ejemplo el cúbit que es la unidad mínima de información en este tipo de máquinas, y sus propiedades, que son las que brindan a estas máquinas su capacidad masiva de computación.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="el-cubit">
-<h1><span class="section-number">2. </span>El cubit.<a class="headerlink" href="#el-cubit" title="Permalink to this heading">#</a></h1>
+<section id="el-qubit">
+<h2><span class="section-number">1.1. </span>El qubit.<a class="headerlink" href="#el-qubit" title="Permalink to this heading">#</a></h2>
 <p>En la informática tradicional, un bit es la unidad mínima de información. Los bits tienen dos estados: el 0 y el 1. Estos
 estados vienen representados por distintos niveles de voltaje.</p>
-<p>En informática cuántica, los <strong>cúbits</strong>, al igual que los bits tienen dos estados (los cuales pueden ser tomados con probabilidades ciertas probabilidades); pero estos se representan con propiedades cuánticas tales como el “spin” de una partícula o el campo magnético de un superconductor en temperaturas cercanas al cero absoluto. Sin embargo, los cúbits al estar representados con estos fenómenos, la información que codificamos en ellos goza de propiedades cuánticas como la <em>superposición y el entrelazamiento</em>.</p>
+<p>En informática cuántica, los <strong>qúbits</strong>, al igual que los bits tienen dos estados (los cuales pueden ser tomados con probabilidades ciertas probabilidades); pero estos se representan con propiedades cuánticas tales como el “spin” de una partícula o el campo magnético de un superconductor en temperaturas cercanas al cero absoluto. Sin embargo, los cúbits al estar representados con estos fenómenos, la información que codificamos en ellos goza de propiedades cuánticas como la <em>superposición y el entrelazamiento</em>.</p>
 <p>La <em>superposición</em>  es el fenómeno por el cual un cúbit está en un estado indeterminado de sus dos estados básicos. Este estado se puede describir como la combinación lineal de sus estados básicos. Matemáticamente se describe así :</p>
 <div class="math notranslate nohighlight">
 \[Q = a|0 \rangle+b|1 \rangle \]</div>
@@ -371,14 +366,14 @@ estados vienen representados por distintos niveles de voltaje.</p>
 <p>En este caso los cúbits están entrelazados. Si midiésemos el primer cúbit, automáticamente determinaríamos el estado del cúbit siguiente.</p>
 <p>Otra forma de saber si un sistema de cúbits están entrelazados es intentando factorizar el sistema en sus cúbits fundamentales. Es decir, si ese sistema es posible construirlo a través del producto tensorial entre cúbits. Si no es el caso, el sistema es un sistema entrelazado.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="dwave">
-<h1><span class="section-number">3. </span>DWave.<a class="headerlink" href="#dwave" title="Permalink to this heading">#</a></h1>
+<section id="dwave">
+<h2><span class="section-number">1.2. </span>DWave.<a class="headerlink" href="#dwave" title="Permalink to this heading">#</a></h2>
 <p>DWave es una empresa canadiense dedicada exclusivamente a la investigación y comercialización de computadores cuánticos. Al contrario que otras empresas, que intentan mediante puertas cuánticas lograr un computador cuántico general, DWave tras unos intentos poco exitosos, centró su investigación en este paradigma de computación adiabática. Tras esa decisión, la empresa ha conseguido grandes logros; como ofrecer al público el primer omputador cuántico de 7000 cúbits.</p>
 <p>Esta empresa ha desarrollado un software denominado SDK (software development kit) que permite a los usuarios interactuar con los ordenadores de esa empresa (conocidos como QPUs, es decir quantum processing units) así como con los <em>solvers</em> híbridos, utilizando para ello programas escritos en python.</p>
 <p>La api a utilizar para realizar estas tareas la podemos encontrar <a href="https://docs.ocean.dwavesys.com/en/stable/getting_started.html" target="_blank"> en este enlace </a>.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="modelos-soportados-por-ocean">
-<h1><span class="section-number">4. </span>Modelos soportados por Ocean.<a class="headerlink" href="#modelos-soportados-por-ocean" title="Permalink to this heading">#</a></h1>
+<section id="modelos-soportados-por-ocean">
+<h2><span class="section-number">1.3. </span>Modelos soportados por Ocean.<a class="headerlink" href="#modelos-soportados-por-ocean" title="Permalink to this heading">#</a></h2>
 <p>Como puede verse en la documentación que ofrece D-Wave Ocean, son soportados cuatro modelos básicos para expresar el problema a optimizar como una función objetivo y submitirlo para encontrar la solución buscada.</p>
 <ul>
 <li><p><a href="https://docs.ocean.dwavesys.com/en/stable/concepts/bqm.html#bqm-sdk" target="_blank"> Binary Quadratic Models </a>. Conocidos también por la iniciales BQM, y son modelos sin restricciones (aunque las restricciones se pueden añadir mediante <em>funciones de penalización</em>) construidos en base a variables binarias. Este tipo de modelos, tienen dos subcategorías: Modelos <em>Ising</em> ( cuyas variables binarias pueden tomar los valores -1 ó 1, y los modelos QUBO, cuyas variables pueden tomar los valores 0 ó 1).</p></li>
@@ -388,6 +383,7 @@ estados vienen representados por distintos niveles de voltaje.</p>
 <li><p><a href="https://docs.ocean.dwavesys.com/en/stable/concepts/dqm.html#dqm-sdk" target="_blank"> Discrete Quadratic Models </a>. También conocidos por las siglas DQM de tal manera que no admiten restricciones ( por regla general estas restricciones se introducen mediante funciones de penalización).</p></li>
 </ul>
 <p><strong>NOTA</strong>. Ocean también ofrece soporte para los <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#higher-order" target="_blak"> modelos denominados de orden superior </a> y son modelos que no están restringidos a interacciones cuadráticas.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -435,7 +431,7 @@ estados vienen representados por distintos niveles de voltaje.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Instalación de Ocean</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Instalación de Ocean</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -457,12 +453,10 @@ estados vienen representados por distintos niveles de voltaje.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Introducción.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#el-cubit">2. El cubit.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">3. DWave.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">4. Modelos soportados por Ocean.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-qubit">1.1. El qubit.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave">1.2. DWave.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-soportados-por-ocean">1.3. Modelos soportados por Ocean.</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

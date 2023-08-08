@@ -6,7 +6,7 @@ pero que sin ningún lugar a la duda ofrece una gran esperanza de cara a resolve
 En este trabajo se aborda el enfoque de programación cuántica desrrollado por la empresa canadiense D_Wave y que tiene por denominación *quantum annaeling* el cual nos va a permitir
 resolver problemas de optimización con una gran cantidad de variables y de restricciones.
 
-Existe otro enfoque de programación cuántica desarrrollado por IBM y google que se basa en el concepto de puertas quánticas, que no es objeto de desarrollo en este trabajo.
+Existe otro enfoque de programación cuántica desarrrollado por IBM y google que se basa en el concepto de puertas cuánticas, que no es objeto de desarrollo en este trabajo.
 
 En consecuencia y bajo esta premisa, en lo que sigue nos centraremos en el desarrollo ideado por D-Wave y que se expondrá en los diferentes apartados que constituyen este 
 trabajo, en el deseo de ofrecer una herramienta sumamente importante para el mundo empresarial, que permitirá ofrecer soluciones presentes dentro del mundo actual.

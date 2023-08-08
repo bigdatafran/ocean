@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>11. Introducción. &#8212; D-Wave Ocean</title>
+    <title>9. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/modulo10_CQM';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. Programación entera." href="Programacion_Entera.html" />
-    <link rel="prev" title="10. Introducción." href="modulo4_penalty_functions.html" />
+    <link rel="next" title="10. Programación entera." href="Programacion_Entera.html" />
+    <link rel="prev" title="8. Introducción." href="modulo7_RestriccionesOcean.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,18 +319,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">11.1. Modelo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">11.2. Características más relevantes de CQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">11.3. Instanciar in objeto CQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">11.4. CQM Variables.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">11.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">11.5.1. Objetivos cuadráticos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">9.1. Modelo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">9.2. Características más relevantes de CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">9.3. Instanciar in objeto CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">9.4. CQM Variables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">9.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">9.5.1. Objetivos cuadráticos</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">11.6. Restricciones de un modelo CQM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">11.7. CQM sampler.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">11.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">11.9. Ampliar conocimientos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">9.6. Restricciones de un modelo CQM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">9.7. CQM sampler.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">9.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">9.9. Ampliar conocimientos.</a></li>
 </ul>
             </nav>
         </div>
@@ -345,10 +343,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="cqm"></span><h1><span class="section-number">11. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<span id="cqm"></span><h1><span class="section-number">9. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p id="index-0">La clase <em>Constrained Quadratic Model</em> nos permite resolver problemas de optimización con un planteamiento fácil y sin necesidad de definir funciones de penalización como ya se ha explicado en procedimientos anteriores. Por este motivo se constituye en  un herramienta muy potente y sencilla para ser utilizada dentro del campo de la optimización de recursos.</p>
 <section id="modelo">
-<h2><span class="section-number">11.1. </span>Modelo.<a class="headerlink" href="#modelo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Modelo.<a class="headerlink" href="#modelo" title="Permalink to this heading">#</a></h2>
 <p>La especificación matemática de esta modelo es la siguiente:</p>
 <p><strong>Minimizar la función objetivo:</strong></p>
 <div class="math notranslate nohighlight">
@@ -360,7 +358,7 @@ document.write(`
 <p>Los atributos y métodos de esta clase se pueden encontrar <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#dimod.ConstrainedQuadraticModel" target="_blank"> en este enlace </a>.</p>
 </section>
 <section id="caracteristicas-mas-relevantes-de-cqm">
-<h2><span class="section-number">11.2. </span>Características más relevantes de CQM.<a class="headerlink" href="#caracteristicas-mas-relevantes-de-cqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Características más relevantes de CQM.<a class="headerlink" href="#caracteristicas-mas-relevantes-de-cqm" title="Permalink to this heading">#</a></h2>
 <p>El solver CQM es otro solver híbrido disponible en Leap. Como se muestra en el diagrama, es el mejor solucionador híbrido para problemas con restricciones. Curiosamente, también  lo hace bastante bien en QUBOs.</p>
 <p><img alt="Perfomance CQM" src="../_images/cqmperfomance.PNG" /></p>
 <p>Soporta problemas binarios y de valores enteros, así como modelos que tienen una combinación de tipos de variables. Por ejemplo, la optimización de carteras utiliza variables enteras y la programación de tiendas de trabajo puede utilizar ambas: binarias para seleccionar las máquinas y enteras para determinar en qué intervalo de tiempo deben coincidir la máquina y los trabajos.</p>
@@ -376,7 +374,7 @@ document.write(`
 <p>6.- Procesar los resultados.</p>
 </section>
 <section id="instanciar-in-objeto-cqm">
-<h2><span class="section-number">11.3. </span>Instanciar in objeto CQM.<a class="headerlink" href="#instanciar-in-objeto-cqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Instanciar in objeto CQM.<a class="headerlink" href="#instanciar-in-objeto-cqm" title="Permalink to this heading">#</a></h2>
 <p id="index-1">CQM es un objeto de la librería dimod, y se instancia de la siguiente manera:</p>
 <blockquote>
 <div><p>from dimod import CQM</p>
@@ -389,7 +387,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="cqm-variables">
-<h2><span class="section-number">11.4. </span>CQM Variables.<a class="headerlink" href="#cqm-variables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>CQM Variables.<a class="headerlink" href="#cqm-variables" title="Permalink to this heading">#</a></h2>
 <p id="index-2">Cuando se trabaja con CQM se necesita definir explícitamente las variables con las que se va a trabajar. A continuación vamosa a ver algún ejemplo de construcción de estas variables.</p>
 <p>Comenzamos definiendo variables de tipo binario (toma valores 0 ó 1) o de tipo Spin (toma valores 1 ó -1)</p>
 <div class="cell docutils container">
@@ -511,7 +509,7 @@ document.write(`
 <p>Sin embargo, el segundo método es más eficaz. Por lo tanto, a medida que se escalan los problemas de CQM esto permitirá una construcción más rápida del CQM.</p>
 </section>
 <section id="funciones-objetivo-de-un-cqm">
-<h2><span class="section-number">11.5. </span>Funciones objetivo de un CQM.<a class="headerlink" href="#funciones-objetivo-de-un-cqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>Funciones objetivo de un CQM.<a class="headerlink" href="#funciones-objetivo-de-un-cqm" title="Permalink to this heading">#</a></h2>
 <p id="index-3">Las funciones objetivo de los modelos CQM se almacenan como modelos cuadráticos. Los QM aceptan variables binarias y enteras, admiten términos lineales y cuadráticos y son similares al modelo cuadrático binario en cuanto a su funcionalidad.</p>
 <p>Existen dos formas de añadir funiones objetivo a los modelos CQM. Para mostrar estas dos formas, supongamos que nuestra función objetivo es la siguiente:</p>
 <div class="math notranslate nohighlight">
@@ -600,13 +598,13 @@ document.write(`
 </div>
 <p>La salida de ambas opciones es la misma. Sólo que toman una cantidad de tiempo diferente para construir el CQM.</p>
 <section id="objetivos-cuadraticos">
-<h3><span class="section-number">11.5.1. </span>Objetivos cuadráticos<a class="headerlink" href="#objetivos-cuadraticos" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.1. </span>Objetivos cuadráticos<a class="headerlink" href="#objetivos-cuadraticos" title="Permalink to this heading">#</a></h3>
 <p>Hasta ahora los ejemplos que hemos visto sólo muestran objetivos lineales.El solucionador CQM también admite objetivos cuadráticos.</p>
 <p>Algunas aplicaciones comunes que utilizan objetivos cuadráticos son el problema cuadrático de  la mochila cuadrática, la partición de grafos y la búsqueda conformacional.</p>
 </section>
 </section>
 <section id="restricciones-de-un-modelo-cqm">
-<h2><span class="section-number">11.6. </span>Restricciones de un modelo CQM<a class="headerlink" href="#restricciones-de-un-modelo-cqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span>Restricciones de un modelo CQM<a class="headerlink" href="#restricciones-de-un-modelo-cqm" title="Permalink to this heading">#</a></h2>
 <p>Uno de los puntos fuertes de un modelo CQM es que le podemos añadir hasta un total de 100000 restricciones, las cuales se almacenan como un diccionario.</p>
 <p>Las restricciones se almacenan como un diccionario de modelos cuadráticos binarios (BQM, si hay sólo variables binarias) y de modelos cuadráticos binarios y cuadráticos (QM), dependiendo del tipo de variables que haya en las restricciones del problema.</p>
 <p>Las restricciones que sólo utilizan variables binarias se almacenan como BQM y las restricciones con variables enteras o mixtas se almacenan como QM.</p>
@@ -653,7 +651,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x23fd8b2f980&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x22c1d4d7f80&gt;
 </pre></div>
 </div>
 </div>
@@ -683,7 +681,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x23fd8b30940&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dimod.constrained.cyconstrained.ConstraintsView at 0x22c1d4f3b00&gt;
 </pre></div>
 </div>
 </div>
@@ -696,7 +694,7 @@ document.write(`
 <p>Algunas aplicaciones que utilizan restricciones cuadráticas son la programación de empleados, la optimización de carteras y la selección de ensayos clínicos.</p>
 </section>
 <section id="cqm-sampler">
-<h2><span class="section-number">11.7. </span>CQM sampler.<a class="headerlink" href="#cqm-sampler" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.7. </span>CQM sampler.<a class="headerlink" href="#cqm-sampler" title="Permalink to this heading">#</a></h2>
 <p>El último paso en la construcción de un programa CQM es definir el sampler y enviarle el CQM a él. Esto se consigue con las siguientes instrucciones:</p>
 <blockquote>
 <div><p>from dwave.system import LeapHybridCQMSampler</p>
@@ -707,7 +705,7 @@ document.write(`
 <p>Al igual que los otros solucionadores híbridos, el único parámetro ajustable disponible es el límite de tiempo.Por defecto, el límite de tiempo es de 5 segundos para problemas pequeños. Este valor por defecto se ajusta con el tamaño del problema.</p>
 </section>
 <section id="ejemplo-1-problema-de-la-mochila-knapsack">
-<h2><span class="section-number">11.8. </span>Ejemplo 1. Problema de la mochila. (Knapsack)<a class="headerlink" href="#ejemplo-1-problema-de-la-mochila-knapsack" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.8. </span>Ejemplo 1. Problema de la mochila. (Knapsack)<a class="headerlink" href="#ejemplo-1-problema-de-la-mochila-knapsack" title="Permalink to this heading">#</a></h2>
 <p id="index-4">En este ejemplo vamos a tratar el problema de la mochila. En este problema queremos seleccionar los artículos que vamos a meter en una mochila, camión u otro contenedor de manera que maximicemos el valor total de los artículos seleccionados.</p>
 <p>Otra restricción también que debemos tener en cuenta es que el camión  o contenedor tiene una capacidad máxima que no debemos sobrepasar.</p>
 <p>Entonces para modelar este problema, vamos a utilizar variables binarias <span class="math notranslate nohighlight">\(x_i\)</span>, tantas como artículos tenemos, de manera que esa variable vale 1 si el artículo i-ésimo es elegido y cero en caso contrario. Entonces la función objetivo va a ser la siguiente:</p>
@@ -787,7 +785,7 @@ document.write(`
 </div></blockquote>
 </section>
 <section id="ampliar-conocimientos">
-<h2><span class="section-number">11.9. </span>Ampliar conocimientos.<a class="headerlink" href="#ampliar-conocimientos" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.9. </span>Ampliar conocimientos.<a class="headerlink" href="#ampliar-conocimientos" title="Permalink to this heading">#</a></h2>
 <p>Para el lector que quiera ampliar conocimientos sobre esta clase, puede <a href="https://www.dwavesys.com/media/0ftjce4l/measuring-performance-of-the-leap-constrained-quadratic-model-solver.pdf" target="_blank">  consultar más aspectos de este solver en este enlace</a>.</p>
 </section>
 </section>
@@ -824,12 +822,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="modulo4_penalty_functions.html"
+       href="modulo7_RestriccionesOcean.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -837,7 +835,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Programación entera.</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Programación entera.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -859,18 +857,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">11.1. Modelo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">11.2. Características más relevantes de CQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">11.3. Instanciar in objeto CQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">11.4. CQM Variables.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">11.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">11.5.1. Objetivos cuadráticos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo">9.1. Modelo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-mas-relevantes-de-cqm">9.2. Características más relevantes de CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciar-in-objeto-cqm">9.3. Instanciar in objeto CQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-variables">9.4. CQM Variables.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-objetivo-de-un-cqm">9.5. Funciones objetivo de un CQM.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-cuadraticos">9.5.1. Objetivos cuadráticos</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">11.6. Restricciones de un modelo CQM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">11.7. CQM sampler.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">11.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">11.9. Ampliar conocimientos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones-de-un-modelo-cqm">9.6. Restricciones de un modelo CQM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cqm-sampler">9.7. CQM sampler.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-problema-de-la-mochila-knapsack">9.8. Ejemplo 1. Problema de la mochila. (Knapsack)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ampliar-conocimientos">9.9. Ampliar conocimientos.</a></li>
 </ul>
   </nav></div>
 

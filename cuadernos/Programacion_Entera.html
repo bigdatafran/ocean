@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>12. Programación entera. &#8212; D-Wave Ocean</title>
+    <title>10. Programación entera. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Programacion_Entera';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="14. Índice" href="../genindex.html" />
-    <link rel="prev" title="11. Introducción." href="modulo10_CQM.html" />
+    <link rel="next" title="12. Índice" href="../genindex.html" />
+    <link rel="prev" title="9. Introducción." href="modulo10_CQM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,8 +319,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Programación entera.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">13. Programación entera mixta.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10. Programación entera.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">11. Programación entera mixta.</a></li>
 </ul>
 
             </nav>
@@ -336,7 +334,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="programacion-entera">
-<h1><span class="section-number">12. </span>Programación entera.<a class="headerlink" href="#programacion-entera" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Programación entera.<a class="headerlink" href="#programacion-entera" title="Permalink to this heading">#</a></h1>
 <p>Un problema de programación lineal entera (PLE) consiste en un problema de optimización de una función lineal en presencia de restricciones lineales con la condición añadida de que alguna o todas sus variables han de ser enteras. A continuación vamos a resolver un problemas de programación lineal con variables binarias.</p>
 <p><strong>Problema</strong>. Una empresa está planificando la inversión a realizar en los próximos 3 trimestres en 5 proyectos de investigación. En la siguiente tabla aparece detallado el presupuesto disponible por trimestre, la inversión que se debe realizar por proyecto y trimestre y el beneficio que se espera obtener con cada proyecto. Todos los datos aparecen en millones de euros.</p>
 <table class="table">
@@ -540,7 +538,7 @@ x_{1},x_{2},x_{3},x_{4},x_{5}\in\{0,1\}
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="programacion-entera-mixta">
-<h1><span class="section-number">13. </span>Programación entera mixta.<a class="headerlink" href="#programacion-entera-mixta" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Programación entera mixta.<a class="headerlink" href="#programacion-entera-mixta" title="Permalink to this heading">#</a></h1>
 <p>Como ampliación de un problema de programación de variables 0-1, a continuación vamos a resolver un problema donde se mezclan variables 0-1 con variables de tipo entero.</p>
 <p><strong>Problema</strong>. Una pequeña empresa puede producir 4 tipos de artículos y estima que para el próximo período podrá vender todo lo que fabrica de los productos 1 y 3, pero como mucho tendrá demanda para 30 unidades del producto 2 y 10 del producto 4. La empresa tiene capacidad para producir un máximo de 110 artículos de cualquier tipo y combinación. A continuación se detalla el coste de producción por unidad producida, el coste fijo de producción y el precio de venta unitario de cada artículo.</p>
 <table class="table">
@@ -762,7 +760,7 @@ y_{1},y_{2},y_{3},y_{4}\in\{0,1\}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -770,7 +768,7 @@ y_{1},y_{2},y_{3},y_{4}\in\{0,1\}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Índice</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Índice</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -792,8 +790,8 @@ y_{1},y_{2},y_{3},y_{4}\in\{0,1\}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">12. Programación entera.</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">13. Programación entera mixta.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10. Programación entera.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-entera-mixta">11. Programación entera mixta.</a></li>
 </ul>
 
   </nav></div>

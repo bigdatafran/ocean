@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5. Instalación de Ocean &#8212; D-Wave Ocean</title>
+    <title>2. Instalación de Ocean &#8212; D-Wave Ocean</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Instalacion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Introducción." href="modulo1.html" />
+    <link rel="next" title="3. Introducción." href="modulo1.html" />
     <link rel="prev" title="1. Introducción." href="Introduccion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,27 +152,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -319,7 +317,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-en-local">5.1. Instalación en local.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-en-local">2.1. Instalación en local.</a></li>
 </ul>
             </nav>
         </div>
@@ -332,13 +330,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="instalacion-de-ocean">
-<h1><span class="section-number">5. </span>Instalación de Ocean<a class="headerlink" href="#instalacion-de-ocean" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Instalación de Ocean<a class="headerlink" href="#instalacion-de-ocean" title="Permalink to this heading">#</a></h1>
 <p>En este trabajo se va a necesitar ejecutar una serie de instrucciones escritas en código python, para lo cual se necesita bien entrar en <a href="https://cloud.dwavesys.com/leap/login/" target="_bliank"> Leap Ocean </a> o bien instalar Ocean en nuestro equipo.</p>
 <p>Si optamos por la primera opción, debemos crar una cuenta la cual nos va a permitir acceder a los ordenadores de D-Wave de forma gratuita durante un minuto al mes (tiempo, principio suficiente para aprender  a manejar la herranmienta), y además nos creará una api-key que nos servirá para poder acceder a los ordenadores de D-Wave de forma remota desde nuestro equipo, una vez que hayamos instalado Ocean de forma local de la forma que se indicará posteriormente.</p>
 <p>Esta api-key se puede localizar en la opción del menú “Dashboard” y en concreto en la zona izquierda de la pantalla. Además aquí podremos localizar muchos ejemplos para poder a manejar esta herramienta, así como un ide con un contexto similar al que se tiene cuando se trabaja con visual studio code.</p>
 <p>Otra forma de interactuar con los ordenadores de D-D-Wave es procediendo a realizar una instalación  en local.</p>
 <section id="instalacion-en-local">
-<h2><span class="section-number">5.1. </span>Instalación en local.<a class="headerlink" href="#instalacion-en-local" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Instalación en local.<a class="headerlink" href="#instalacion-en-local" title="Permalink to this heading">#</a></h2>
 <p>El software de Ocean esta soportado para los siguientes sistemas operativos:</p>
 <ul class="simple">
 <li><p>Linux</p></li>
@@ -413,7 +411,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -435,7 +433,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-en-local">5.1. Instalación en local.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-en-local">2.1. Instalación en local.</a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>7. Introducción a Ocean. &#8212; D-Wave Ocean</title>
+    <title>4. Introducción a Ocean. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/modulo2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Introducción." href="Modulo3_desarrollarQUBO.html" />
-    <link rel="prev" title="6. Introducción." href="modulo1.html" />
+    <link rel="next" title="6. Introducción." href="Modulo3_desarrollarQUBO.html" />
+    <link rel="prev" title="3. Introducción." href="modulo1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,16 +319,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Introducción a Ocean.</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exacsolver">7.1. Exacsolver.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-los-valores-de-un-qubo">7.2. Definiendo los valores de un Qubo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-annealing">7.3. Simulated Annealing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwavesampler">7.4. DWaveSampler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leaphybridsampler">7.5. LeapHybridSampler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-antenas">7.6. Problema de las antenas.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Introducción a Ocean.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exacsolver">4.1. Exacsolver.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-los-valores-de-un-qubo">4.2. Definiendo los valores de un Qubo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-annealing">4.3. Simulated Annealing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwavesampler">4.4. DWaveSampler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leaphybridsampler">4.5. LeapHybridSampler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-antenas">4.6. Problema de las antenas.</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-vertex-cover">8. Minimum Vertex Cover</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-vertex-cover">5. Minimum Vertex Cover</a></li>
 </ul>
 
             </nav>
@@ -344,7 +342,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-ocean">
-<h1><span class="section-number">7. </span>Introducción a Ocean.<a class="headerlink" href="#introduccion-a-ocean" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Introducción a Ocean.<a class="headerlink" href="#introduccion-a-ocean" title="Permalink to this heading">#</a></h1>
 <p id="index-0">En este apartado vamos a hacer una introducción a Ocean SDK, que es el lenguaje para poder implementar código que formalice los problemas de optimización con los que nos enfrentamos.</p>
 <p>Para una correcta instalación de este sofware se recomienda seguir los pasos que se pueden encontrar <a href="https://docs.ocean.dwavesys.com/en/latest/overview/install.html" target="_blank"> en esta guía de instalación</a>.</p>
 <p>Igualmente para comenzar a familiarizarse con estas herramientas, se recomienda <a href="https://www.dwavesys.com/media/fmtj2fw3/20210920_ofbguide.pdf"> consultar este enlace </a>. Igualmente toda la documentación oficial de Ocean se puede <a href="https://docs.ocean.dwavesys.com/en/stable/" target="_blank"> consultar igualmente en esta dirección web </a></p>
@@ -416,32 +414,11 @@ Sampler<span class="o">?</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># bqm.add_interaction(0, 1, 1.0) # lo añadí so de prueba</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">))</span>
-
-<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\networkx\drawing\nx_pylab.py:105,</span> in <span class="ni">draw</span><span class="nt">(G, pos, ax, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Draw the graph G with Matplotlib.</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd">     Draw the graph as a simple representation with no node</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span><span class="sd">     https://networkx.org/documentation/latest/auto_examples/index.html</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">cf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
+<img alt="../_images/c6538d6f39e94d843f8e7402a988e89bccebe5b6bfe04563a3d1f49b6ad3b02c.png" src="../_images/c6538d6f39e94d843f8e7402a988e89bccebe5b6bfe04563a3d1f49b6ad3b02c.png" />
 </div>
 </div>
 <section id="exacsolver">
-<h2><span class="section-number">7.1. </span>Exacsolver.<a class="headerlink" href="#exacsolver" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Exacsolver.<a class="headerlink" href="#exacsolver" title="Permalink to this heading">#</a></h2>
 <p id="index-1">Este módulo está desarrollado principalmente para depuración de código, ya que puede resolver problemas con hasta 20 variable, aunque este número depende del sistema con el que se trabaje.</p>
 <p>Entonces utilizamos este solver para que nos resuelva el problema anterior</p>
 <div class="cell docutils container">
@@ -473,7 +450,7 @@ Sampler<span class="o">?</span>
 </div>
 </section>
 <section id="definiendo-los-valores-de-un-qubo">
-<h2><span class="section-number">7.2. </span>Definiendo los valores de un Qubo.<a class="headerlink" href="#definiendo-los-valores-de-un-qubo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Definiendo los valores de un Qubo.<a class="headerlink" href="#definiendo-los-valores-de-un-qubo" title="Permalink to this heading">#</a></h2>
 <p>Para introducir los valores de un programa de tipo QUBO, podemos utilizar por ejemplo un diccionario de Python o también un <em>defaultDictionary</em>. Para ver esto, supongamos que queremos crear la siguiente expresión:</p>
 <div class="math notranslate nohighlight">
 \[x+5y+8xy\]</div>
@@ -561,7 +538,7 @@ construir la misma estructura de datos que si hubiéramos asignado directamente 
 <p>Veamos a continuación cómo utilizar diferentes solvers para resolver el programa QUBO que hemos desarrollado anteriormente.</p>
 </section>
 <section id="simulated-annealing">
-<h2><span class="section-number">7.3. </span>Simulated Annealing<a class="headerlink" href="#simulated-annealing" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Simulated Annealing<a class="headerlink" href="#simulated-annealing" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Históricamente ha sido la principal referencia frente al QPU debido a la similitud de los principios subyacentes.</p></li>
 <li><p>Puede ser un buen solver/sampler para problemas pequeños</p></li>
@@ -602,6 +579,22 @@ construir la misma estructura de datos que si hubiéramos asignado directamente 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0  1  4  5 energy num_oc.
+0 +1 +1 -1 -1   -4.0       1
+1 +1 +1 -1 -1   -4.0       1
+2 +1 +1 -1 -1   -4.0       1
+3 +1 +1 -1 -1   -4.0       1
+4 -1 -1 +1 +1   -4.0       1
+5 +1 +1 -1 -1   -4.0       1
+6 +1 +1 -1 -1   -4.0       1
+7 +1 +1 -1 -1   -4.0       1
+8 -1 -1 +1 +1   -4.0       1
+9 +1 +1 -1 -1   -4.0       1
+[&#39;SPIN&#39;, 10 rows, 10 samples, 4 variables]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,10 +603,15 @@ sampler.sample<span class="o">?</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `sampler.sample` not found.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="dwavesampler">
-<h2><span class="section-number">7.4. </span>DWaveSampler<a class="headerlink" href="#dwavesampler" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>DWaveSampler<a class="headerlink" href="#dwavesampler" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span>
@@ -631,10 +629,48 @@ sampler.sample<span class="o">?</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:206,</span> in <span class="ni">DWaveSampler._get_solver</span><span class="nt">(self, refresh, penalty)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">206</span>     <span class="k">return</span> <span class="n">solvers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+
+<span class="ne">IndexError</span>: list index out of range
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">SolverNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sampler</span> <span class="o">=</span> <span class="n">DWaveSampler</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">topology__type</span><span class="o">=</span><span class="s1">&#39;chimera&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">bqm</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">annealing_time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prueba_DWaveSampler&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:185,</span> in <span class="ni">DWaveSampler.__init__</span><span class="nt">(self, failover, retry_interval, **config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">185</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_solver</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span><span class="p">)</span>
+
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:208,</span> in <span class="ni">DWaveSampler._get_solver</span><span class="nt">(self, refresh, penalty)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">return</span> <span class="n">solvers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">raise</span> <span class="n">SolverNotFoundError</span><span class="p">(</span><span class="s2">&quot;Solver with the requested features not available&quot;</span><span class="p">)</span>
+
+<span class="ne">SolverNotFoundError</span>: Solver with the requested features not available
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="leaphybridsampler">
-<h2><span class="section-number">7.5. </span>LeapHybridSampler<a class="headerlink" href="#leaphybridsampler" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>LeapHybridSampler<a class="headerlink" href="#leaphybridsampler" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>El solver más flexible</p></li>
 <li><p>Puede resolver problemas grandes y densos de forma eficiente utilizando recursos clásicos y cuánticos.</p></li>
@@ -662,7 +698,7 @@ sampler.sample<span class="o">?</span>
 </div>
 </section>
 <section id="problema-de-las-antenas">
-<h2><span class="section-number">7.6. </span>Problema de las antenas.<a class="headerlink" href="#problema-de-las-antenas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.6. </span>Problema de las antenas.<a class="headerlink" href="#problema-de-las-antenas" title="Permalink to this heading">#</a></h2>
 <p>En este caso tenemos la siguiente información.</p>
 <ul class="simple">
 <li><p>Conjunto de posibles localización de las antenas</p></li>
@@ -732,12 +768,6 @@ para los ordenadores clásicos.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum independent set size found is 3
-[2, 5, 7]
-</pre></div>
-</div>
-</div>
 </div>
 <p>El código anterior es  un ejemplo de cómo podría ser ese programa. Primero importamos los paquetes  y definimos nuestro muestreador.  Estamos usando EmbeddingComposite con DWaveSampler en este ejemplo para ejecutar nuestro problema en el ordenador cuántico.</p>
 <p>Definimos nuestro grafo usando el paquete NetworkX que es un paquete realmente bueno para problemas de grafos.</p>
@@ -753,9 +783,6 @@ definido.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/92049b0d952eace34ea120b24469ad3a726c64b6c10d7e0998239fe53e8e9d4d.png" src="../_images/92049b0d952eace34ea120b24469ad3a726c64b6c10d7e0998239fe53e8e9d4d.png" />
-</div>
 </div>
 <p>Al ejecutar el programa, la respuesta que devolvió fue 2, 5 y 7. Cuando traducimos de nuevo a las antenas problema que nos
 comenzó con, esto nos dice que queremos construir nuestras antenas en los lugares 2, 5 y 7. Hay que  en cuenta que esto es sólo una posible solución.</p>
@@ -770,14 +797,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,9 +807,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/35a256d1358d3482a9c277619c68310231b82ac2659f0d80b2e08ad46af91bfc.png" src="../_images/35a256d1358d3482a9c277619c68310231b82ac2659f0d80b2e08ad46af91bfc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -805,14 +821,11 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/a78b55396a9f8d29b730057fedcde694aff3ba22ed0e62128c50540c77b9ee29.png" src="../_images/a78b55396a9f8d29b730057fedcde694aff3ba22ed0e62128c50540c77b9ee29.png" />
-</div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="minimum-vertex-cover">
-<h1><span class="section-number">8. </span>Minimum Vertex Cover<a class="headerlink" href="#minimum-vertex-cover" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Minimum Vertex Cover<a class="headerlink" href="#minimum-vertex-cover" title="Permalink to this heading">#</a></h1>
 <p>En teoría de grafos, se denomina <em>Vertex Cover</em> (o cobertura de vértices) a un conjunto de vértices V tales que cada arista del grafo G es incidente al menos a un vértice del conjunto V.</p>
 <p>Al problema de encontrar la menor cobertura de vértices en un grafo se denomina <em>problema de la cobertura de vértices</em></p>
 <p>En el grafo que se puede ver en la siguiente imagen, los vértices de color rojo formarían este conjunto de vértices denominado vertex cover.</p>
@@ -831,9 +844,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">s5</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/21dc2a9525db62659c25609824919e95415d14cf9f6dfd98d1c8aa5d9c71ece8.png" src="../_images/21dc2a9525db62659c25609824919e95415d14cf9f6dfd98d1c8aa5d9c71ece8.png" />
 </div>
 </div>
 <p>En este sencillo ejemplo un vertex cover mínimo claramente estaría formado por el nodo marcado con etiqueta 0, pero veamos cómo podríamos detectar este nodo de forma fácil con las herramientas que nos proporciona ocean.</p>
@@ -854,11 +864,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Podemos cambiar el solver, para enviar a los ordenadores de Dwave la ejecución del problema</p>
 <div class="cell docutils container">
@@ -866,11 +871,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span><span class="p">,</span> <span class="n">EmbeddingComposite</span>
 <span class="n">sampler</span> <span class="o">=</span> <span class="n">EmbeddingComposite</span><span class="p">(</span><span class="n">DWaveSampler</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dnx</span><span class="o">.</span><span class="n">min_vertex_cover</span><span class="p">(</span><span class="n">s5</span><span class="p">,</span> <span class="n">sampler</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0]
 </pre></div>
 </div>
 </div>
@@ -883,9 +883,6 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/4f9b2445f51c8dafa602334a51b972e0a0a168f3efa3f4d824fb3dc36deea3b2.png" src="../_images/4f9b2445f51c8dafa602334a51b972e0a0a168f3efa3f4d824fb3dc36deea3b2.png" />
-</div>
 </div>
 <p>Resolvemos ahora el problema de encontrar la cobertura de vértices mínima</p>
 <div class="cell docutils container">
@@ -894,21 +891,11 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Observar que en este ejemplo, la solución al problema planteado no es única, pues por ejemplo, también se puede encontrar otra solución diferente, las cuales se pueden encontrar ejecutando varias veces el código anterior.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dnx</span><span class="o">.</span><span class="n">min_vertex_cover</span><span class="p">(</span><span class="n">w5</span><span class="p">,</span> <span class="n">sampler</span><span class="p">))</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4]
 </pre></div>
 </div>
 </div>
@@ -921,20 +908,12 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/375bbca4d3bebed3cfb6550a8ebe24afc96c2556d2db8cd53324353708811f21.png" src="../_images/375bbca4d3bebed3cfb6550a8ebe24afc96c2556d2db8cd53324353708811f21.png" />
-</div>
 </div>
 <p>Y una solución de mínimo vertex cover podría ser la siguiente</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampler</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dnx</span><span class="o">.</span><span class="n">min_vertex_cover</span><span class="p">(</span><span class="n">c5</span><span class="p">,</span> <span class="n">sampler</span><span class="p">))</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 4, 5, 7, 8]
 </pre></div>
 </div>
 </div>
@@ -978,7 +957,7 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -986,7 +965,7 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1008,16 +987,16 @@ comenzó con, esto nos dice que queremos construir nuestras antenas en los lugar
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7. Introducción a Ocean.</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exacsolver">7.1. Exacsolver.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-los-valores-de-un-qubo">7.2. Definiendo los valores de un Qubo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-annealing">7.3. Simulated Annealing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwavesampler">7.4. DWaveSampler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leaphybridsampler">7.5. LeapHybridSampler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-antenas">7.6. Problema de las antenas.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Introducción a Ocean.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exacsolver">4.1. Exacsolver.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiendo-los-valores-de-un-qubo">4.2. Definiendo los valores de un Qubo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-annealing">4.3. Simulated Annealing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwavesampler">4.4. DWaveSampler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leaphybridsampler">4.5. LeapHybridSampler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-las-antenas">4.6. Problema de las antenas.</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-vertex-cover">8. Minimum Vertex Cover</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-vertex-cover">5. Minimum Vertex Cover</a></li>
 </ul>
 
   </nav></div>

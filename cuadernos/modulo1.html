@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>6. Introducción. &#8212; D-Wave Ocean</title>
+    <title>3. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/modulo1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Introducción a Ocean." href="modulo2.html" />
-    <link rel="prev" title="5. Instalación de Ocean" href="Instalacion.html" />
+    <link rel="next" title="4. Introducción a Ocean." href="modulo2.html" />
+    <link rel="prev" title="2. Instalación de Ocean" href="Instalacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,11 +319,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-ising">6.1. El modelo ising.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-qubo">6.2. El modelo QUBO.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica-de-un-problema-qubo">6.3. Representación gráfica de un problema QUBO.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-formato-matricial">6.4. Representación en formato matricial.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-problemas-en-qubo">6.5. Planteamiento problemas en QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-ising">3.1. El modelo ising.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-qubo">3.2. El modelo QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica-de-un-problema-qubo">3.3. Representación gráfica de un problema QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-formato-matricial">3.4. Representación en formato matricial.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-problemas-en-qubo">3.5. Planteamiento problemas en QUBO.</a></li>
 </ul>
             </nav>
         </div>
@@ -338,12 +336,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<h1><span class="section-number">6. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>La expresión QUBO significa Quadratic Unconstrained Binary Optimization. Es decir, se trataría de un modelo cuadrático sin restricciones (aunque ya veremos después que se pueden añadir) utilizado para la optimización de variables binarias (es decir variables que sólo pueden tomar dos valores, que serán el cero o el uno; o bien el -1 y el 1).</p>
 <p>La tecnología que está detrás de todo esto, se basa en el comportamiento del electrón y el <em>spin</em>.El comportamiento magnético puede entenderse pensando en cada átomo como un  espín, que puede apuntar hacia arriba o hacia abajo.</p>
 <p>Los espines pueden querer alinearse contra o con un campo magnético, de tal manera que los giros vecinos se afectan mutuamente, pero no ocurre lo mismo con los más alejados.</p>
 <section id="el-modelo-ising">
-<h2><span class="section-number">6.1. </span>El modelo ising.<a class="headerlink" href="#el-modelo-ising" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>El modelo ising.<a class="headerlink" href="#el-modelo-ising" title="Permalink to this heading">#</a></h2>
 <p>Este modelo va tratar las variables como binarias pero que pueden tomar los valores -1 y +1. Entonces utilizando este modelo la función objetivo se va a definir de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -352,7 +350,7 @@ E=-\sum_{i}h_{i}S_{i}+\sum_{i,j}J_{ij}S_{i}S_{j}\qquad donde\:S_{i}\in\{-1,+1\}
 <p>La variable se representa en este modelo por S ya que es la inicial de <em>Spin</em>.Los valores de h’s y J’s son constantes para ajustar por el modelo, una h para cada Spin y una J para cada interacción de los pares de Spines.</p>
 </section>
 <section id="el-modelo-qubo">
-<h2><span class="section-number">6.2. </span>El modelo QUBO.<a class="headerlink" href="#el-modelo-qubo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>El modelo QUBO.<a class="headerlink" href="#el-modelo-qubo" title="Permalink to this heading">#</a></h2>
 <p>En este caso el modelo se describe de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -367,14 +365,14 @@ q_i=\frac{1+S_i}{2}
 <p>Uno de los conceptos claves de esta tecnología es el D-Wave Quantum Processing Unit (QPU) que es el que se encaraga realmente de resolver los modelos Ising o QUBO . A este elemento se envían la QMI (Quantum Machine Instructions) para su procesamiento y entonces la QPU se encarga de localizar los estados de mínima energía es decir los valores de las variables donde se alcanza el mínimo de la función objetivo.</p>
 </section>
 <section id="representacion-grafica-de-un-problema-qubo">
-<h2><span class="section-number">6.3. </span>Representación gráfica de un problema QUBO.<a class="headerlink" href="#representacion-grafica-de-un-problema-qubo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Representación gráfica de un problema QUBO.<a class="headerlink" href="#representacion-grafica-de-un-problema-qubo" title="Permalink to this heading">#</a></h2>
 <p>Los problemas de tipo QUBO se pueden representar mediante un esquema de tipo red. A continuación mostramos un ejemplo.</p>
 <p><img alt="" src="../_images/qubo.PNG" /></p>
 <p>En la figura anterior podemos ver que en las aristas aparecen los términos cuadráticos y en los vértices los términos lineales. En concreto, en esta figura podemos ver la forma cuadrática que representa en la parte inferior de la misma.</p>
 <p>Los términos constantes y los nombres de las variables son normalmente omitidos en este tipo de representación.</p>
 </section>
 <section id="representacion-en-formato-matricial">
-<h2><span class="section-number">6.4. </span>Representación en formato matricial.<a class="headerlink" href="#representacion-en-formato-matricial" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>Representación en formato matricial.<a class="headerlink" href="#representacion-en-formato-matricial" title="Permalink to this heading">#</a></h2>
 <p>Una forma más común de representación de los problemas de tipo QUBO es mediante una matriz, de tal manera que en la diagonal se ponen los elementos de los términos lineales y en la parte superior los coeficiente de los términos cuadráticos. Veamos el ejemplo anterior, cómo se dispondrá en forma matricial.</p>
 <p><img alt="" src="../_images/QUBOMatriz.PNG" /></p>
 <p>En el siguiente problema</p>
@@ -515,7 +513,7 @@ d=1
 <p>Como vemos las soluciones óptima son aquellas en que las dos variables valen igual, es decir las dos cero o las dos 1</p>
 </section>
 <section id="planteamiento-problemas-en-qubo">
-<h2><span class="section-number">6.5. </span>Planteamiento problemas en QUBO.<a class="headerlink" href="#planteamiento-problemas-en-qubo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Planteamiento problemas en QUBO.<a class="headerlink" href="#planteamiento-problemas-en-qubo" title="Permalink to this heading">#</a></h2>
 <p>En este apartado vamos a dar algunas ideas sobre cómo poder plantear los problemas en QUBO. Imaginemos que tenemos cuatro personas con una cierta relación de amistad o enemistad como se muestra en la siguiente figura.</p>
 <p><img alt="" src="../_images/AmigosEnemigos.PNG" /></p>
 <p>Entonces de lo que se trata es obtener la una función objetivo de tal manera que nos represente perfectamente esa situación. Por lo tanto se deberán utilizar para ello variables binarias, que sólo tomen valores 1 ó 0.</p>
@@ -605,7 +603,7 @@ Z &amp; Y &amp; az+by+czy+h\\
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Instalación de Ocean</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Instalación de Ocean</p>
       </div>
     </a>
     <a class="right-next"
@@ -613,7 +611,7 @@ Z &amp; Y &amp; az+by+czy+h\\
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Introducción a Ocean.</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Introducción a Ocean.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -635,11 +633,11 @@ Z &amp; Y &amp; az+by+czy+h\\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-ising">6.1. El modelo ising.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-qubo">6.2. El modelo QUBO.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica-de-un-problema-qubo">6.3. Representación gráfica de un problema QUBO.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-formato-matricial">6.4. Representación en formato matricial.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-problemas-en-qubo">6.5. Planteamiento problemas en QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-ising">3.1. El modelo ising.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modelo-qubo">3.2. El modelo QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica-de-un-problema-qubo">3.3. Representación gráfica de un problema QUBO.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-formato-matricial">3.4. Representación en formato matricial.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planteamiento-problemas-en-qubo">3.5. Planteamiento problemas en QUBO.</a></li>
 </ul>
   </nav></div>
 

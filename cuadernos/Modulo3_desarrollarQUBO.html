@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Introducción. &#8212; D-Wave Ocean</title>
+    <title>6. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Modulo3_desarrollarQUBO';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10. Introducción." href="modulo4_penalty_functions.html" />
-    <link rel="prev" title="7. Introducción a Ocean." href="modulo2.html" />
+    <link rel="next" title="7. Introducción." href="modulo4_penalty_functions.html" />
+    <link rel="prev" title="4. Introducción a Ocean." href="modulo2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,27 +154,25 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
 
-
-
-<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">5. Instalación de Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo1.html">6. Introducción a D-Wave Ocean</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo2.html">7. Introducción a Ocean.</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Desarrollo QUBO o Ising</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">10. Penalty functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">11. Constrained Quadratic Models (CQM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">12. Programación entera.</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">9. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">10. Programación entera.</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">14. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">12. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">15. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">13. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -321,10 +319,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">9.1. Multiplicación de polinomios.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">9.2. Problema inicial básico.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">9.3. Formulación problemas QUBO (o Ising).</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">9.4. Problema partición grafo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">6.1. Multiplicación de polinomios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">6.2. Problema inicial básico.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">6.3. Formulación problemas QUBO (o Ising).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">6.4. Problema partición grafo.</a></li>
 </ul>
             </nav>
         </div>
@@ -337,7 +335,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<h1><span class="section-number">9. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p id="index-0">Como ya se ha comentado en capítulos anteriores, los problemas de tipo QUBO, se basan en formular el problema a optimizar mediante expresiones matemáticas de la forma siguiente (<a href="https://en.wikipedia.org/wiki/Quadratic_unconstrained_binary_optimization" target="_blank"> ver en wikipedia </a>):</p>
 <div class="math notranslate nohighlight">
 \[E_{qubo}(a_{i},b_{ij};x_{i})=\sum_{i}a_{i}x_{i}+\sum_{i&lt;j}b_{ijj}x_{i}\cdot x_{j}\]</div>
@@ -345,7 +343,7 @@ document.write(`
 <p>En este capítulo vamos a aprender a formular problemas de este tipo y adaptarlos a los requerimientos exigidos por los ordenadores de D-Wave, para que se puedan resolver mediante programación cuántica, si bien es de advertir que cuando el problema planteado no tenga una entidad considerable se procederá a resolverlo desde el ordenador personal con la finalidad de no agotar los escasos recursos gratuitos que ofrece D-Wave. Para problemas de mayor entidad, lógicamente se pueden utilizar los solvers que ofrece esa compañía para lanzarlos en ordenadores cuánticos reales.</p>
 <p>Antes de seguir adelante, y dado que en este tipo de trabajos suele ser bastante habitual multiplicar polinomios, vamos a refrescar estos conceptos a fin de que el lector se familiarice con ellos (lógicamente el lector que ya tenga esos conocimientos puede saltar este apartado)</p>
 <section id="multiplicacion-de-polinomios">
-<span id="multiplicacion-polinomios"></span><h2><span class="section-number">9.1. </span>Multiplicación de polinomios.<a class="headerlink" href="#multiplicacion-de-polinomios" title="Permalink to this heading">#</a></h2>
+<span id="multiplicacion-polinomios"></span><h2><span class="section-number">6.1. </span>Multiplicación de polinomios.<a class="headerlink" href="#multiplicacion-de-polinomios" title="Permalink to this heading">#</a></h2>
 <p id="index-1">Para comenzar este apartado, se remite al lector a que <a href="https://www.youtube.com/watch?v=jpD_BugTR6I" target="_blank"> visualice este vídeo </a>.</p>
 <p>De todas y a modo de ejemplo a continuación se muestra un desarrollo matemático, en el que se puede ver la metodología existente para realizar esta tarea.</p>
 <p><img alt="Multiplicación polinomios" src="../_images/polinomios_multiplicacion.PNG" /></p>
@@ -356,7 +354,7 @@ document.write(`
 \[=\sum_{i}x_{i}^{2}+2\cdot\left(\sum_{i=0}^{n}\sum_{j&gt;i}^{n}x_{i}x_{j}\right)-2c\left(\sum_{i=0}^{n}x_{i}\right)+c^{2}\]</div>
 </section>
 <section id="problema-inicial-basico">
-<h2><span class="section-number">9.2. </span>Problema inicial básico.<a class="headerlink" href="#problema-inicial-basico" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Problema inicial básico.<a class="headerlink" href="#problema-inicial-basico" title="Permalink to this heading">#</a></h2>
 <p>Para ir entrando en materia, vamos a comenzar con un problema básico consistente en lo siguiente. Supongamos que queremos asignar un color (y sólo uno) a cada una de las regiones de un mapa.</p>
 <p>A este tipo de problemas se le suele designar como “exactamente uno” o también “one-hot”, y para su resolución vamos a crear tres variables binarias (iniciales de cada color a utilizar) que las denominaremos: r,g,b (iniciales de red, green y blue en inglés).</p>
 <p>En este caso el problema consiste en cómo escribir una función que se minimice cuando exactamente una de estas variables es igual a 1. En este caso estaremos también cuando por ejemplo se quiera poner una restricción en la forma siguiente:</p>
@@ -394,27 +392,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">),</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">980</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-
-<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\networkx\drawing\nx_pylab.py:105,</span> in <span class="ni">draw</span><span class="nt">(G, pos, ax, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Draw the graph G with Matplotlib.</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd">     Draw the graph as a simple representation with no node</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span><span class="sd">     https://networkx.org/documentation/latest/auto_examples/index.html</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">cf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
+<img alt="../_images/1d54c25b3808c63d410bb4ce680f7c570a354b4ac0ea60d0e89af4ef87964177.png" src="../_images/1d54c25b3808c63d410bb4ce680f7c570a354b4ac0ea60d0e89af4ef87964177.png" />
 </div>
 </div>
 <p>A continuación procedemos a utilizar el solver ExatSolver para encontrar los valores que minimizan la expresión anterior y comprobar que realmente las soluciones óptimas (que tienen menor energía), son las que sólo tienen un valor 1 en sólo una de las tres variables con las que trabajamos.</p>
@@ -489,7 +467,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/acbeeacee42f660c15bb5da8ac140831eb652f9b1dc859995045c157ee0c4c7d.png" src="../_images/acbeeacee42f660c15bb5da8ac140831eb652f9b1dc859995045c157ee0c4c7d.png" />
+<img alt="../_images/05eb735fa164660e4359c4e95d020451ddd38d80472bb4ad04c88ffc01073399.png" src="../_images/05eb735fa164660e4359c4e95d020451ddd38d80472bb4ad04c88ffc01073399.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -516,7 +494,7 @@ document.write(`
 </div>
 </section>
 <section id="formulacion-problemas-qubo-o-ising">
-<h2><span class="section-number">9.3. </span>Formulación problemas QUBO (o Ising).<a class="headerlink" href="#formulacion-problemas-qubo-o-ising" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Formulación problemas QUBO (o Ising).<a class="headerlink" href="#formulacion-problemas-qubo-o-ising" title="Permalink to this heading">#</a></h2>
 <p id="index-2">En este tipo de problemas, normalmente se formulan vía una función objetivo, que siempre es para minimizar (por lo tanto si lo que se quiere es maximizar, lo que se hace es cambiar el signo de la función objetivo) y una serie de restricciones o condiciones que deben verificar las variables de problema planteado. Por lo tanto la fórmula genérica en este tipo de problemas es la siguiente:</p>
 <center><br>
 Ising ó QUBO = min(objetivo+$\gamma \cdot$(restricciones))
@@ -688,7 +666,7 @@ El valor de $gamma$ es el denominado *parámetro de lagrange*.
 <p>Notar que este problema sería mucho más fácil resolverlo si lo construimos y resolvemos con modelo CQM (sontrained quadratic model) que se verá en un <a class="reference internal" href="modulo10_CQM.html#cqm"><span class="std std-ref">capítulo posterior</span></a>.</p>
 </section>
 <section id="problema-particion-grafo">
-<h2><span class="section-number">9.4. </span>Problema partición grafo.<a class="headerlink" href="#problema-particion-grafo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Problema partición grafo.<a class="headerlink" href="#problema-particion-grafo" title="Permalink to this heading">#</a></h2>
 <p>En este apartado vamos a resolver otro problema mediante la programación QUBO. Este problema va a consistir en los siguiente: Dado un grafo G, debemos dividir este grafo en dos conjuntos de tal manera que los dos grupos tengan el mismo numero de vértices, y que los arcos (edges) entre los dos conjuntos sean lo menos posibles.</p>
 <p><img alt="ejemplo partición" src="../_images/grafo1.PNG" /></p>
 <p>En este ejemplo la <em>función objetivo</em> será construida bajo la idea de que el número de arcos entre los dos conjuntos sea el menor posible, y la restricción será que el número de vértices en cada uno de los dos conjuntos sea el mismo.</p>
@@ -805,7 +783,7 @@ El valor de $gamma$ es el denominado *parámetro de lagrange*.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Introducción a Ocean.</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Introducción a Ocean.</p>
       </div>
     </a>
     <a class="right-next"
@@ -813,7 +791,7 @@ El valor de $gamma$ es el denominado *parámetro de lagrange*.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -835,10 +813,10 @@ El valor de $gamma$ es el denominado *parámetro de lagrange*.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">9.1. Multiplicación de polinomios.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">9.2. Problema inicial básico.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">9.3. Formulación problemas QUBO (o Ising).</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">9.4. Problema partición grafo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicacion-de-polinomios">6.1. Multiplicación de polinomios.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-inicial-basico">6.2. Problema inicial básico.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulacion-problemas-qubo-o-ising">6.3. Formulación problemas QUBO (o Ising).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-particion-grafo">6.4. Problema partición grafo.</a></li>
 </ul>
   </nav></div>
 

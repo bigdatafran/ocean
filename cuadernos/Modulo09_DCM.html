@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Introducción al modelo Discrete Quadratic Model &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Modulo09_DCM';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Introducción." href="modulo10_CQM.html" />
+    <link rel="prev" title="8. Introducción." href="modulo7_RestriccionesOcean.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">13. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">14. Inmunización-Estrategia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Indice_ejercicios.html">15. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">16. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">17. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/cuadernos/Modulo09_DCM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción al modelo Discrete Quadratic Model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-map-coloring">9.1. Ejemplo 1. Map Coloring.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-al-modelo-discrete-quadratic-model">
+<span id="dqm"></span><h1><span class="section-number">9. </span>Introducción al modelo Discrete Quadratic Model<a class="headerlink" href="#introduccion-al-modelo-discrete-quadratic-model" title="Permalink to this heading">#</a></h1>
+<p id="index-0">En módulos anteriores hemos estado desarrollando modelos donde la variables <span class="math notranslate nohighlight">\( x_i \)</span> erán dicotómicas, y en concreto para los problemas tipo QUBO podían tener valores 0 ó 1. En este apartado vamos a ampliar ese modelo a variables que puedan tomar valores discretos. La formulación matemática de estos modelos, se representa mediante la siguiente ecuación genérica:</p>
+<div class="math notranslate nohighlight">
+\[ H(d)=\sum_{i}a_{i}(d_{i})+\sum_{i,j}b_{i,j}(d_{i},d_{j})+c \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(d_i\)</span> son las variables discretas, tanto <span class="math notranslate nohighlight">\(a_i()\)</span> como <span class="math notranslate nohighlight">\(b_{i,j}()\)</span> son funciones de valores  reales y c es una constante, también denominada <em>offset</em>.</p>
+<p>Entonces este tipo de problemas los podemos trasladar a problemas de tipo QUBO transformado las variables <span class="math notranslate nohighlight">\(d_i\)</span> a otras variables de tipo binario que sólo toman valores 0 ó 1 mediante el método denominado <a href="https://en.wikipedia.org/wiki/One-hot" target="_blank"> one-hot encoding </a>. Este método consiste en los siguiente: supongamos que tenemos un modelo DQM con N variables discretas, <span class="math notranslate nohighlight">\(d_i\)</span>, y cada una de esta variables discretas puede tener <span class="math notranslate nohighlight">\(n_i\)</span> valores diferentes, entonces definimos la variable binaria (con valores 0 ó 1) <span class="math notranslate nohighlight">\(x_{i,u}\)</span> con valor 1 cuando para uno de los valores de <span class="math notranslate nohighlight">\(d_i\)</span> y cero en el resto de los casos, y además y por construcción se debe cumplir que</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{u=0}^{n_{i}-1}x_{i,u}=1\:\forall i=1,2,...N \]</div>
+<p>En estos casos la función objetivo se podría expresar de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[ E(X)=\sum_{i=1}^{n}\sum_{u=1}^{n_{i}}a_{i,u}x_{i,u}+\sum_{i=1}^{N}\sum_{j=i+1}^{N}\sum_{u=1}^{n_{i}}\sum_{j=1}^{n_{j}}b_{i,j,u,v}x_{i,u}x_{j,v}+c \]</div>
+<p>Esta última expresión es la que se emplea en las herramientas de Ocean para resolver este tipo de problemas. Para entender mejor este concepto, vamos a ver un ejemplo concreto. Supongamos que tenemos tres contenedores y 10 objetos que queremos introducir en esos contenedores. En este caso la variable <span class="math notranslate nohighlight">\(d_i\)</span> valdría 1,2,3 indicando al contenedor que elegimos para el objeto i. Ahora definimos la variable dicotómica que puede tomar valores 0 ó 1 siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_{i,j}=\begin{cases}
+1 &amp; Si\ objeto\ j\ est\acute{a}\ en\ contendor\ i\\
+0 &amp; en\ caso\ contrario
+\end{cases} \end{split}\]</div>
+<p>Entonces en este caso, como cada objeto j debe estar en un solo contendor, se debe cumplir que <span class="math notranslate nohighlight">\(\sum_{i=1}^{3}x_{ij}=1\ \forall j=1,2,..,10\)</span>,$</p>
+<p>De esta manera si por ejemplo el producto 5 se decide que está en el contenedor 1, se tiene que <span class="math notranslate nohighlight">\(x_{1,5}=1\)</span> y <span class="math notranslate nohighlight">\(x_{i,5}=0\)</span> para i=2,3</p>
+<p>Para un correcto uso de estas herramientas, se aconseja al lector mirar los siguientes enlaces:</p>
+<ul class="simple">
+<li><p>Documentación de la clase <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#dimod.DiscreteQuadraticModel" target="_blank"> dimod.DiscreteQuadraticModel </a></p></li>
+<li><p>Documentación de la clase <a href="https://docs.ocean.dwavesys.com/en/stable/docs_system/reference/samplers.html#dwave.system.samplers.LeapHybridDQMSampler" target="_blank"> LeapHybridDQMSampler </a>.</p></li>
+</ul>
+<p>A continuación se procede a mostrar una serie de ejemplos que ayudan a comprender cómo utilizar esta clase.</p>
+<section id="ejemplo-1-map-coloring">
+<span id="mapcoloring"></span><h2><span class="section-number">9.1. </span>Ejemplo 1. Map Coloring.<a class="headerlink" href="#ejemplo-1-map-coloring" title="Permalink to this heading">#</a></h2>
+<p id="index-1">Este es uno de los ejemplos típicos de utilización de Ocean. Se trata de los siguiente: Dado un mapa (en este caso el de Estados Unidos), y cuatro colores, se pretende utilizar estos cuatro colores para colorear todos los Estados, pero de tal manera que dos Estados adyacentes no pueden tener el mismo color.</p>
+<p>Para poder resolver este problema, una de las cosas que debemos tener es información de para cada Estado, los que son adyacentes al mismo. Esta información <a href="https://writeonly.wordpress.com/2009/03/20/adjacency-list-of-states-of-the-united-states-us/" target="_blank"> la obtenemos de este enlace </a>. Cogiendo los datos que alli se pueden ver, se ha construido el fichero denominado <em>usa.adj</em> el cual nos va a servir para contruir la red base para reolver el problema.</p>
+<p>A continuación se muestra un ejemplo del contenido de este fichero:</p>
+<div class="admonition-ejemplo-del-contenido-del-fichero-usa-adj admonition">
+<p class="admonition-title">Ejemplo del contenido del fichero usa.adj</p>
+<p class="rubric">Author Gregg Lind</p>
+<p class="rubric">License:  Public Domain.    I would love to hear about any projects you use if it for though!</p>
+<p>AK,HI
+AL,MS,TN,GA,FL
+AR,MO,TN,MS,LA,TX,OK
+AZ,CA,NV,UT,CO,NM
+CA,OR,NV,AZ
+CO,WY,NE,KS,OK,NM,AZ,UT
+CT,NY,MA,RI
+DC,MD,VA
+DE,MD,PA,NJ
+FL,AL,GA
+GA,FL,AL,TN,NC
+,SC
+HI,AKt</p>
+</div>
+<p>Así pues con la información anterior, procedemos a leer el fichero y construir los nodos y los arcos de la red con la que vamos a trabajar para resolver el problema planteado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="c1"># Leemos el ficheros</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_adjlist</span><span class="p">(</span><span class="s1">&#39;datos/usa.adj&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos los nodos de la red</span>
+<span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NodeView((&#39;&#39;, &#39;AK&#39;, &#39;HI&#39;, &#39;AL&#39;, &#39;MS&#39;, &#39;TN&#39;, &#39;GA&#39;, &#39;FL&#39;, &#39;AR&#39;, &#39;MO&#39;, &#39;LA&#39;, &#39;TX&#39;, &#39;OK&#39;, &#39;AZ&#39;, &#39;CA&#39;, &#39;NV&#39;, &#39;UT&#39;, &#39;CO&#39;, &#39;NM&#39;, &#39;OR&#39;, &#39;WY&#39;, &#39;NE&#39;, &#39;KS&#39;, &#39;CT&#39;, &#39;NY&#39;, &#39;MA&#39;, &#39;RI&#39;, &#39;DC&#39;, &#39;MD&#39;, &#39;VA&#39;, &#39;DE&#39;, &#39;PA&#39;, &#39;NJ&#39;, &#39;NC&#39;, &#39;SC&#39;, &#39;IA&#39;, &#39;MN&#39;, &#39;WI&#39;, &#39;IL&#39;, &#39;SD&#39;, &#39;ID&#39;, &#39;MT&#39;, &#39;WA&#39;, &#39;IN&#39;, &#39;KY&#39;, &#39;MI&#39;, &#39;OH&#39;, &#39;WV&#39;, &#39;NH&#39;, &#39;VT&#39;, &#39;ME&#39;, &#39;ND&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Sacamos los arcos de la red</span>
+<span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EdgeView([(&#39;AK&#39;, &#39;HI&#39;), (&#39;AL&#39;, &#39;MS&#39;), (&#39;AL&#39;, &#39;TN&#39;), (&#39;AL&#39;, &#39;GA&#39;), (&#39;AL&#39;, &#39;FL&#39;), (&#39;MS&#39;, &#39;AR&#39;), (&#39;MS&#39;, &#39;LA&#39;), (&#39;MS&#39;, &#39;TN&#39;), (&#39;TN&#39;, &#39;AR&#39;), (&#39;TN&#39;, &#39;GA&#39;), (&#39;TN&#39;, &#39;KY&#39;), (&#39;TN&#39;, &#39;MO&#39;), (&#39;TN&#39;, &#39;NC&#39;), (&#39;TN&#39;, &#39;VA&#39;), (&#39;GA&#39;, &#39;FL&#39;), (&#39;GA&#39;, &#39;NC&#39;), (&#39;GA&#39;, &#39;SC&#39;), (&#39;AR&#39;, &#39;MO&#39;), (&#39;AR&#39;, &#39;LA&#39;), (&#39;AR&#39;, &#39;TX&#39;), (&#39;AR&#39;, &#39;OK&#39;), (&#39;MO&#39;, &#39;IA&#39;), (&#39;MO&#39;, &#39;IL&#39;), (&#39;MO&#39;, &#39;KS&#39;), (&#39;MO&#39;, &#39;KY&#39;), (&#39;MO&#39;, &#39;OK&#39;), (&#39;MO&#39;, &#39;NE&#39;), (&#39;LA&#39;, &#39;TX&#39;), (&#39;TX&#39;, &#39;NM&#39;), (&#39;TX&#39;, &#39;OK&#39;), (&#39;OK&#39;, &#39;CO&#39;), (&#39;OK&#39;, &#39;KS&#39;), (&#39;OK&#39;, &#39;NM&#39;), (&#39;AZ&#39;, &#39;CA&#39;), (&#39;AZ&#39;, &#39;NV&#39;), (&#39;AZ&#39;, &#39;UT&#39;), (&#39;AZ&#39;, &#39;CO&#39;), (&#39;AZ&#39;, &#39;NM&#39;), (&#39;CA&#39;, &#39;OR&#39;), (&#39;CA&#39;, &#39;NV&#39;), (&#39;NV&#39;, &#39;ID&#39;), (&#39;NV&#39;, &#39;UT&#39;), (&#39;NV&#39;, &#39;OR&#39;), (&#39;UT&#39;, &#39;CO&#39;), (&#39;UT&#39;, &#39;ID&#39;), (&#39;UT&#39;, &#39;NM&#39;), (&#39;UT&#39;, &#39;WY&#39;), (&#39;CO&#39;, &#39;WY&#39;), (&#39;CO&#39;, &#39;NE&#39;), (&#39;CO&#39;, &#39;KS&#39;), (&#39;CO&#39;, &#39;NM&#39;), (&#39;OR&#39;, &#39;ID&#39;), (&#39;OR&#39;, &#39;WA&#39;), (&#39;WY&#39;, &#39;ID&#39;), (&#39;WY&#39;, &#39;MT&#39;), (&#39;WY&#39;, &#39;NE&#39;), (&#39;WY&#39;, &#39;SD&#39;), (&#39;NE&#39;, &#39;IA&#39;), (&#39;NE&#39;, &#39;KS&#39;), (&#39;NE&#39;, &#39;SD&#39;), (&#39;CT&#39;, &#39;NY&#39;), (&#39;CT&#39;, &#39;MA&#39;), (&#39;CT&#39;, &#39;RI&#39;), (&#39;NY&#39;, &#39;MA&#39;), (&#39;NY&#39;, &#39;NJ&#39;), (&#39;NY&#39;, &#39;PA&#39;), (&#39;NY&#39;, &#39;VT&#39;), (&#39;MA&#39;, &#39;RI&#39;), (&#39;MA&#39;, &#39;NH&#39;), (&#39;MA&#39;, &#39;VT&#39;), (&#39;DC&#39;, &#39;MD&#39;), (&#39;DC&#39;, &#39;VA&#39;), (&#39;MD&#39;, &#39;DE&#39;), (&#39;MD&#39;, &#39;VA&#39;), (&#39;MD&#39;, &#39;WV&#39;), (&#39;MD&#39;, &#39;PA&#39;), (&#39;VA&#39;, &#39;KY&#39;), (&#39;VA&#39;, &#39;NC&#39;), (&#39;VA&#39;, &#39;WV&#39;), (&#39;DE&#39;, &#39;PA&#39;), (&#39;DE&#39;, &#39;NJ&#39;), (&#39;PA&#39;, &#39;NJ&#39;), (&#39;PA&#39;, &#39;OH&#39;), (&#39;PA&#39;, &#39;WV&#39;), (&#39;NC&#39;, &#39;SC&#39;), (&#39;IA&#39;, &#39;MN&#39;), (&#39;IA&#39;, &#39;WI&#39;), (&#39;IA&#39;, &#39;IL&#39;), (&#39;IA&#39;, &#39;SD&#39;), (&#39;MN&#39;, &#39;WI&#39;), (&#39;MN&#39;, &#39;SD&#39;), (&#39;MN&#39;, &#39;ND&#39;), (&#39;WI&#39;, &#39;IL&#39;), (&#39;WI&#39;, &#39;MI&#39;), (&#39;IL&#39;, &#39;IN&#39;), (&#39;IL&#39;, &#39;KY&#39;), (&#39;SD&#39;, &#39;MT&#39;), (&#39;SD&#39;, &#39;ND&#39;), (&#39;ID&#39;, &#39;MT&#39;), (&#39;ID&#39;, &#39;WA&#39;), (&#39;MT&#39;, &#39;ND&#39;), (&#39;IN&#39;, &#39;MI&#39;), (&#39;IN&#39;, &#39;OH&#39;), (&#39;IN&#39;, &#39;KY&#39;), (&#39;KY&#39;, &#39;OH&#39;), (&#39;KY&#39;, &#39;WV&#39;), (&#39;MI&#39;, &#39;OH&#39;), (&#39;OH&#39;, &#39;WV&#39;), (&#39;NH&#39;, &#39;ME&#39;), (&#39;NH&#39;, &#39;VT&#39;)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para tener un trabajo más cómodo y más descriptivo, procedemos a denominar a los nodos por <em>states</em> y a los arcos por <em>borders</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span>        
+<span class="n">borders</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span>       
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya tenemos todos los ingredientes para construir el modelo que resuelva el problema planteado. Los pasos son los que damos en el código que sigue y para una mejor comprensión del mismo a continuación detallamos los pasos que se dan:</p>
+<p>1.- Se definen los cuatro colores con los que se va a colorear el mapa. Estos colores son genéricos y los identificamos con los números: 0,1,2,3.</p>
+<p>2.- Se procede a crear una instancia de * DiscreteQuadraticModel()*</p>
+<ol class="arabic simple" start="3">
+<li><p>Dado que cualquier Estado del mapa  se puede colorear con uno de los cuatro colores, se representa cada estado con una variable discreta que puede tener cuatro casos (las variables binarias pueden tener dos valores; las variables discretas pueden tener algún número arbitrario de casos).</p></li>
+<li><p>Para cada par de Estados que comparten frontera, establezca un sesgo cuadrático (denominado bias) de 1
+entre los casos idénticos de las variables  de 0
+entre todos los casos diferentes (por defecto, el sesgo cuadrático es cero). Este modelo de penalización añade un valor d1<br />
+a las soluciones del DQM para cada par de estados vecinos con el mismo co (es decir estamos penalizando los estados que tienen alguna fronmtera en común)lor. Las soluciones óptimas son las que tienen el menor número de estados vecinoslator</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dimod</span>
+<span class="c1"># Incorporamos los colores que se van a utilizar : 1</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># Obtenemos el objeto DiscreteQuadraticModel(): 2</span>
+<span class="n">dqm</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">DiscreteQuadraticModel</span><span class="p">()</span>
+<span class="c1"># Cada estado se representa con una variable discreta que puede tomar cuatro valores y como etiqueta tiene el nombre del estado correspondiente : 3</span>
+<span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>            
+   <span class="n">dqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+
+<span class="c1"># Damos una penalización de 1 para cada par de Estados que tienen alguna frontera en común (estos Estados se localizan </span>
+<span class="c1"># por estar en la variables borders ): 4</span>
+<span class="k">for</span> <span class="n">state0</span><span class="p">,</span> <span class="n">state1</span> <span class="ow">in</span> <span class="n">borders</span><span class="p">:</span>          
+   <span class="n">dqm</span><span class="o">.</span><span class="n">set_quadratic</span><span class="p">(</span><span class="n">state0</span><span class="p">,</span> <span class="n">state1</span><span class="p">,</span> <span class="p">{(</span><span class="n">color</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obtengamos a continuación alguna información del objeto creado. Veremos sólo algunos casos, para ampliar esta información, el lector puede consultar los métodos y propiedades de esta clase en la documetación oficial y obtener más información.</p>
+<p>Comenzamos viendo la estructura de adyacencia de las variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dqm</span><span class="o">.</span><span class="n">adj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;&#39;: {}, &#39;AK&#39;: {&#39;H&#39;: &#39;I&#39;}, &#39;HI&#39;: {&#39;A&#39;: &#39;K&#39;}, &#39;AL&#39;: {&#39;M&#39;: &#39;S&#39;, &#39;T&#39;: &#39;N&#39;, &#39;G&#39;: &#39;A&#39;, &#39;F&#39;: &#39;L&#39;}, &#39;MS&#39;: {&#39;A&#39;: &#39;R&#39;, &#39;T&#39;: &#39;N&#39;, &#39;L&#39;: &#39;A&#39;}, &#39;TN&#39;: {&#39;A&#39;: &#39;R&#39;, &#39;M&#39;: &#39;O&#39;, &#39;G&#39;: &#39;A&#39;, &#39;V&#39;: &#39;A&#39;, &#39;N&#39;: &#39;C&#39;, &#39;K&#39;: &#39;Y&#39;}, &#39;GA&#39;: {&#39;A&#39;: &#39;L&#39;, &#39;T&#39;: &#39;N&#39;, &#39;F&#39;: &#39;L&#39;, &#39;N&#39;: &#39;C&#39;, &#39;S&#39;: &#39;C&#39;}, &#39;FL&#39;: {&#39;A&#39;: &#39;L&#39;, &#39;G&#39;: &#39;A&#39;}, &#39;AR&#39;: {&#39;M&#39;: &#39;O&#39;, &#39;T&#39;: &#39;X&#39;, &#39;L&#39;: &#39;A&#39;, &#39;O&#39;: &#39;K&#39;}, &#39;MO&#39;: {&#39;T&#39;: &#39;N&#39;, &#39;A&#39;: &#39;R&#39;, &#39;O&#39;: &#39;K&#39;, &#39;N&#39;: &#39;E&#39;, &#39;K&#39;: &#39;Y&#39;, &#39;I&#39;: &#39;L&#39;}, &#39;LA&#39;: {&#39;M&#39;: &#39;S&#39;, &#39;A&#39;: &#39;R&#39;, &#39;T&#39;: &#39;X&#39;}, &#39;TX&#39;: {&#39;A&#39;: &#39;R&#39;, &#39;L&#39;: &#39;A&#39;, &#39;O&#39;: &#39;K&#39;, &#39;N&#39;: &#39;M&#39;}, &#39;OK&#39;: {&#39;A&#39;: &#39;R&#39;, &#39;M&#39;: &#39;O&#39;, &#39;T&#39;: &#39;X&#39;, &#39;C&#39;: &#39;O&#39;, &#39;N&#39;: &#39;M&#39;, &#39;K&#39;: &#39;S&#39;}, &#39;AZ&#39;: {&#39;C&#39;: &#39;O&#39;, &#39;N&#39;: &#39;M&#39;, &#39;U&#39;: &#39;T&#39;}, &#39;CA&#39;: {&#39;A&#39;: &#39;Z&#39;, &#39;N&#39;: &#39;V&#39;, &#39;O&#39;: &#39;R&#39;}, &#39;NV&#39;: {&#39;A&#39;: &#39;Z&#39;, &#39;C&#39;: &#39;A&#39;, &#39;U&#39;: &#39;T&#39;, &#39;O&#39;: &#39;R&#39;, &#39;I&#39;: &#39;D&#39;}, &#39;UT&#39;: {&#39;A&#39;: &#39;Z&#39;, &#39;N&#39;: &#39;M&#39;, &#39;C&#39;: &#39;O&#39;, &#39;W&#39;: &#39;Y&#39;, &#39;I&#39;: &#39;D&#39;}, &#39;CO&#39;: {&#39;O&#39;: &#39;K&#39;, &#39;A&#39;: &#39;Z&#39;, &#39;U&#39;: &#39;T&#39;, &#39;N&#39;: &#39;E&#39;, &#39;W&#39;: &#39;Y&#39;, &#39;K&#39;: &#39;S&#39;}, &#39;NM&#39;: {&#39;T&#39;: &#39;X&#39;, &#39;O&#39;: &#39;K&#39;, &#39;A&#39;: &#39;Z&#39;, &#39;U&#39;: &#39;T&#39;, &#39;C&#39;: &#39;O&#39;}, &#39;OR&#39;: {&#39;C&#39;: &#39;A&#39;, &#39;N&#39;: &#39;V&#39;, &#39;I&#39;: &#39;D&#39;, &#39;W&#39;: &#39;A&#39;}, &#39;WY&#39;: {&#39;U&#39;: &#39;T&#39;, &#39;C&#39;: &#39;O&#39;, &#39;N&#39;: &#39;E&#39;, &#39;S&#39;: &#39;D&#39;, &#39;I&#39;: &#39;D&#39;, &#39;M&#39;: &#39;T&#39;}, &#39;NE&#39;: {&#39;M&#39;: &#39;O&#39;, &#39;C&#39;: &#39;O&#39;, &#39;W&#39;: &#39;Y&#39;, &#39;K&#39;: &#39;S&#39;, &#39;I&#39;: &#39;A&#39;, &#39;S&#39;: &#39;D&#39;}, &#39;KS&#39;: {&#39;M&#39;: &#39;O&#39;, &#39;O&#39;: &#39;K&#39;, &#39;C&#39;: &#39;O&#39;, &#39;N&#39;: &#39;E&#39;}, &#39;CT&#39;: {&#39;N&#39;: &#39;Y&#39;, &#39;M&#39;: &#39;A&#39;, &#39;R&#39;: &#39;I&#39;}, &#39;NY&#39;: {&#39;C&#39;: &#39;T&#39;, &#39;M&#39;: &#39;A&#39;, &#39;P&#39;: &#39;A&#39;, &#39;N&#39;: &#39;J&#39;, &#39;V&#39;: &#39;T&#39;}, &#39;MA&#39;: {&#39;C&#39;: &#39;T&#39;, &#39;N&#39;: &#39;H&#39;, &#39;R&#39;: &#39;I&#39;, &#39;V&#39;: &#39;T&#39;}, &#39;RI&#39;: {&#39;C&#39;: &#39;T&#39;, &#39;M&#39;: &#39;A&#39;}, &#39;DC&#39;: {&#39;M&#39;: &#39;D&#39;, &#39;V&#39;: &#39;A&#39;}, &#39;MD&#39;: {&#39;D&#39;: &#39;E&#39;, &#39;V&#39;: &#39;A&#39;, &#39;P&#39;: &#39;A&#39;, &#39;W&#39;: &#39;V&#39;}, &#39;VA&#39;: {&#39;T&#39;: &#39;N&#39;, &#39;D&#39;: &#39;C&#39;, &#39;M&#39;: &#39;D&#39;, &#39;N&#39;: &#39;C&#39;, &#39;K&#39;: &#39;Y&#39;, &#39;W&#39;: &#39;V&#39;}, &#39;DE&#39;: {&#39;M&#39;: &#39;D&#39;, &#39;P&#39;: &#39;A&#39;, &#39;N&#39;: &#39;J&#39;}, &#39;PA&#39;: {&#39;N&#39;: &#39;J&#39;, &#39;M&#39;: &#39;D&#39;, &#39;D&#39;: &#39;E&#39;, &#39;O&#39;: &#39;H&#39;, &#39;W&#39;: &#39;V&#39;}, &#39;NJ&#39;: {&#39;N&#39;: &#39;Y&#39;, &#39;D&#39;: &#39;E&#39;, &#39;P&#39;: &#39;A&#39;}, &#39;NC&#39;: {&#39;T&#39;: &#39;N&#39;, &#39;G&#39;: &#39;A&#39;, &#39;V&#39;: &#39;A&#39;, &#39;S&#39;: &#39;C&#39;}, &#39;SC&#39;: {&#39;G&#39;: &#39;A&#39;, &#39;N&#39;: &#39;C&#39;}, &#39;IA&#39;: {&#39;M&#39;: &#39;N&#39;, &#39;N&#39;: &#39;E&#39;, &#39;W&#39;: &#39;I&#39;, &#39;I&#39;: &#39;L&#39;, &#39;S&#39;: &#39;D&#39;}, &#39;MN&#39;: {&#39;I&#39;: &#39;A&#39;, &#39;W&#39;: &#39;I&#39;, &#39;S&#39;: &#39;D&#39;, &#39;N&#39;: &#39;D&#39;}, &#39;WI&#39;: {&#39;I&#39;: &#39;L&#39;, &#39;M&#39;: &#39;I&#39;}, &#39;IL&#39;: {&#39;M&#39;: &#39;O&#39;, &#39;I&#39;: &#39;N&#39;, &#39;W&#39;: &#39;I&#39;, &#39;K&#39;: &#39;Y&#39;}, &#39;SD&#39;: {&#39;W&#39;: &#39;Y&#39;, &#39;N&#39;: &#39;D&#39;, &#39;I&#39;: &#39;A&#39;, &#39;M&#39;: &#39;T&#39;}, &#39;ID&#39;: {&#39;N&#39;: &#39;V&#39;, &#39;U&#39;: &#39;T&#39;, &#39;O&#39;: &#39;R&#39;, &#39;W&#39;: &#39;A&#39;, &#39;M&#39;: &#39;T&#39;}, &#39;MT&#39;: {&#39;W&#39;: &#39;Y&#39;, &#39;S&#39;: &#39;D&#39;, &#39;I&#39;: &#39;D&#39;, &#39;N&#39;: &#39;D&#39;}, &#39;WA&#39;: {&#39;O&#39;: &#39;R&#39;, &#39;I&#39;: &#39;D&#39;}, &#39;IN&#39;: {&#39;I&#39;: &#39;L&#39;, &#39;K&#39;: &#39;Y&#39;, &#39;M&#39;: &#39;I&#39;, &#39;O&#39;: &#39;H&#39;}, &#39;KY&#39;: {&#39;T&#39;: &#39;N&#39;, &#39;M&#39;: &#39;O&#39;, &#39;V&#39;: &#39;A&#39;, &#39;I&#39;: &#39;N&#39;, &#39;O&#39;: &#39;H&#39;, &#39;W&#39;: &#39;V&#39;}, &#39;MI&#39;: {&#39;W&#39;: &#39;I&#39;, &#39;I&#39;: &#39;N&#39;, &#39;O&#39;: &#39;H&#39;}, &#39;OH&#39;: {&#39;P&#39;: &#39;A&#39;, &#39;I&#39;: &#39;N&#39;, &#39;K&#39;: &#39;Y&#39;, &#39;M&#39;: &#39;I&#39;, &#39;W&#39;: &#39;V&#39;}, &#39;WV&#39;: {&#39;M&#39;: &#39;D&#39;, &#39;V&#39;: &#39;A&#39;, &#39;P&#39;: &#39;A&#39;, &#39;K&#39;: &#39;Y&#39;, &#39;O&#39;: &#39;H&#39;}, &#39;NH&#39;: {&#39;M&#39;: &#39;E&#39;, &#39;V&#39;: &#39;T&#39;}, &#39;VT&#39;: {&#39;N&#39;: &#39;H&#39;, &#39;M&#39;: &#39;A&#39;}, &#39;ME&#39;: {&#39;N&#39;: &#39;H&#39;}, &#39;ND&#39;: {&#39;M&#39;: &#39;T&#39;, &#39;S&#39;: &#39;D&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos consultar el nombre de las variables discretas que se han creado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dqm</span><span class="o">.</span><span class="n">variables</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variables([&#39;&#39;, &#39;AK&#39;, &#39;HI&#39;, &#39;AL&#39;, &#39;MS&#39;, &#39;TN&#39;, &#39;GA&#39;, &#39;FL&#39;, &#39;AR&#39;, &#39;MO&#39;, &#39;LA&#39;, &#39;TX&#39;, &#39;OK&#39;, &#39;AZ&#39;, &#39;CA&#39;, &#39;NV&#39;, &#39;UT&#39;, &#39;CO&#39;, &#39;NM&#39;, &#39;OR&#39;, &#39;WY&#39;, &#39;NE&#39;, &#39;KS&#39;, &#39;CT&#39;, &#39;NY&#39;, &#39;MA&#39;, &#39;RI&#39;, &#39;DC&#39;, &#39;MD&#39;, &#39;VA&#39;, &#39;DE&#39;, &#39;PA&#39;, &#39;NJ&#39;, &#39;NC&#39;, &#39;SC&#39;, &#39;IA&#39;, &#39;MN&#39;, &#39;WI&#39;, &#39;IL&#39;, &#39;SD&#39;, &#39;ID&#39;, &#39;MT&#39;, &#39;WA&#39;, &#39;IN&#39;, &#39;KY&#39;, &#39;MI&#39;, &#39;OH&#39;, &#39;WV&#39;, &#39;NH&#39;, &#39;VT&#39;, &#39;ME&#39;, &#39;ND&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>El servicio de nube cuántica de D-Wave proporciona solucionadores híbridos basados en la nube a los que se pueden enviar BQM y DQM arbitrarios. Estos solucionadores, que implementan algoritmos clásicos de última generación junto con la asignación inteligente de la unidad de procesamiento cuántico (QPU) a las partes del problema donde más se beneficia, están diseñados para dar cabida incluso a problemas muy grandes. Los solucionadores de Leap pueden liberarle de la carga de cualquier desarrollo actual y futuro y de la optimización de los algoritmos híbridos que mejor resuelvan su problema.
+Utilizaremos en este caso la clase  <a href="https://docs.ocean.dwavesys.com/en/stable/docs_system/reference/samplers.html#dwave.system.samplers.LeapHybridDQMSampler" target="_blank"> LeapHybridDQMSampler </a> para obtener las soluciones que estamos buscandoor</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridDQMSampler</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">LeapHybridDQMSampler</span><span class="p">()</span><span class="o">.</span><span class="n">sample_dqm</span><span class="p">(</span><span class="n">dqm</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SDK Examples - Map Coloring DQM&#39;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">Solution: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+       <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">energy</span><span class="p">,</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span><span class="p">))</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energy: 0.0
+Solution: {&#39;&#39;: 0, &#39;AK&#39;: 3, &#39;HI&#39;: 2, &#39;AL&#39;: 2, &#39;MS&#39;: 1, &#39;TN&#39;: 0, &#39;GA&#39;: 3, &#39;FL&#39;: 0, &#39;AR&#39;: 3, &#39;MO&#39;: 1, &#39;LA&#39;: 2, &#39;TX&#39;: 1, &#39;OK&#39;: 0, &#39;AZ&#39;: 1, &#39;CA&#39;: 0, &#39;NV&#39;: 3, &#39;UT&#39;: 0, &#39;CO&#39;: 2, &#39;NM&#39;: 3, &#39;OR&#39;: 2, &#39;WY&#39;: 3, &#39;NE&#39;: 0, &#39;KS&#39;: 3, &#39;CT&#39;: 0, &#39;NY&#39;: 3, &#39;MA&#39;: 1, &#39;RI&#39;: 3, &#39;DC&#39;: 1, &#39;MD&#39;: 0, &#39;VA&#39;: 3, &#39;DE&#39;: 3, &#39;PA&#39;: 2, &#39;NJ&#39;: 0, &#39;NC&#39;: 1, &#39;SC&#39;: 2, &#39;IA&#39;: 2, &#39;MN&#39;: 0, &#39;WI&#39;: 1, &#39;IL&#39;: 3, &#39;SD&#39;: 1, &#39;ID&#39;: 1, &#39;MT&#39;: 0, &#39;WA&#39;: 0, &#39;IN&#39;: 1, &#39;KY&#39;: 2, &#39;MI&#39;: 3, &#39;OH&#39;: 0, &#39;WV&#39;: 1, &#39;NH&#39;: 3, &#39;VT&#39;: 0, &#39;ME&#39;: 0, &#39;ND&#39;: 3}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTA</strong>. El valor de energía cero anterior significa que esta primera (mejor) solución encontrada no ha acumulado penalizaciones, lo que significa que no hay pares de estados vecinos con el mismo color.</p>
+<p>Procedemos ahora a dibujar la mejor solución encontrada</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>       
+<span class="n">node_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">)[</span><span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="mi">10</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>   
+<span class="n">node_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ND&#39;</span><span class="p">)</span>     
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">shell_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">nlist</span> <span class="o">=</span> <span class="n">node_list</span><span class="p">),</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">node_color</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">)</span>                 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/98bc420d4e2975e936b035add49f9a6e06fd3e99c12502f6c8c995a1a31a063f.png" src="../_images/98bc420d4e2975e936b035add49f9a6e06fd3e99c12502f6c8c995a1a31a063f.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modulo7_RestriccionesOcean.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modulo10_CQM.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-map-coloring">9.1. Ejemplo 1. Map Coloring.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

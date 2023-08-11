@@ -1,0 +1,881 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>14. Introdución &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/InmunizacionEstrategia';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="15. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="13. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modulo09_DCM.html">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">13. Partición de un conjunto de números</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Inmunización-Estrategia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">15. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">16. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">17. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cuadernos/ejercicios/InmunizacionEstrategia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introdución</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introducion">
+<span id="inmunizacion-2"></span><h1><span class="section-number">14. </span>Introdución<a class="headerlink" href="#introducion" title="Permalink to this heading">#</a></h1>
+<p id="index-0">En este apartado se va a desarrollar una estrategia para inmunizar a una población frente a un determinado virus, el cual ya se ha comentado en el apartado dedicado al <a class="reference internal" href="../Modulo09_DCM.html#dqm"><span class="std std-ref">modelo Discrete Quadratic Model</span></a>. Aunque en este apartado se le da el enfoque de resolución de un problema de tipo <a class="reference internal" href="../modulo10_CQM.html#cqm"><span class="std std-ref">Constrained Quadratic Model</span></a>.</p>
+<p>La resolución del problema se puede <a href="https://github.com/dwave-examples/immunization-strategy/blob/main/demo.py" target="_blank"> localizar en internet en este enlace </a>, pero se ha considerado oportuno profundizar más en su desarrollo a fin de que el lector pueda conocer con mayor grado de detalle su solución.</p>
+<p>La idea básica del problema es la siguiente: Existen muchas estrategias  para inmunizar poblaciones con el fin de prevenir la transmisión de un virus o una enfermedad infecciosa utilizando para ello un número mínimo de dosis.</p>
+<p>Una de esas estrategias, que será la utilizada en este apartado, es fragmentar una población en grupos separados a través de un “separador”. Esta estrategia divide una población en dos grandes grupos de tamaño similar y un <em>tercer grupo que sirve como separador</em>. El separador se elige de modo que todas las conexiones entre los dos grupos más grandes pasen a través de él y debe mantenerse lo más pequeño posible.</p>
+<p>En este escenario, la eliminación del separador de la población desconecta los dos grandes grupos, evitando la transmisión de la infección entre los grupos. La inmunización del separador rompe el ciclo de transmisión, y así, seleccionar un separador que contenga la menor cantidad posible de individuos minimizará el número de dosis de inmunización requeridas. En este ejemplo, mostramos cómo se puede implementar este problema de optimización usando Ocean SDK y resolverlo usando el solucionador de modelo cuadrático restringido híbrido disponible en Leap.</p>
+<p>En  en este problema a cada persona de la población se le va a asignar a un grupo de los tres que se van a tener encuenta:</p>
+<ul class="simple">
+<li><p>Grupo 0, es uno de los grandes grupo</p></li>
+<li><p>Grupo 1, es el otro gran grupo de población</p></li>
+<li><p>Grupo 2, es el grupo separador</p></li>
+</ul>
+<p>Procedemos incialmente a cargar los módulos que necesitamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">quicksum</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación definimos una función que nos va a servir para elegir entre varios gráficos disponible, junto con las opciones de ese gráfico que deseamos utilizar.</p>
+<p>Varios tipos diferentes de gráficos o redes están disponibles para esta demostración utilizando las opciones proporcionadas en la función que se desarrolla a continuación. Todos estos gráficos están construidos usando <a href="https://networkx.org/documentation/stable/index.html" target="_blank"> funciones del generador nerador de gráficos N </a>etwoalguno de rkX, y los depara elegir se indican a continuaciónr Los gráficos disponibles son los siguientes: a* quí .</p>
+<p>karate: Gráfico del Club de Karate; un gráfico fijo en 34</p>
+<ul class="simple">
+<li><p>nodos.
+internet: Red del Sistema Autónomo Internet; especifique el número de nodos entre 1000</p></li>
+<li><ol class="arabic simple" start="1666">
+<li></li>
+</ol>
+</li>
+</ul>
+<p>rand-reg: Un gráfico d-regular aleatorio; especifique el número de nodos y el valo</p>
+<ul class="simple">
+<li><p>de d.
+ER: Gráfico aleatorio de Erdos-Renyi; especificar el número de nodos y la probabilidad de</p></li>
+<li><p>borde.
+SF: Gráfico sin escala de Barabasi-Albert; especifique el número de nodos y el número de bordes para agregar desde un nuevo nodo a cualquier nodo exi</p></li>
+<li><p>stente.
+El gráfico predeterminado es el gráfico de Internet en 1000 nodos. El mayor número de nodos permitidos para cualquier gráfico especificado puede ser como máximo 1.666</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_in_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Read in user specified parameters.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Set up user-specified optional arguments</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-g&quot;</span><span class="p">,</span> <span class="s2">&quot;--graph&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;internet&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;karate&#39;</span><span class="p">,</span> <span class="s1">&#39;internet&#39;</span><span class="p">,</span> <span class="s1">&#39;rand-reg&#39;</span><span class="p">,</span> <span class="s1">&#39;ER&#39;</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">],</span> 
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Graph to partition (default: </span><span class="si">%(default)s</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--nodes&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Set graph size for graph. (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;--degree&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Set node degree for random regular graph. (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--prob&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Set graph edge probability for ER graph. Must be between 0 and 1. (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--new-edges&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Set number of edges from new node to existing node in SF graph. (default: </span><span class="si">%(default)s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación se muestra un ejemplo de cómo poder hacer las elecciones que nos ofrece la función anterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#args = read_in_args(sys.argv[1:])</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">read_in_args</span><span class="p">([</span><span class="s1">&#39;--graph&#39;</span><span class="p">,</span><span class="s1">&#39;karate&#39;</span><span class="p">,</span><span class="s1">&#39;--nodes&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos los valores que hemos elegido</span>
+<span class="n">args</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Namespace(degree=4, graph=&#39;karate&#39;, new_edges=4, nodes=500, prob=0.25)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez elegidas las opciones que nos ofrece la función anterior, su resultado lo utilizamos para cosntruir el gráfico, el cual será dibujado posteriormente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_graph</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construimos el gráfico con los parámetros definidos anteriormente&quot;&quot;&quot;</span>
+
+    <span class="n">max_vars</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">5000</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    
+    <span class="c1"># Build graph using networkx</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">graph</span> <span class="o">==</span> <span class="s1">&#39;karate&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reading in karate graph...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">graph</span> <span class="o">==</span> <span class="s1">&#39;internet&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&lt;</span> <span class="mi">1000</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="n">max_vars</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="mi">1000</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Size for internet graph must be between 1000 and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_vars</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Setting size to 1000.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reading in internet graph of size&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_internet_as_graph</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">graph</span> <span class="o">==</span> <span class="s1">&#39;rand-reg&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="n">max_vars</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Size for random regular graph must be between 1 and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_vars</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Setting size to 1000.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">&gt;=</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Degree must be between 0 and n-1. Setting size to min(4, n-1).</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Requirement: n*d must be even.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Setting degree to&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="o">-</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="n">args</span><span class="o">.</span><span class="n">degree</span><span class="p">:</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Setting nodes to&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Setting nodes to 1000 and degree to 4.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="mi">1000</span>
+                <span class="n">args</span><span class="o">.</span><span class="n">degree</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generating random regular graph...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_regular_graph</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">graph</span> <span class="o">==</span> <span class="s1">&#39;ER&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="n">max_vars</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Size for ER graph must be between 1 and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_vars</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Setting size to 1000.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">prob</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">prob</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Probability must be between 0 and 1. Setting prob to 0.25.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">prob</span> <span class="o">=</span> <span class="mf">0.25</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generating Erdos-Renyi graph...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">prob</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">graph</span> <span class="o">==</span> <span class="s1">&#39;SF&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">&gt;</span> <span class="n">max_vars</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Size for SF graph must be between 1 and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_vars</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;. Setting size to 1000.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">new_edges</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">new_edges</span> <span class="o">&gt;</span> <span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Number of edges must be between 1 and n. Setting to 5.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">new_edges</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generating Barabasi-Albert scale-free graph...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">barabasi_albert_graph</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">new_edges</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reading in karate graph...&quot;</span><span class="p">)</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">G</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Procedemos a construir el gráficos de la siguient manera</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">build_graph</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading in karate graph...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the input graph</span>
+<span class="k">def</span> <span class="nf">visualize_input_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">guardar</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Visualizamos el gráfico que va a ser particionado, el parámetro guardar se utiliza por si queremos almacenar</span>
+<span class="sd">        en un fichero denominado input_graph.png el resultado</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(),</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;#808080&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">guardar</span><span class="o">==</span><span class="s1">&#39;N&#39;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;input_graph.png&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualizamos el resultado de la forma predefinida, es decir mostrando el gráfico por pantalla</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_input_graph</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b0189c55ce5b58cc33625099e06bab3356b6e5dc566f2c50682af609e553c4a2.png" src="../../_images/b0189c55ce5b58cc33625099e06bab3356b6e5dc566f2c50682af609e553c4a2.png" />
+</div>
+</div>
+<p>Ahora ya viene la parte más interesante del problema, construir las instrucciones Python para enviar a los ordenadores de D-Wave para que nos resuelvan el problema, y en este caso lo resolveremos <a href="https://docs.ocean.dwavesys.com/en/stable/concepts/cqm.html" target="_blank"> utilizando la clase ConstrainedQuadraticModel() </a>.</p>
+<p>Los pasos que damos son los siguientes:</p>
+<p>1.- Definimos con la variable <em>num_groups</em> el número de grupos, que serán 3 como ya se ha explicado en apartado anterior.</p>
+<p><img alt="grupos de inmunización" src="../../_images/GruposInmunizacion.PNG" /></p>
+<p>2.- Se procede a construir una instancia de la clase CQM</p>
+<p>3.- Creamos las variables binarias <span class="math notranslate nohighlight">\(x_{i,j}\)</span>, donde el índice i hace referencia al nodo o la personas y el índice j a la clase de pertenencia, que puede ser 0,1 ó 2. Observar que la construcción de estas variables es mediante dos list comprehesion ( una añadida a la otra), con lo que se obtiene una lista de listas, de tal manera que la lista más interna tiene tres elementos, y la más externa el número de nodos de la red y sus elementos son las listas internas.</p>
+<p>4.- Se construye la función objetivo, de tal manera que lo que se quiere minimizar es el número de personas (o nodos) que hay en el grupo 2. Por lo tanto la función objetivo sería la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=0}^{N}x_{i,2}\]</div>
+<p>Para construir esta función objetivo se utiliza <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.binary.quicksum.html" target="_blank"> la función quicksum </a> muy utilizada en este tipo de problemas.</p>
+<p>5.- Ahora hay que tener en cuenta que cada nodo o persona debe pertener a un sólo grupo, lo que se traduce en que para cada i la suma en j de <span class="math notranslate nohighlight">\(x_{i,j}\)</span> debe ser 1. Es decir:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^{2}x_{i,j}=1\ \ \forall i=1,2,...,N\]</div>
+<p id="index-1">Via código esto se consigue utilizando la propiedad <em>add_discrete(). <strong>NOTA IMPORTANTE</strong>. Esta consición es muy importante y hay que tenerla en cuenta en todos los problemas de variables discretas que se resuelvan con el modelo CQM().</em>
+6.- Ahora debemos de tener en cuenta que una de las restricciones de nuestro problema es que el número de personas en el grupo 0 será igual al número de personas del grupo 1. O lo que es lo mismo:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{N}x_{i,0}=\sum_{i=1}^{N}x_{i,1}\]</div>
+<p><strong>NOTA</strong>. Observar que lo escrito en el código es la forma que admite Ocean SDK, pues a la derecha del signo igual no admite ninguna expresión, solo un valor determinado.</p>
+<p>7.- Ahora nos falta añadir la restricción de que no haya arcos entre el grupo 0 y el grupo 1. Observar que cunado hay un arco entre elementos de estos dos grupos se debe cumplir que vars[a][0]*vars[b][1]=1 o que vars[a][1]*vars[b][0]= 1, para lo cual los dos elementos del producto deben valer 1 (tener en cuenta que nuestras variables sólo pueden valer 0 ó 1)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_cqm</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Build the CQM for the problem instance.&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Definimos el número total de grupos : 1</span>
+    <span class="c1"># Dos grupos más numerosos (valores 0, 1) y un grupo que actúa como separador (case 2)</span>
+    <span class="n">num_groups</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="c1"># Initialize the CQM object</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Construyendo CQM...&quot;</span><span class="p">)</span>
+    <span class="c1"># Creamos una instancia del modelo CQM : 2</span>
+    <span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+
+    <span class="c1"># Build the CQM starting by creating variables</span>
+    <span class="c1"># Creamos las variables binarias (0 ó 1) Xij (i=nodo o persona ; j=grupo de pertenencia: 0,1 ó 2) : 3</span>
+    <span class="nb">vars</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Binary</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_groups</span><span class="p">)]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+
+    <span class="c1"># Función objetivo para el modelo  CQM :4</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">vars</span><span class="p">))))</span>
+
+    <span class="c1"># Añadimos la restricción para que las variables sean discretas :5</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">vars</span><span class="p">)):</span>
+        <span class="n">cqm</span><span class="o">.</span><span class="n">add_discrete</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_groups</span><span class="p">)])</span>
+
+   
+    <span class="c1"># Añadimos la restricción de que el número de  elementos del grupo 0 es igual a los del grupo 1 : 6</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="p">[</span><span class="nb">vars</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">vars</span><span class="p">))]</span>
+    <span class="n">g2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">vars</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">vars</span><span class="p">))]</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span> <span class="o">-</span> <span class="n">quicksum</span><span class="p">(</span><span class="n">g2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># añadimos la restricción de que entre los grupos 0 y 1 no hay arcos (e(G0,G1)=0):7</span>
+    <span class="n">edge_sum</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+            <span class="n">edge_sum</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">vars</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nb">vars</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">vars</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">edge_sum</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cross edges&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  ... CQM construido&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cqm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con todas estas premisas, ahora ya estamos en disposición de crear nuestro modelo CQM</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span> <span class="o">=</span> <span class="n">build_cqm</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Construyendo CQM...
+
+  ... CQM construido
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya vamos a definir la función que ejecute nuestro modelo con un sampler.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_cqm_and_collect_solutions</span><span class="p">(</span><span class="n">cqm</span><span class="p">,</span> <span class="n">sampler</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Send the CQM to the sampler and return the best sample found.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialize the solver</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sending to the solver...&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Solve the CQM problem using the solver</span>
+    <span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Example - Immunization Strategy&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Observar que filtramos las soluciones para obtener las soluciones factibles </span>
+    <span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No feasible solution found. Returning best infeasible solution.&quot;</span><span class="p">)</span>
+        <span class="c1"># devolvemos si existe la mejor solución factible</span>
+        <span class="k">return</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+
+    <span class="k">return</span> <span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación definimos el sampler que vamos a utilizar  para pasarlo como parámetro de la función <em>run_cqm_and_collect_solutions()</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos el sampler</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>
+<span class="c1"># Ejecutamos en el sampler nuestro modelo</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">run_cqm_and_collect_solutions</span><span class="p">(</span><span class="n">cqm</span><span class="p">,</span> <span class="n">sampler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sending to the solver...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con la solución anterior ya podemos formas los tres grupos que buscamos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_sample</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">sample</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Interpret the CQM solution in terms of the partitioning problem.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Display results to user</span>
+    <span class="n">group_1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">group_2</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sep_group</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[[],[],[]]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="n">group_1</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">group_2</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">sep_group</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Display best result</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Partition Found:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Group 1: </span><span class="se">\t</span><span class="s2">Size&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Group 2: </span><span class="se">\t</span><span class="s2">Size&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">group_2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Separator: </span><span class="se">\t</span><span class="s2">Size&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sep_group</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Separator Fraction: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sep_group</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()))</span>
+
+    <span class="c1"># Determines if there are any edges directly between the large groups</span>
+    <span class="n">illegal_edges</span> <span class="o">=</span> <span class="p">[(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span> <span class="k">if</span> <span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="mi">0</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">sample</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">sample</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">sample</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="mi">0</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Number of illegal edges:</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">illegal_edges</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejecutamos la función anterior</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span> <span class="o">=</span> <span class="n">process_sample</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Partition Found:
+	Group 1: 	Size 15
+	Group 2: 	Size 15
+	Separator: 	Size 4
+
+Separator Fraction: 	 0.11764705882352941
+
+Number of illegal edges:	 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ya podemos ver el resultado obtenido</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_results</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span><span class="p">,</span> <span class="n">guardar</span><span class="o">=</span><span class="s1">&#39;N&#39;</span> <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Visualize the partition.&quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Visualizing output...&quot;</span><span class="p">)</span>
+
+    <span class="n">G1</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">group_1</span><span class="p">)</span>
+    <span class="n">G2</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">group_2</span><span class="p">)</span>
+    <span class="n">SG</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">sep_group</span><span class="p">)</span>
+
+    <span class="n">pos_1</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_layout</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">pos_2</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_layout</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">pos_sep</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_layout</span><span class="p">(</span><span class="n">SG</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">pos_1</span><span class="p">,</span> <span class="o">**</span><span class="n">pos_2</span><span class="p">,</span> <span class="o">**</span><span class="n">pos_sep</span><span class="p">}</span>
+
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos_1</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">group_1</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;#17bebb&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos_2</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">group_2</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;#2a7de1&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos_sep</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">sep_group</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;#f37820&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(),</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;#808080&#39;</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edgelist</span><span class="o">=</span><span class="n">illegal_edges</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">guardar</span><span class="o">==</span><span class="s1">&#39;N&#39;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_name</span> <span class="o">=</span> <span class="s1">&#39;separator.png&#39;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Output stored in&quot;</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejecutamos la función anterior para ver el resultado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualize_results</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Visualizing output...
+</pre></div>
+</div>
+<img alt="../../_images/be5a90117c31fc57d331dcb9ac395c6c0ea6da03b90c61f5e901bfa522caf671.png" src="../../_images/be5a90117c31fc57d331dcb9ac395c6c0ea6da03b90c61f5e901bfa522caf671.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">visualize_results</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span><span class="p">)</span>
+
+<span class="nn">Cell In[15], line 29,</span> in <span class="ni">visualize_results</span><span class="nt">(G, group_1, group_2, sep_group, illegal_edges, guardar)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">output_name</span> <span class="o">=</span> <span class="s1">&#39;separator.png&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">29</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Output stored in&quot;</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;output_name&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos\ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="part02_example3_number_partitioning_practice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Problema partición un conjunto de números.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Indice_ejercicios.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

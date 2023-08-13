@@ -1,0 +1,1123 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>13. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/PrimerosPasos';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="14. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
+    <link rel="prev" title="11. Programación entera." href="../Programacion_Entera.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modulo09_DCM.html">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">16. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">17. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">18. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cuadernos/ejercicios/PrimerosPasos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactuando-con-un-sampler-o-un-solver">13.1. Interactuando con un sampler o un solver.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave-neal">13.2. DWave_neal.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otro-ejemplo">13.3. Otro ejemplo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizacion-de-fixedvariablecomposite">13.4. Utilización de FixedVariableComposite.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-un-modelo-qubo-en-ising">13.5. Convertir un modelo QUBO en ISING.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="primeros-pasos"></span><h1><span class="section-number">13. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>En este apartado vamos a proceder a exponer diversos ejemplos fáciles de implementar, con la finalidad que el usuario se vaya familiarizando con las ideas que subyacen a este tipo de técnica de computación cuántica.</p>
+<p>En este apartado vamoa a aprender a construir modelos de tipo <a class="reference internal" href="../modulo1.html#modelo-qubo"><span class="std std-ref">QUBO</span></a> y de tipo <a class="reference internal" href="../modulo1.html#modelo-ising"><span class="std std-ref">ISING</span></a>, así como su solución utilizando diferentes samplers.</p>
+<p>Recordemos que un <strong>modelo de tipo ISING</strong> va tratar las variables como binarias pero que pueden tomar los valores -1 y +1. Entonces utilizando este modelo la función objetivo se va a definir de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[
+E=-\sum_{i}h_{i}S_{i}+\sum_{i,j}J_{ij}S_{i}S_{j}\qquad donde\:S_{i}\in\{-1,+1\}
+\]</div>
+<p>La variable se representa en este modelo por S ya que es la inicial de <em>Spin</em>.Los valores de h’s y J’s son constantes para ajustar por el modelo, una h para cada Spin y una J para cada interacción de los pares de Spines.</p>
+<p>El <strong>modelo  de tipo QUBO</strong>, se describe de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[
+Obj(c,a_{i},b_{ij},q_{i})=c+\sum_{i}a_{i}q_{i}+\sum_{i&lt;j}b_{ij}q_{i}q_{j}
+\]</div>
+<p>En este caso las variables q’s son variables de tipo qubit que valen 0 ó 1 en lugar de -1 ó 1</p>
+<p>Para convertir una variable QUBO en Ising se utiliza la siguiente transformación:</p>
+<div class="math notranslate nohighlight">
+\[
+q_i=\frac{1+S_i}{2}
+\]</div>
+<section id="interactuando-con-un-sampler-o-un-solver">
+<h2><span class="section-number">13.1. </span>Interactuando con un sampler o un solver.<a class="headerlink" href="#interactuando-con-un-sampler-o-un-solver" title="Permalink to this heading">#</a></h2>
+<p id="index-0">Para hallar el estado de energía mínima para un QM (la asignación de valores a  variables que nos da el
+valor mínimo de energía para nuestro QM), e sistema l Ocean SDK proporciona** muestreadores y solucionadore**s. Un solucionado (solver)r e
+un recurso que ejecuta un problema. Los muestreado (sampler)res son procesos que ejecutan un problema muchas veces para obte er
+una colección de muestras, cada una de las cuales es una posible solución a nuestro problema. Por comod dad
+nos referiremos generalmente a los muestreadores de Ocean como un todo, para incluir también a los solucionadorEl sistema Ocean SDK proporciona una variedad de diferentes muestreadores que podemos utilizar para examinar nuestro problema. Estos van desde el D-Wave QPU (DWaveSampler) a algoritmos clásicos como la búsqueda tabu
+(TabuSampler) e incluso herramientas híbridas (LeapHybridSampler). Para más información sobre los muestreadore
+en la documentación completa de Oce.</p>
+<p>Los solvers en Ocean SDK se puede dividir en los siguientes apartados:</p>
+<ul class="simple" id="index-1">
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/overview/cpu.html" target="_blank"> Classical Solvers </a>. Se puede utilizar un solucionador clásico mientras se desarrolla un código o en una versión pequeña de un problema para verificar el código.Con este tipo de Solvers, la solución se obtiene utilizando el equipo propio con el que trabaja el investigador.</p></li>
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/overview/hybrid.html" target="_blank"> Solvers Híbridos </a>. Este tipo de solvers utiliza recursos clásicos y cuánticos para resolver los problemas.</p></li>
+<li><p><a href="https://docs.ocean.dwavesys.com/en/stable/overview/qpu.html" target="_blank">  Solvers cuánticos </a>.Este sistema utiliza sólo medios cuánticos para resolver los problemas planteados.Este solver es denominado <a href= "https://docs.ocean.dwavesys.com/en/stable/docs_system/reference/samplers.html#dwave.system.samplers.DWaveSampler" target="_blank"> DWaveSampler </a> que normalmente es utilizado junto a <a href="https://docs.ocean.dwavesys.com/en/stable/docs_system/reference/composites.html#dwave.system.composites.EmbeddingComposite" target="_blank"> EmbeddingComposite </a>.</p></li>
+</ul>
+<p>Vamos a comenzar en esta sección a crear con diversos métodos un modelo BQM o ISING y como se resuelve utiliozando diferentes solvers. Comenzamos con el solver más sencillo, el denominado <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/sampler_composites/samplers.html#id10" target="_blank"> ExactSolver </a> del paquete dimod.</p>
+<p id="index-2">Importaremos primero la clase <em>BinaryQuadraticModel()</em>. annslator</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También se puede importar de la siguiente manera</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BQM</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En principio hay que tener en cuenta que todos los samplers de Ocean heredan de la clase abstracta <em>Sampler</em> , para ver el contenido de esta clase, se pueden utilizar las siguientes instrucciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Sampler</span>
+
+Sampler<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diferentes Samplers que podemos utilizar los podemos ver en el siguiente cuadro:</p>
+<p><img alt="Samplers Ocean" src="../../_images/samplers.PNG" /></p>
+<p>Vamos a mostrar a continuación código para generar un problema de tipo ISING, que posteriormente resolveremos con diferentes solvers.</p>
+<p>Procedemos a continuación a crear el modelo ISING</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span><span class="p">,</span> <span class="n">to_networkx_graph</span>
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="s1">&#39;SPIN&#39;</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># bqm.add_variable(6,-1) # lo añadí yo de prueba</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="c1"># bqm.add_interaction(0, 1, 1.0) # lo añadí so de prueba</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El modelo anterior, representado con uan formulación matemática, sería el siguiente:</p>
+<div class="math notranslate nohighlight">
+\[-1\cdot x_{0}-1\cdot x_{1}-1\cdot x_{4}-1\cdot x_{5}+1\cdot x_{0}\cdot x_{4}+1\cdot x_{0}\cdot x_{5}+1\cdot x_{1}\cdot x_{4}+1\cdot x_{1}\cdot x_{4}\]</div>
+<p>Y además el modelo sería de tipo SPIN, es decir que las variables, sólo podrían tomar valores de 1 ó -1.</p>
+<p id="index-3">Un modelo BQM, se representa en los ordenadores de D_Wave mediante un grafo, dondelos nodos son los coeficientes lineales de la ecuación anterior, y los arcos soerían los coeficientes de los términos cuadráticos. Vamos a representar mediante un grafo el modelo crado anteriormenmte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">to_networkx_graph</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cd67309ce9da35c19c3a7a4fc03f51cf3475cd1334cd5ab88a19b4ede9d51922.png" src="../../_images/cd67309ce9da35c19c3a7a4fc03f51cf3475cd1334cd5ab88a19b4ede9d51922.png" />
+</div>
+</div>
+<p>Veamos que efectivamente los arcos son los términos cuadráticos de la ecuación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EdgeDataView([(0, 4, {&#39;bias&#39;: 1.0}), (0, 5, {&#39;bias&#39;: 1.0}), (1, 4, {&#39;bias&#39;: 1.0}), (1, 5, {&#39;bias&#39;: 1.0})])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos a continuación el modelo que realmente se ha construido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bqm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({0: -1.0, 1: -1.0, 4: -1.0, 5: -1.0}, {(4, 0): 1.0, (4, 1): 1.0, (5, 0): 1.0, (5, 1): 1.0}, 0.0, &#39;SPIN&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estos serían los términos lineales</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">linear</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: -1.0, 1: -1.0, 4: -1.0, 5: -1.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># estos los términos cuadráticos</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">quadratic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{(4, 0): 1.0, (4, 1): 1.0, (5, 0): 1.0, (5, 1): 1.0}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a resolver el problema anterior, con el Solver <em>ExactSolver</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactSolver</span>
+<span class="c1"># Creamos una instancia de este Solver</span>
+<span class="n">solver</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="c1"># Sólo sacamos las primeras 10 soluciones (ordenadas de menos a más energía )</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0  1  4  5 energy num_oc.
+0 +1 +1 -1 -1   -4.0       1
+1 -1 -1 +1 +1   -4.0       1
+2 +1 +1 +1 -1   -2.0       1
+3 +1 -1 +1 +1   -2.0       1
+4 -1 +1 +1 +1   -2.0       1
+5 +1 +1 -1 +1   -2.0       1
+6 -1 +1 +1 -1    0.0       1
+7 +1 -1 +1 -1    0.0       1
+8 +1 +1 +1 +1    0.0       1
+9 -1 +1 -1 +1    0.0       1
+[&#39;SPIN&#39;, 10 rows, 10 samples, 4 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como el modelo se le ha declarado de tipo SPIN los únicos valores que toman las variables son 1 y -1 y un mínimo de la función antyerior, lo podemos encontrar con la primera solución indicada que es la que tiene menor energía, aunque también podría servir la siguiente, la que ocupa la segunda línea de la solución.</p>
+</section>
+<section id="dwave-neal">
+<h2><span class="section-number">13.2. </span>DWave_neal.<a class="headerlink" href="#dwave-neal" title="Permalink to this heading">#</a></h2>
+<p id="index-4">Es de advertir que este módulo está <em>deprecated</em> desde dwave-ocean-sdk.6.1.0 en favor del módulo dwave_samplers, y será eliminado en la versión dwave-ocean-sdk.8.0.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neal</span> <span class="kn">import</span> <span class="n">SimulatedAnnealingSampler</span> 
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">SimulatedAnnealingSampler</span><span class="p">()</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                          <span class="n">num_sweeps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                          <span class="n">initial_states</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">beta_range</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0  1  4  5 energy num_oc.
+0 +1 +1 -1 -1   -4.0       1
+1 +1 +1 -1 -1   -4.0       1
+2 +1 +1 -1 -1   -4.0       1
+3 -1 -1 +1 +1   -4.0       1
+4 +1 +1 -1 -1   -4.0       1
+5 +1 +1 -1 -1   -4.0       1
+6 -1 -1 +1 +1   -4.0       1
+7 +1 +1 -1 -1   -4.0       1
+8 +1 +1 -1 -1   -4.0       1
+9 +1 +1 -1 -1   -4.0       1
+[&#39;SPIN&#39;, 10 rows, 10 samples, 4 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilizamos a continuación un solvers completamente cuántico, nos referimos a <em>DWaveSampler</em>. Veamos un ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span>
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">DWaveSampler</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">topology__type</span><span class="o">=</span><span class="s1">&#39;chimera&#39;</span><span class="p">))</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+    <span class="n">bqm</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">annealing_time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">auto_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">answer_mode</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prueba_DWaveSampler&#39;</span>
+    <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:206,</span> in <span class="ni">DWaveSampler._get_solver</span><span class="nt">(self, refresh, penalty)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">206</span>     <span class="k">return</span> <span class="n">solvers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+
+<span class="ne">IndexError</span>: list index out of range
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">SolverNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sampler</span> <span class="o">=</span> <span class="n">DWaveSampler</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">topology__type</span><span class="o">=</span><span class="s1">&#39;chimera&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">bqm</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">annealing_time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prueba_DWaveSampler&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:185,</span> in <span class="ni">DWaveSampler.__init__</span><span class="nt">(self, failover, retry_interval, **config)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">185</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_solver</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span><span class="p">)</span>
+
+<span class="nn">File c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\dwave_sampler.py:208,</span> in <span class="ni">DWaveSampler._get_solver</span><span class="nt">(self, refresh, penalty)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">return</span> <span class="n">solvers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="k">raise</span> <span class="n">SolverNotFoundError</span><span class="p">(</span><span class="s2">&quot;Solver with the requested features not available&quot;</span><span class="p">)</span>
+
+<span class="ne">SolverNotFoundError</span>: Solver with the requested features not available
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por último usamos <em>LeapHybridSampler</em>, un solver híbrido muy flexibles y utilizado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridSampler</span>
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridSampler</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Propiedades de este Sampler:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">properties</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span>
+    <span class="n">bqm</span><span class="p">,</span> <span class="n">time_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Prueba con LeapHybridSampler&quot;</span>
+    <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">la respuesta es la siguiente.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="otro-ejemplo">
+<h2><span class="section-number">13.3. </span>Otro ejemplo.<a class="headerlink" href="#otro-ejemplo" title="Permalink to this heading">#</a></h2>
+<p>Con el fin de afianzar estos conceptos, fáciles pero muy importante de dominar pues son los pilares de estos métodos de optimización, a continuación procedemos a resolver otro problema similar al anterior. Implementamos el código para el problema</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="s1">&#39;SPIN&#39;</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_interaction</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función objetivo en este caso sería la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[H = x + y + z - 2xy - 2xz - 2yz\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos el modelo</span>
+<span class="n">bqm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;x&#39;: 1.0, &#39;y&#39;: 1.0, &#39;z&#39;: 1.0}, {(&#39;y&#39;, &#39;x&#39;): -2.0, (&#39;z&#39;, &#39;x&#39;): -2.0, (&#39;z&#39;, &#39;y&#39;): -2.0}, 0.0, &#39;SPIN&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>El anterior modelo también se puede construir, desde un diccionario de python de la siguiente manera</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># el diccionario h contendrá los términos lineales</span>
+<span class="n">h1</span><span class="o">=</span><span class="p">{}</span>
+<span class="c1"># El diccionario j contendra los terminos cuadráticos</span>
+<span class="n">j1</span><span class="o">=</span><span class="p">{}</span>
+
+<span class="c1"># Ahora definimos los términos lineales</span>
+<span class="n">h1</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">h1</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">h1</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="c1">#Definimos los términos cuadráticos</span>
+
+<span class="n">j1</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=-</span><span class="mi">2</span>
+<span class="n">j1</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">j1</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="o">.</span><span class="n">from_ising</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h1</span><span class="p">,</span><span class="n">J</span><span class="o">=</span><span class="n">j1</span><span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;x&#39;: 1.0, &#39;y&#39;: 1.0, &#39;z&#39;: 1.0}, {(&#39;y&#39;, &#39;x&#39;): -2.0, (&#39;z&#39;, &#39;x&#39;): -2.0, (&#39;z&#39;, &#39;y&#39;): -2.0}, 0.0, &#39;SPIN&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos observar con los dos procedimientos obtenemos el mismo modelo. Veamos algunas de las características del modelo construido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">vartype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Vartype.SPIN: frozenset({1, -1})&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">variables</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variables([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Resolvemos con ExactSolver</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactSolver</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   x  y  z energy num_oc.
+0 -1 -1 -1   -9.0       1
+1 +1 +1 +1   -3.0       1
+2 +1 -1 -1    1.0       1
+3 -1 +1 -1    1.0       1
+4 -1 -1 +1    1.0       1
+5 +1 +1 -1    3.0       1
+6 -1 +1 +1    3.0       1
+7 +1 -1 +1    3.0       1
+[&#39;SPIN&#39;, 8 rows, 8 samples, 3 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dimod.sampleset.SampleSet
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos observar el objeto que se nos devuelve es de tipo SampleSet y su documentación <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/sampleset.html" target="_blank"> la podemos ver en este enlace </a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method SampleSet.data of SampleSet(rec.array([([-1, -1, -1], -9., 1), ([ 1, -1, -1],  1., 1),
+           ([ 1,  1, -1],  3., 1), ([-1,  1, -1],  1., 1),
+           ([-1,  1,  1],  3., 1), ([ 1,  1,  1], -3., 1),
+           ([ 1, -1,  1],  3., 1), ([-1, -1,  1],  1., 1)],
+          dtype=[(&#39;sample&#39;, &#39;i1&#39;, (3,)), (&#39;energy&#39;, &#39;&lt;f8&#39;), (&#39;num_occurrences&#39;, &#39;&lt;i4&#39;)]), Variables([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;]), {}, &#39;SPIN&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos quedarnos con parte de los datos de la respuesta de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sample</span><span class="p">,</span> <span class="n">energy</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">([</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span><span class="s1">&#39;energy&#39;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">energy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;___________________&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">sample</span><span class="p">,</span> <span class="n">num_oc</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">([</span><span class="s1">&#39;sample&#39;</span><span class="p">,</span><span class="s1">&#39;num_occurrences&#39;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">num_oc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x&#39;: -1, &#39;y&#39;: -1, &#39;z&#39;: -1} -9.0
+{&#39;x&#39;: 1, &#39;y&#39;: 1, &#39;z&#39;: 1} -3.0
+{&#39;x&#39;: 1, &#39;y&#39;: -1, &#39;z&#39;: -1} 1.0
+{&#39;x&#39;: -1, &#39;y&#39;: 1, &#39;z&#39;: -1} 1.0
+{&#39;x&#39;: -1, &#39;y&#39;: -1, &#39;z&#39;: 1} 1.0
+{&#39;x&#39;: 1, &#39;y&#39;: 1, &#39;z&#39;: -1} 3.0
+{&#39;x&#39;: -1, &#39;y&#39;: 1, &#39;z&#39;: 1} 3.0
+{&#39;x&#39;: 1, &#39;y&#39;: -1, &#39;z&#39;: 1} 3.0
+___________________
+{&#39;x&#39;: -1, &#39;y&#39;: -1, &#39;z&#39;: -1} 1
+{&#39;x&#39;: 1, &#39;y&#39;: 1, &#39;z&#39;: 1} 1
+{&#39;x&#39;: 1, &#39;y&#39;: -1, &#39;z&#39;: -1} 1
+{&#39;x&#39;: -1, &#39;y&#39;: 1, &#39;z&#39;: -1} 1
+{&#39;x&#39;: -1, &#39;y&#39;: -1, &#39;z&#39;: 1} 1
+{&#39;x&#39;: 1, &#39;y&#39;: 1, &#39;z&#39;: -1} 1
+{&#39;x&#39;: -1, &#39;y&#39;: 1, &#39;z&#39;: 1} 1
+{&#39;x&#39;: 1, &#39;y&#39;: -1, &#39;z&#39;: 1} 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sacamos la primera solución</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;x&#39;: -1, &#39;y&#39;: -1, &#39;z&#39;: -1}, energy=-9.0, num_occurrences=1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="utilizacion-de-fixedvariablecomposite">
+<h2><span class="section-number">13.4. </span>Utilización de FixedVariableComposite.<a class="headerlink" href="#utilizacion-de-fixedvariablecomposite" title="Permalink to this heading">#</a></h2>
+<p id="index-5">En ocasiones quizá pueda ser aconsejable fijar el valor de una variables al resolver problemas de optimización. Para conseguir esto Ocean SDK pone a nuestra disposición el clase <a href="https://docs.ocean.dwavesys.com/en/stable/docs_preprocessing/reference/composites.html" target='_blank'> FixedVariableComposite </a>.</p>
+<p>Para ver cómo podemos utilzar esto, vamos a añadir al modelo anterior una nueva variable denominada w con un <em>bias</em> igual a -1. Esta variable no va a estar conectada a ninguna otra variable y la vamos a fijar con un valor igual a 1.</p>
+<p>Todo esto lo hacemos con el siguiente código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># He importado FixVariablesComposite porque FixedVariableComposite estaba decrepated</span>
+<span class="kn">from</span> <span class="nn">dwave.preprocessing.composites</span> <span class="kn">import</span> <span class="n">FixVariablesComposite</span>
+<span class="c1">#bqm.add_variable(&#39;w&#39;,-1)</span>
+<span class="n">composite_sampler</span> <span class="o">=</span> <span class="n">FixVariablesComposite</span><span class="p">(</span><span class="n">solver</span><span class="p">)</span>
+<span class="c1"># añadimos la variable w al modelo, con un valor de bias de -1</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+<span class="c1"># Ahora fijo el valor de la variable w a 1</span>
+<span class="n">respuesta</span> <span class="o">=</span> <span class="n">composite_sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">,</span><span class="n">fixed_variables</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">respuesta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   w  x  y  z energy num_oc.
+0 +1 -1 -1 -1  -10.0       1
+5 +1 +1 +1 +1   -4.0       1
+1 +1 +1 -1 -1    0.0       1
+3 +1 -1 +1 -1    0.0       1
+7 +1 -1 -1 +1    0.0       1
+2 +1 +1 +1 -1    2.0       1
+4 +1 -1 +1 +1    2.0       1
+6 +1 +1 -1 +1    2.0       1
+[&#39;SPIN&#39;, 8 rows, 8 samples, 4 variables]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convertir-un-modelo-qubo-en-ising">
+<h2><span class="section-number">13.5. </span>Convertir un modelo QUBO en ISING.<a class="headerlink" href="#convertir-un-modelo-qubo-en-ising" title="Permalink to this heading">#</a></h2>
+<p>En el siguiente ejemplo, vamos a ver como pasar de un modelo tipo QUBO a otro ISING</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos los paquetes necesario</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">EmbeddingComposite</span><span class="p">,</span> <span class="n">DWaveSampler</span>
+<span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span>
+
+<span class="c1"># Definimos el problema mediante un diccionario</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">{(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mi">2</span><span class="p">}</span>
+
+<span class="c1"># Generamos el modelo QUBO</span>
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="o">.</span><span class="n">from_qubo</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+
+<span class="n">bqm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;B&#39;: 1.0, &#39;K&#39;: 1.0, &#39;A&#39;: 0.0, &#39;C&#39;: 0.0}, {(&#39;A&#39;, &#39;K&#39;): -2.0, (&#39;C&#39;, &#39;B&#39;): -2.0, (&#39;C&#39;, &#39;A&#39;): 2.0}, 0.0, &#39;BINARY&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora cambiamos el tipo de modelo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertimos el bqm to a un modelo Ising</span>
+<span class="n">ising_model</span> <span class="o">=</span> <span class="n">bqm</span><span class="o">.</span><span class="n">to_ising</span><span class="p">()</span>
+<span class="n">ising_model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;B&#39;: 0.0, &#39;K&#39;: 0.0, &#39;A&#39;: 0.0, &#39;C&#39;: 0.0},
+ {(&#39;A&#39;, &#39;K&#39;): -0.5, (&#39;C&#39;, &#39;B&#39;): -0.5, (&#39;C&#39;, &#39;A&#39;): 0.5},
+ 0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos la diferentes partes que se han generado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ising_model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;B&#39;: 0.0, &#39;K&#39;: 0.0, &#39;A&#39;: 0.0, &#39;C&#39;: 0.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ising_model</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{(&#39;A&#39;, &#39;K&#39;): -0.5, (&#39;C&#39;, &#39;B&#39;): -0.5, (&#39;C&#39;, &#39;A&#39;): 0.5}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos el Sampler a utilizar en el problema</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">EmbeddingComposite</span><span class="p">(</span><span class="n">DWaveSampler</span><span class="p">())</span>
+
+<span class="c1"># Ejecutamos el Sampler definido antes e imprimimos el resultado</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_ising</span><span class="p">(</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">ising_model</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">J</span> <span class="o">=</span> <span class="n">ising_model</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">num_reads</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Example - Simple Ocean Programs: Conversion&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sampleset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra manera de hacer lo anterior sería mediante el siguiente formato de código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">EmbeddingComposite</span><span class="p">,</span> <span class="n">DWaveSampler</span>
+<span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span>
+
+<span class="c1"># Definimos el problema utilizando un diccionario</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">{(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mi">2</span><span class="p">}</span>
+<span class="c1"># Creamos el objeto BQM y le damos un offset (el término constante) de 1</span>
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="o">.</span><span class="n">from_qubo</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Definimos el Sampler a utilizar</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">EmbeddingComposite</span><span class="p">(</span><span class="n">DWaveSampler</span><span class="p">())</span>
+
+<span class="c1"># Ejecutamos el SAmpler anterior e imprimimos resultados</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">,</span>
+                           <span class="n">num_reads</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Example - Simple Ocean Programs: Offsets&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QUBO samples:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sampleset</span><span class="p">)</span>
+
+<span class="c1">#  Convertinos el modelo a ISING y ejecutamos en el mismo sampler.</span>
+<span class="n">bqm</span><span class="o">.</span><span class="n">change_vartype</span><span class="p">(</span><span class="s1">&#39;SPIN&#39;</span><span class="p">)</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">,</span>
+                           <span class="n">num_reads</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Example - Simple Ocean Programs: Offsets&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ising samples:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sampleset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos\ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Programacion_Entera.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Programación entera.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="part02_example3_number_partitioning_practice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Problema partición un conjunto de números.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactuando-con-un-sampler-o-un-solver">13.1. Interactuando con un sampler o un solver.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dwave-neal">13.2. DWave_neal.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otro-ejemplo">13.3. Otro ejemplo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizacion-de-fixedvariablecomposite">13.4. Utilización de FixedVariableComposite.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-un-modelo-qubo-en-ising">13.5. Convertir un modelo QUBO en ISING.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

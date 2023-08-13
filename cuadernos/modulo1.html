@@ -169,20 +169,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">13. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">14. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Indice_ejercicios.html">15. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Indice_ejercicios.html">16. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">16. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">17. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">17. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">18. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -351,7 +352,7 @@ document.write(`
 <p>La tecnología que está detrás de todo esto, se basa en el comportamiento del electrón y el <em>spin</em>.El comportamiento magnético puede entenderse pensando en cada átomo como un  espín, que puede apuntar hacia arriba o hacia abajo.</p>
 <p>Los espines pueden querer alinearse contra o con un campo magnético, de tal manera que los giros vecinos se afectan mutuamente, pero no ocurre lo mismo con los más alejados.</p>
 <section id="el-modelo-ising">
-<h2><span class="section-number">3.1. </span>El modelo ising.<a class="headerlink" href="#el-modelo-ising" title="Permalink to this heading">#</a></h2>
+<span id="modelo-ising"></span><h2><span class="section-number">3.1. </span>El modelo ising.<a class="headerlink" href="#el-modelo-ising" title="Permalink to this heading">#</a></h2>
 <p>Este modelo va tratar las variables como binarias pero que pueden tomar los valores -1 y +1. Entonces utilizando este modelo la función objetivo se va a definir de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -360,7 +361,7 @@ E=-\sum_{i}h_{i}S_{i}+\sum_{i,j}J_{ij}S_{i}S_{j}\qquad donde\:S_{i}\in\{-1,+1\}
 <p>La variable se representa en este modelo por S ya que es la inicial de <em>Spin</em>.Los valores de h’s y J’s son constantes para ajustar por el modelo, una h para cada Spin y una J para cada interacción de los pares de Spines.</p>
 </section>
 <section id="el-modelo-qubo">
-<h2><span class="section-number">3.2. </span>El modelo QUBO.<a class="headerlink" href="#el-modelo-qubo" title="Permalink to this heading">#</a></h2>
+<span id="modelo-qubo"></span><h2><span class="section-number">3.2. </span>El modelo QUBO.<a class="headerlink" href="#el-modelo-qubo" title="Permalink to this heading">#</a></h2>
 <p>En este caso el modelo se describe de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
 \[

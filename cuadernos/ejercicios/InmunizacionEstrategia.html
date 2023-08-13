@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Introdución &#8212; D-Wave Ocean</title>
+    <title>15. Introdución &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/InmunizacionEstrategia';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="15. Introducción." href="../Indice_ejercicios.html" />
-    <link rel="prev" title="13. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
+    <link rel="next" title="16. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="14. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,20 +169,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">13. Partición de un conjunto de números</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Inmunización-Estrategia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">15. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">16. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">16. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">17. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">17. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">18. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -332,7 +333,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introducion">
-<span id="inmunizacion-2"></span><h1><span class="section-number">14. </span>Introdución<a class="headerlink" href="#introducion" title="Permalink to this heading">#</a></h1>
+<span id="inmunizacion-2"></span><h1><span class="section-number">15. </span>Introdución<a class="headerlink" href="#introducion" title="Permalink to this heading">#</a></h1>
 <p id="index-0">En este apartado se va a desarrollar una estrategia para inmunizar a una población frente a un determinado virus, el cual ya se ha comentado en el apartado dedicado al <a class="reference internal" href="../Modulo09_DCM.html#dqm"><span class="std std-ref">modelo Discrete Quadratic Model</span></a>. Aunque en este apartado se le da el enfoque de resolución de un problema de tipo <a class="reference internal" href="../modulo10_CQM.html#cqm"><span class="std std-ref">Constrained Quadratic Model</span></a>.</p>
 <p>La resolución del problema se puede <a href="https://github.com/dwave-examples/immunization-strategy/blob/main/demo.py" target="_blank"> localizar en internet en este enlace </a>, pero se ha considerado oportuno profundizar más en su desarrollo a fin de que el lector pueda conocer con mayor grado de detalle su solución.</p>
 <p>La idea básica del problema es la siguiente: Existen muchas estrategias  para inmunizar poblaciones con el fin de prevenir la transmisión de un virus o una enfermedad infecciosa utilizando para ello un número mínimo de dosis.</p>
@@ -527,7 +528,7 @@ El gráfico predeterminado es el gráfico de Internet en 1000 nodos. El mayor n�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b0189c55ce5b58cc33625099e06bab3356b6e5dc566f2c50682af609e553c4a2.png" src="../../_images/b0189c55ce5b58cc33625099e06bab3356b6e5dc566f2c50682af609e553c4a2.png" />
+<img alt="../../_images/f3979cdfb34ecc7991d8e722c8d8d48c09075d5f50c233f57e409f672f3ba1c9.png" src="../../_images/f3979cdfb34ecc7991d8e722c8d8d48c09075d5f50c233f57e409f672f3ba1c9.png" />
 </div>
 </div>
 <p>Ahora ya viene la parte más interesante del problema, construir las instrucciones Python para enviar a los ordenadores de D-Wave para que nos resuelvan el problema, y en este caso lo resolveremos <a href="https://docs.ocean.dwavesys.com/en/stable/concepts/cqm.html" target="_blank"> utilizando la clase ConstrainedQuadraticModel() </a>.</p>
@@ -736,8 +737,7 @@ Number of illegal edges:	 0
     <span class="k">else</span><span class="p">:</span>
         <span class="n">output_name</span> <span class="o">=</span> <span class="s1">&#39;separator.png&#39;</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Output stored in&quot;</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Output stored in&quot;</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -753,20 +753,7 @@ Number of illegal edges:	 0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Visualizing output...
 </pre></div>
 </div>
-<img alt="../../_images/be5a90117c31fc57d331dcb9ac395c6c0ea6da03b90c61f5e901bfa522caf671.png" src="../../_images/be5a90117c31fc57d331dcb9ac395c6c0ea6da03b90c61f5e901bfa522caf671.png" />
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">visualize_results</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">group_1</span><span class="p">,</span> <span class="n">group_2</span><span class="p">,</span> <span class="n">sep_group</span><span class="p">,</span> <span class="n">illegal_edges</span><span class="p">)</span>
-
-<span class="nn">Cell In[15], line 29,</span> in <span class="ni">visualize_results</span><span class="nt">(G, group_1, group_2, sep_group, illegal_edges, guardar)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">output_name</span> <span class="o">=</span> <span class="s1">&#39;separator.png&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">29</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Output stored in&quot;</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
-
-<span class="ne">UnboundLocalError</span>: local variable &#39;output_name&#39; referenced before assignment
-</pre></div>
-</div>
+<img alt="../../_images/b436f6e62e3d76589872f6e686e6a2f462ab7d0c056d961507facab194ea19f4.png" src="../../_images/b436f6e62e3d76589872f6e686e6a2f462ab7d0c056d961507facab194ea19f4.png" />
 </div>
 </div>
 </section>
@@ -808,7 +795,7 @@ Number of illegal edges:	 0
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Problema partición un conjunto de números.</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Problema partición un conjunto de números.</p>
       </div>
     </a>
     <a class="right-next"
@@ -816,7 +803,7 @@ Number of illegal edges:	 0
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

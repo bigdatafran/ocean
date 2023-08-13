@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>16. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Empleados_Turnos';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="15. Introdución" href="InmunizacionEstrategia.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modulo09_DCM.html">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Reparto empleados por turno trabajo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">17. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">18. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">19. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cuadernos/ejercicios/Empleados_Turnos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="reparto-turnos"></span><h1><span class="section-number">16. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>Supongamos que tenemos un conjunto de M empleados y los tenemos que distribuir en N turnos de trabajo, y cada trabajador manifiesta su preferencia por un determinado turno ( en una escala de valoración que va del cero al N-1). Distribuir esos trabajadores en esos turnos y atendiendo a la preferencia del trabajador puede ser algo bastante tedioso a medida que se incrementa el número de trabajadores y el número de turnos a tener en cuenta. Este problema es el que se pretende resolver en este apartado, de tal manera que los trabajadores acudan a los turnos que se les asigne pero teniendo en cuenta sus preferencias.</p>
+<p>Para resolver este problema utilizaremos un modelo de tipo DQM, aunque como se podrá apreciar durante el desarrollo del ejemplo, en el fondo va a ser un modelo BQM, con las variables <span class="math notranslate nohighlight">\(x_{i,j}\)</span> que toma valores 0 ó 1 y el subíndice i haciendo referencia al turno y el j al empleado j.</p>
+<p>A continuación procedemos a desarrollar el problema y explicando en cada celda el procedimiento que se está utilizando. Comenzamos importando las librerías que vamos a necesitar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">DiscreteQuadraticModel</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridDQMSampler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;agg&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comenzamos definiendo las variables que se van a utilizar en el problema. El valor de estas variables se puede modificar como el lector crea conveniente, pero siempre respetanto la restricción de que el número de empleados (M) tiene que ser mayor o igual que el número de turnos (N).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos el número de empleados</span>
+<span class="n">num_employees</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="c1"># Definimos el número de turnos</span>
+<span class="n">num_shifts</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># El número de empleados debe ser mayor o igual que el de turnos</span>
+<span class="k">if</span> <span class="n">num_employees</span> <span class="o">&lt;</span> <span class="n">num_shifts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">**Número de empleados debe ser mayor o igual que el número de turnos.**&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Planificando&quot;</span><span class="p">,</span> <span class="n">num_employees</span><span class="p">,</span> <span class="s2">&quot;empleados sobre&quot;</span><span class="p">,</span> <span class="n">num_shifts</span><span class="p">,</span> <span class="s2">&quot;turnos...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Planificando 12 empleados sobre 4 turnos...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Procedemos a generar de forma aleatoria las preferencias en los turnos de cada empleado, de tal manera que cuanto menor valor mayor preferencia se tendra por el turno indicado por la posición en la que se encuentra la preferencia manifestada. De esta manera si un trabajador manifiesta las siguientes preferencias [1,3,2,0] significara que en primer lugar prefiere el cuarto turno, después sería el primer turno y así sucesivamente.</p>
+<p>Se toma este tipo de codificación para las preferencia, ya que los valores así indicados serán los coeficientes (bias) que acompañan a las variables en la parte lineal del problema, y como los solvers lo que hacen es minimizar la energia, son estos valores los mejores a utilizar como <em>bias</em> en la parte lineal del problema.</p>
+<p>Procedemos por lo tanto a generar estas preferencias, y después de su generación procedemos a mostrar el resultado obtenido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos de forma aleatoria un array con las preferencias de turnos de los empleados.</span>
+<span class="c1"># A menor valor mayor preferencia por ese turno</span>
+<span class="n">preferences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">),</span> <span class="p">(</span><span class="n">num_employees</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">num_employees</span><span class="p">,</span><span class="n">num_shifts</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_employees</span><span class="p">)]</span>
+<span class="n">preferences</span> <span class="o">=</span> <span class="n">preferences</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span>
+
+<span class="n">preferences</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2, 3],
+       [0, 3, 2, 1],
+       [2, 0, 1, 3],
+       [0, 2, 1, 3],
+       [3, 1, 2, 0],
+       [3, 0, 2, 1],
+       [3, 2, 0, 1],
+       [0, 1, 2, 3],
+       [2, 0, 1, 3],
+       [0, 1, 2, 3],
+       [0, 2, 1, 3],
+       [3, 2, 0, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez hechos todos estos preparativos inciales, procedemos a implementar el código que resolverá nuestro problema y para ello, lo primero que hacemos es generar una instancia de la clase <em>DiscreteQuadraticModel</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicializamos un modelo de tipo DQM</span>
+<span class="n">dqm</span> <span class="o">=</span> <span class="n">DiscreteQuadraticModel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación pasamos a explicar todos los condionantes que tengamos en cuenta para la generación de nuestro modelo. Un primer condicionante es que el número de trabajadores por turnos deberá ser aproximadamente el mismo, es decir, deberemos hacer una distribución uniforme de los trabajadores por cada turno, en consecuencia en cada turno habrá M/N=num_employees/num_shifts trabajadores. Esta será una condición a tener en cuenta en nuestro problema.</p>
+<p>En la siguiente figura podemos ver de forma clara cuales son las condiciones a tener en cuenta.</p>
+<p><img alt="Reparto empleados" src="../../_images/Reparto_empleados.png" /></p>
+<p>Una condición es que la suma por filas debe ser igual a 1, es decir un trabajador debe ser asignado a uno y sólo un turno. Esta restricción la vamos a tener porque vamos a definir una variable de tipo discreta para cada trabajador y entonces el sistema ya va a saber que la suma debe ser igual a uno.</p>
+<p>Otro condicionante muy importante es que la suma por columnas debe ser igual a num_employees/num_shift=M/N. Como ya sabemos por la parte teórica, esta restricción se consigue añadiendo mediante una suma el factor <span class="math notranslate nohighlight">\(\left(\sum_{j}x_{ij}-M/N\right)^{2}\)</span> multiplicado por el factor de Lagrange <span class="math notranslate nohighlight">\(\gamma\)</span>, y esto para cada turno i. Desarrollamos a continuación ese término al cuadrado.</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{j}x_{ij}-M/N\right)^{2}=\left(\sum_{j}x_{ij}\right)^{2}+\left(M/N\right)^{2}-2\frac{M}{N}\sum_{j}x_{ij}=\sum_{j}x_{ij}^{2}+2\sum_{j}\sum_{k&gt;j}x_{ij}x_{ik}+\left(M/N\right)^{2}-2\frac{M}{N}\sum_{j}x_{ij}\]</div>
+<p>Ahora hay que tener en cuenta que las variables con las que trabajamos son binarias, con valores igual a cero o uno, por lo tanto <span class="math notranslate nohighlight">\(x_{ij}^2=x_{ij}\)</span>, y en consecuencia la expresión anterior queda de la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[\left(\sum_{j}x_{ij}-M/N\right)^{2}=(1-2\frac{M}{N})\sum_{j}x_{ij}+2\sum_{j}\sum_{k&gt;j}x_{ij}x_{ik}+\left(M/N\right)^{2}\]</div>
+<p>Como estamos minimizando el término constante <span class="math notranslate nohighlight">\((M/N)^2\)</span> nos podemos olvidar de él. Y no olvidemos que los términos anteriores deben estar multiplicados por la contante de Lagrange gamma.
+Teniendo en cuenta todo lo anterior procedemos a construir el modelo. Lo primero que debemos hacer es crear las variables discreteas, una para cada empleado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Para cada empleado añadimos una variable discreta al modelo DQM</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_employees</span><span class="p">):</span>
+    <span class="n">dqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al crear para cada empleado las variables de esta manera, tenemos granatizado que:</p>
+<ul class="simple">
+<li><p>El número de valores es <em>num_shifts</em> que es el primero parámetro del método <em>add_variable</em>.</p></li>
+<li><p>Al convertir estas variables en otras de tipo one-hot encoding (variables binarias), la suma para cada empleado es 1</p></li>
+</ul>
+<p>Procedemos ahora a incorporar la condición que hemos visto anteriormente, de que la suma por columnas debe ser igual a M/N.</p>
+<p>Primero definimos el valor del parámetro de Lagrange gamma y establecemos el valor de M/N.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Debe haber igual número empleados en cada turnos</span>
+<span class="n">num_per_shift</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_employees</span><span class="o">/</span><span class="n">num_shifts</span><span class="p">)</span>
+<span class="c1"># Parámetro de Lagrange gamma</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">num_employees</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Procedemos ahora a establecer la condición de que la suma por columnas es M/N</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_employees</span><span class="p">):</span>
+        <span class="n">dqm</span><span class="o">.</span><span class="n">set_linear_case</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">preferences</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">gamma</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">num_per_shift</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_employees</span><span class="p">):</span>
+            <span class="n">dqm</span><span class="o">.</span><span class="n">set_quadratic_case</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">gamma</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya resolvemos mediante un solver híbrido</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicializamos el  DQM solver</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridDQMSampler</span><span class="p">()</span>
+
+<span class="c1"># Resolvemos el problema utilizando el DQM solver</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_dqm</span><span class="p">(</span><span class="n">dqm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ejemplo - Employee Scheduling&#39;</span><span class="p">)</span>
+
+<span class="c1"># Nos quedamos con la primera solución</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">energy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">horario score:&quot;</span><span class="p">,</span> <span class="n">energy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>horario score: -428.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez se tenga la solución la construcción y visualización del horario ya es inmediata</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construimos el horario</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">num_employees</span><span class="p">,</span> <span class="n">num_shifts</span><span class="p">))</span><span class="o">*</span><span class="n">num_shifts</span>
+<span class="n">prefs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">num_shifts</span>
+<span class="n">shifts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">num_shifts</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">schedule</span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="n">val</span><span class="p">]</span><span class="o">=</span><span class="n">preferences</span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="n">val</span><span class="p">]</span>
+    <span class="n">prefs</span><span class="p">[</span><span class="n">preferences</span><span class="p">[</span><span class="n">key</span><span class="p">,</span><span class="n">val</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">shifts</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para evitar el warning <em>UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure</em>  al ejecutar los comandos que siguen, es necesario previamente instalar TKinter, lo hacemos con el siguiente código que se deja comentado, si ya se tuviera instalado es módulo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install tk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mostramos las preferencias mediante un mapa de calor</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
+<span class="n">cmaplist</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">cmaplist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">cmap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;Custom cmap&#39;</span><span class="p">,</span> <span class="n">cmaplist</span><span class="p">,</span> <span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">preferences</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">num_shifts</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Shifts&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Employees&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Employee Shift Preferences&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="n">fontstyle</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show heatmap of schedule</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">schedule</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_shifts</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Best&#39;</span><span class="p">,</span> <span class="s1">&#39;Worst&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Shifts&#39;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Employee Shift Schedule&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="n">fontstyle</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;employee_schedule.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute/display schedule statistics</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">),</span> <span class="n">shifts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Shift&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number Scheduled&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Employees Scheduled Per Shift&quot;</span><span class="p">)</span>
+
+<span class="n">mean_happiness</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">*</span><span class="n">prefs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">)])</span><span class="o">/</span><span class="n">num_employees</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Average happiness:</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mean_happiness</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_shifts</span><span class="p">),</span> <span class="n">prefs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Preference Rank&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Average Preference per Shift&quot;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&quot;schedule_statistics.png&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average happiness:	 0.3333333333333333
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Francisco\AppData\Local\Temp\ipykernel_15992\2811326044.py:37: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para finalizar la exposición de este ejemplo, simplemente volver a decir que este problema se podría haber resuelto utilizando un modelo de tipo CQM, lo cual se deja como ejercicio al lector para que de esta manera vaya adquiriendo la destreza necesaria en la utilización de Ocena SDK.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos\ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="InmunizacionEstrategia.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Introdución</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Indice_ejercicios.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>15. Introducción. &#8212; D-Wave Ocean</title>
+    <title>17. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/Indice_ejercicios';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16. Índice" href="../genindex.html" />
-    <link rel="prev" title="14. Introdución" href="ejercicios/InmunizacionEstrategia.html" />
+    <link rel="next" title="18. Índice" href="../genindex.html" />
+    <link rel="prev" title="16. Introducción." href="ejercicios/Empleados_Turnos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,20 +167,22 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">13. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">14. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/Empleados_Turnos.html">16. Reparto empleados por turno trabajo</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">16. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">18. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">17. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">19. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -327,9 +329,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-binary-qadratic-model-bqm">15.1. Modelos Binary Qadratic Model (BQM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discrete-quadratic-model-dqm">15.2. Modelos Discrete Quadratic Model (DQM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-constrained-quadratic-model-cqm">15.3. Modelos Constrained Quadratic Model (CQM):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-binary-qadratic-model-bqm">17.1. Modelos Binary Qadratic Model (BQM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discrete-quadratic-model-dqm">17.2. Modelos Discrete Quadratic Model (DQM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-constrained-quadratic-model-cqm">17.3. Modelos Constrained Quadratic Model (CQM):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">17.4. Otros:</a></li>
 </ul>
             </nav>
         </div>
@@ -342,26 +345,33 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="indice-ejercicios"></span><h1><span class="section-number">15. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<span id="indice-ejercicios"></span><h1><span class="section-number">17. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>En todo el tutorial, se han mostrado una serie de ejemplos enfocados a mostrar cómo popder utilizar la herramientas que pone a nuestra disposición Ocean SDK para poder obtener los resultados que buscamos en nuestros problemas de optimización.</p>
 <p>Son muchos los métodos y procedimientos explicados en este tutorial y también son muchos los ejemplos que se han implementado en el mismo, por lo que eso puede dar lugar a un cierto desorden a la hora de ordenar los conceptos por parte del lector.</p>
 <p>POr este motivo se ha considerado oportuno crear este índice en el que se pondrá como título el / los prcedimientos que se utilizan en el ejemplo, y a continuación un enlace al ejemplo que el alumno quiere ver.</p>
 <section id="modelos-binary-qadratic-model-bqm">
-<h2><span class="section-number">15.1. </span>Modelos Binary Qadratic Model (BQM)<a class="headerlink" href="#modelos-binary-qadratic-model-bqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Modelos Binary Qadratic Model (BQM)<a class="headerlink" href="#modelos-binary-qadratic-model-bqm" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html#particionconjuntonumeros"><span class="std std-ref">Partición de un conjunto de números en dos o más grupos</span></a></p></li>
 </ul>
 </section>
 <section id="modelos-discrete-quadratic-model-dqm">
-<h2><span class="section-number">15.2. </span>Modelos Discrete Quadratic Model (DQM)<a class="headerlink" href="#modelos-discrete-quadratic-model-dqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Modelos Discrete Quadratic Model (DQM)<a class="headerlink" href="#modelos-discrete-quadratic-model-dqm" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="Modulo09_DCM.html#mapcoloring"><span class="std std-ref">Map Coloring. Colorear un mapa de manera que dos regiones con alguna frontera en común tengan color diferente</span></a></p></li>
+<li><p><a class="reference internal" href="ejercicios/Empleados_Turnos.html#reparto-turnos"><span class="std std-ref">Reaparto de Empleados por turnos de trabajo</span></a></p></li>
 </ul>
 </section>
 <section id="modelos-constrained-quadratic-model-cqm">
-<h2><span class="section-number">15.3. </span>Modelos Constrained Quadratic Model (CQM):<a class="headerlink" href="#modelos-constrained-quadratic-model-cqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Modelos Constrained Quadratic Model (CQM):<a class="headerlink" href="#modelos-constrained-quadratic-model-cqm" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html#inmunizacion-2"><span class="std std-ref">Inmunización-estrategia</span></a></p></li>
+</ul>
+</section>
+<section id="otros">
+<h2><span class="section-number">17.4. </span>Otros:<a class="headerlink" href="#otros" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ejercicios/PrimerosPasos.html#primeros-pasos"><span class="std std-ref">Primeros pasos. Compendio de pequeños ejemplo para familiarizarse con el entorno Ocean SDK</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -398,12 +408,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ejercicios/InmunizacionEstrategia.html"
+       href="ejercicios/Empleados_Turnos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Introdución</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -411,7 +421,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Índice</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Índice</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -433,9 +443,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-binary-qadratic-model-bqm">15.1. Modelos Binary Qadratic Model (BQM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discrete-quadratic-model-dqm">15.2. Modelos Discrete Quadratic Model (DQM)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-constrained-quadratic-model-cqm">15.3. Modelos Constrained Quadratic Model (CQM):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-binary-qadratic-model-bqm">17.1. Modelos Binary Qadratic Model (BQM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discrete-quadratic-model-dqm">17.2. Modelos Discrete Quadratic Model (DQM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-constrained-quadratic-model-cqm">17.3. Modelos Constrained Quadratic Model (CQM):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">17.4. Otros:</a></li>
 </ul>
   </nav></div>
 

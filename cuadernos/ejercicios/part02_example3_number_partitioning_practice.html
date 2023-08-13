@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>13. Problema partición un conjunto de números. &#8212; D-Wave Ocean</title>
+    <title>14. Problema partición un conjunto de números. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/part02_example3_number_partitioning_practice';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="14. Introdución" href="InmunizacionEstrategia.html" />
-    <link rel="prev" title="11. Programación entera." href="../Programacion_Entera.html" />
+    <link rel="next" title="15. Introdución" href="InmunizacionEstrategia.html" />
+    <link rel="prev" title="13. Introducción." href="PrimerosPasos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,20 +169,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">14. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">15. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">16. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">16. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">17. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">17. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">18. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -329,8 +330,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-objeto-de-tipo-bqm">13.1. Creación de un objeto de tipo BQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haciendo-una-particion-en-mas-de-dos-conjuntos">13.2. Haciendo una partición en más de dos conjuntos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-objeto-de-tipo-bqm">14.1. Creación de un objeto de tipo BQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haciendo-una-particion-en-mas-de-dos-conjuntos">14.2. Haciendo una partición en más de dos conjuntos</a></li>
 </ul>
             </nav>
         </div>
@@ -343,7 +344,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="problema-particion-un-conjunto-de-numeros">
-<span id="particionconjuntonumeros"></span><h1><span class="section-number">13. </span>Problema partición un conjunto de números.<a class="headerlink" href="#problema-particion-un-conjunto-de-numeros" title="Permalink to this heading">#</a></h1>
+<span id="particionconjuntonumeros"></span><h1><span class="section-number">14. </span>Problema partición un conjunto de números.<a class="headerlink" href="#problema-particion-un-conjunto-de-numeros" title="Permalink to this heading">#</a></h1>
 <p>En este apartado vamos a ver cómo resolver el problema de dividir un conjunto de números, en dos o más grupos, de manera que la suma de los números de cada grupo sea la misma.</p>
 <p>Para comenzar, inicialmente lo hacemos en dicidir una lista de números en dos grupos. Por lo tanto, lo primero que debemos tener es el conjunto de todos los números, que los colocaremos en una lista, como se hace a continuación</p>
 <div class="cell docutils container">
@@ -354,7 +355,7 @@ document.write(`
 </div>
 </div>
 <section id="creacion-de-un-objeto-de-tipo-bqm">
-<h2><span class="section-number">13.1. </span>Creación de un objeto de tipo BQM.<a class="headerlink" href="#creacion-de-un-objeto-de-tipo-bqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.1. </span>Creación de un objeto de tipo BQM.<a class="headerlink" href="#creacion-de-un-objeto-de-tipo-bqm" title="Permalink to this heading">#</a></h2>
 <p>Para resolver nuestro problema, debemos tener en cuenta lo siguiente:</p>
 <ul class="simple">
 <li><p>Se utilizará la variable denominada x que valdrá 1 si el número está en el conjunto y cero en caso contrario.</p></li>
@@ -509,7 +510,7 @@ document.write(`
 </div>
 </section>
 <section id="haciendo-una-particion-en-mas-de-dos-conjuntos">
-<h2><span class="section-number">13.2. </span>Haciendo una partición en más de dos conjuntos<a class="headerlink" href="#haciendo-una-particion-en-mas-de-dos-conjuntos" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.2. </span>Haciendo una partición en más de dos conjuntos<a class="headerlink" href="#haciendo-una-particion-en-mas-de-dos-conjuntos" title="Permalink to this heading">#</a></h2>
 <p>En este apartado procedemos a extender el aprtado anterior, en el sentido de que aquí la lista de números inicial, la vamos a dividir en tres conjuntos, de manera que los números seleccionados en cada grupo sea la misma. Para hacer esto deberemos tener en cuenta lo siguiente:</p>
 <ul class="simple">
 <li><p>Necesitamos una variable binaria, que tome valores 0 ó 1 para cada número y cada conjunto de valores.</p></li>
@@ -653,11 +654,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (&#39;x_0&#39;, 0) (&#39;x_0&#39;, 1) (&#39;x_0&#39;, 2) (&#39;x_1&#39;, 0) ... (&#39;x_8&#39;, 2) energy num_oc.
-0          0          1          0          0 ...          0    0.0       1
-1          0          1          0          0 ...          1    0.0       1
-2          1          0          0          1 ...          1    0.0       1
-3          1          0          0          0 ...          1   10.0       1
-4          0          0          1          1 ...          0   20.0       1
+0          0          1          0          0 ...          1    0.0       1
+1          1          0          0          0 ...          1    0.0       1
+2          1          0          0          0 ...          0    0.0       1
+3          1          0          0          1 ...          0    0.0       1
+4          0          1          0          1 ...          1   10.0       1
 [&#39;BINARY&#39;, 5 rows, 5 samples, 27 variables]
 </pre></div>
 </div>
@@ -677,9 +678,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
-12 [3, 9]
-12 [7, 2, 1, 2]
-12 [1, 8, 3]
+12 [8, 3, 1]
+12 [7, 2, 3]
+12 [1, 2, 9]
 </pre></div>
 </div>
 </div>
@@ -719,12 +720,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Programacion_Entera.html"
+       href="PrimerosPasos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Programación entera.</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -732,7 +733,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Introdución</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Introdución</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -754,8 +755,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-objeto-de-tipo-bqm">13.1. Creación de un objeto de tipo BQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haciendo-una-particion-en-mas-de-dos-conjuntos">13.2. Haciendo una partición en más de dos conjuntos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-objeto-de-tipo-bqm">14.1. Creación de un objeto de tipo BQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#haciendo-una-particion-en-mas-de-dos-conjuntos">14.2. Haciendo una partición en más de dos conjuntos</a></li>
 </ul>
   </nav></div>
 

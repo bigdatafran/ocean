@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>17. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Problema_Mochila';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="16. Introducción." href="Empleados_Turnos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modulo09_DCM.html">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">16. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Problema de la mochila</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">18. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">19. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">20. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cuadernos/ejercicios/Problema_Mochila.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1">17.1. versión 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-con-cqm">17.2. Version 2 (con CQM).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-con-otras-restricciones">17.3. Versión 3 (Con otras restricciones).</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="problema-mochila"></span><h1><span class="section-number">17. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>El problema de la mochila es un problema clásico dentro del mundo de la optimización. La idea es que dado una serie de paquetes, con unas ciertas carcaterísticas y un lugar donde se quieren meter esos paquetes (puede ser un contenedor, camión etc), estudiar la manera óptima de colcar los paquetes en el contenedor.</p>
+<p>En este apartado vamos a ver diferentes versiones del problema y la forma de darlo solución.</p>
+<section id="version-1">
+<h2><span class="section-number">17.1. </span>versión 1.<a class="headerlink" href="#version-1" title="Permalink to this heading">#</a></h2>
+<p id="problema-mochila-version-1">Tenemos cuatro paquetes, cada paquete tiene un valor, un peso y un volumen. Se trata de maximizar el valor que se introduce teniendo el cuenta que el contenedor tiene un límite de pesos y y de volumen.</p>
+<p>En este caso la función objetivo seria:</p>
+<div class="math notranslate nohighlight">
+\[\sum valor_{i}x_{i}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(x_i\)</span> es una variable dicotómica que toma el valor 1 si es seleccionado el paquete y cero en caso contrario. Observar que lo que se pretende es maximimizar, luego lo que tenemos que hacer es poner esa función con signo negativo.</p>
+<p>Las restricciones se pondrían de forma similar. A continuación, se muestran los valores con los que vamos a trabajar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1"># Valores de los paquetes</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">#pesos de los paquetes</span>
+<span class="n">volumes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># volumen de los paquetes</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># nº total de paquetes</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="c1"># Nos va a servir despues para definir las variables binarias</span>
+<span class="n">max_weight</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># máximo peso que admite el contenedor</span>
+<span class="n">max_volume</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># Volumen máximo que admite el contenedor</span>
+
+<span class="n">penalty_strength_weight</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># Parámetro de lagrange para la condición de peso</span>
+<span class="n">penalty_strength_volume</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># parámetro de lagrange para la condición de volumen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación mostramos una tabla de posibles valores y señalamos en negrita la opción que vamos buscando. Observar que hay soluciones que maximizan la función de costes, pero sin embargo no es una solucción factible pues no verifica alguna de las restricciones impuestas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>x_1</p></th>
+<th class="head text-center"><p>x_2</p></th>
+<th class="head text-center"><p>x_3</p></th>
+<th class="head text-center"><p>x_4</p></th>
+<th class="head text-center"><p>total value</p></th>
+<th class="head text-center"><p>total weight</p></th>
+<th class="head text-center"><p>total volume</p></th>
+<th class="head text-center"><p>feasible</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><strong>0</strong></p></td>
+<td class="text-center"><p><strong>0</strong></p></td>
+<td class="text-center"><p><strong>0</strong></p></td>
+<td class="text-center"><p><strong>1</strong></p></td>
+<td class="text-center"><p><strong>4</strong></p></td>
+<td class="text-center"><p><strong>3</strong></p></td>
+<td class="text-center"><p><strong>2</strong></p></td>
+<td class="text-center"><p><strong>True</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>7</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>False</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<p>Comenzamos implementado el modelo de tipo BQM que vamos a utilizar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">BinaryQuadraticModel</span>
+
+<span class="n">bqm</span> <span class="o">=</span> <span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="s1">&#39;BINARY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>bqm es una instancia de BinaryQuadraticModel y además le definimos como ‘BINARY’ para indicar que las variable <span class="math notranslate nohighlight">\(x_i\)</span> sólo toman valores cero o uno, como ya se ha comentado antes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="n">bqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">values</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos las variables que hemos creado,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;x_0&#39;, &#39;x_1&#39;, &#39;x_2&#39;, &#39;x_3&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>observar que a vada variable le hemos dado un ofset o coeficiente con signo negativo, porque lo que queremos es minimizar la función de coste. Veamos a continuación el modelo que hemos creado,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bqm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({&#39;x_0&#39;: -1.0, &#39;x_1&#39;: -2.0, &#39;x_2&#39;: -3.0, &#39;x_3&#39;: -4.0}, {}, 0.0, &#39;BINARY&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p id="index-0">Ahora añadimos la restriccióm de la capacidad de la mochila. Observar que aquí para introducir una restricción de desigualdad utilizamos la propiedad<a href="https://docs.ocean.dwavesys.com/en/latest/docs_dimod/reference/generated/dimod.binary.BinaryQuadraticModel.add_linear_inequality_constraint.html" target="_blank">  bqm.add_linear_inequality_constrain </a>t.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slacks_weight</span> <span class="o">=</span> <span class="n">bqm</span><span class="o">.</span><span class="n">add_linear_inequality_constraint</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">weights</span><span class="p">)],</span>
+    <span class="n">constant</span><span class="o">=-</span><span class="n">max_weight</span><span class="p">,</span> <span class="c1">#este sería el peso máximo permitido</span>
+    <span class="n">lagrange_multiplier</span><span class="o">=</span><span class="n">penalty_strength_weight</span><span class="p">,</span> <span class="c1"># el multiplicador de lagrange definido al principio</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;capacity&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hacemos un tratamaiento similar para la restricción del volumen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slacks_volume</span> <span class="o">=</span> <span class="n">bqm</span><span class="o">.</span><span class="n">add_linear_inequality_constraint</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">volumes</span><span class="p">)],</span>
+    <span class="n">constant</span><span class="o">=-</span><span class="n">max_volume</span><span class="p">,</span>
+    <span class="n">lagrange_multiplier</span><span class="o">=</span><span class="n">penalty_strength_volume</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;volume_capacity&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para problemas reducidos con por ejemplo menos de 20 variables, podemos resolver el problema QUBO de forma exacta enumerando todas las posibles soluciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactSolver</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">ExactSolver</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">samples</span><span class="p">()</span>
+<span class="n">best_solution</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  slack_capacity_0 slack_capacity_1 slack_capacity_2 ... x_3 energy num_oc.
+0                1                0                0 ...   1   -4.0       1
+1                0                0                1 ...   1   -4.0       1
+2                0                0                0 ...   0   -3.0       1
+3                1                0                0 ...   0   -3.0       1
+4                0                0                1 ...   0   -3.0       1
+[&#39;BINARY&#39;, 5 rows, 5 samples, 10 variables]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_solution</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;slack_capacity_0&#39;, 1), (&#39;slack_capacity_1&#39;, 0), (&#39;slack_capacity_2&#39;, 0), (&#39;slack_volume_capacity_0&#39;, 1), (&#39;slack_volume_capacity_1&#39;, 0), (&#39;slack_volume_capacity_2&#39;, 1), (&#39;x_0&#39;, 0), (&#39;x_1&#39;, 0), (&#39;x_2&#39;, 0), (&#39;x_3&#39;, 1)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a examinar la solución a continuación.</p>
+<ul class="simple">
+<li><p>Las variables principales especifican el montaje de la mochila.</p></li>
+<li><p>El primer conjunto de variables de holgura indica que el peso total de los artículos seleccionados es 1 unidad inferior a la capacidad de peso de la mochila.</p></li>
+<li><p>El segundo conjunto de variables de holgura indica que el volumen total de los artículos seleccionados es 1 unidad inferior a la capacidad de volumen de la mochila.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">best_solution</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">best_solution</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">{</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">slacks_weight</span><span class="p">}})</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">best_solution</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">{</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">slacks_volume</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_0&#39;: 0, &#39;x_1&#39;: 0, &#39;x_2&#39;: 0, &#39;x_3&#39;: 1}
+{&#39;slack_capacity_0&#39;: 1, &#39;slack_capacity_1&#39;: 0, &#39;slack_capacity_2&#39;: 0}
+{&#39;slack_volume_capacity_0&#39;: 1, &#39;slack_volume_capacity_1&#39;: 0, &#39;slack_volume_capacity_2&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos a continuación una función que nos permita saber si se cumplen o no las restricciones del problema</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">violations</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">slack_variables</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+    <span class="n">slack_total_weight</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slack_variables</span><span class="p">):</span>
+        <span class="n">slack_total_weight</span> <span class="o">+=</span> <span class="n">sample</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+        <span class="n">weight</span> <span class="o">+=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">sample</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total of items: &#39;</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total slack value: &#39;</span><span class="p">,</span> <span class="n">slack_total_weight</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Left hand side: &#39;</span><span class="p">,</span> <span class="n">weight</span> <span class="o">+</span> <span class="n">slack_total_weight</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Satisfied? &#39;</span><span class="p">,</span> <span class="n">weight</span> <span class="o">+</span> <span class="n">slack_total_weight</span> <span class="o">&lt;=</span> <span class="n">capacity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Weight capacity constraint:&#39;</span><span class="p">)</span>
+<span class="n">violations</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">slacks_weight</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">max_weight</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Volume capacity constraint:&#39;</span><span class="p">)</span>
+<span class="n">violations</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">slacks_volume</span><span class="p">,</span> <span class="n">volumes</span><span class="p">,</span> <span class="n">max_volume</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weight capacity constraint:
+Total of items:  3
+Total slack value:  1
+Left hand side:  4
+Satisfied?  True
+Volume capacity constraint:
+Total of items:  2
+Total slack value:  4
+Left hand side:  6
+Satisfied?  True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="version-2-con-cqm">
+<h2><span class="section-number">17.2. </span>Version 2 (con CQM).<a class="headerlink" href="#version-2-con-cqm" title="Permalink to this heading">#</a></h2>
+<p id="problema-mochila-version-2">El problema es similar al mostrado anteriormente, pero en esta ocasión utilizo una instancia de la clase CQM. Este tipo de solución también lo podemos ver en <a herf="https://github.com/dwave-examples/knapsack" target="_blank"> https://github.com/dwave-examples/knapsack </a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">CQM</span><span class="p">,</span> <span class="n">quicksum</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">64</span><span class="p">]</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">W</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1">#Creamos las variable binarias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1">#Creamos las variable binarias</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">Binary</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">cqm</span> <span class="o">=</span> <span class="n">CQM</span><span class="p">()</span>
+<span class="c1"># Añadimos la función objetivo</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="o">-</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Añadimos las restricciones</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="n">W</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;peso maximo&#39;</span><span class="p">)</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">&lt;=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;items máximo &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;items máximo &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># submitimos el sampler</span>
+<span class="n">sampler</span> <span class="o">=</span>  <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="version-3-con-otras-restricciones">
+<h2><span class="section-number">17.3. </span>Versión 3 (Con otras restricciones).<a class="headerlink" href="#version-3-con-otras-restricciones" title="Permalink to this heading">#</a></h2>
+<p id="problema-mochila-version-3">En este problema se trata de empaquetar un camión de reparto. En este ejemplo, consideramos un escenario simple en el que tenemos un solo camión y un solo tamaño de caja. Queremos elegir paquetes para cargar en el camión de modo que se maximice la cantidad de paquetes con estado de envío prioritario y se minimice el tiempo de tránsito total. No se debe exceder la capacidad de peso y tamaño del camión.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Binaries</span><span class="p">,</span> <span class="n">quicksum</span> 
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span> 
+<span class="kn">import</span> <span class="nn">random</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem set up</span>
+<span class="n">num_packages</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="c1"># Prioridad de cada paquete, 3 = high priority, 1 = low priority</span>
+<span class="n">priority</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">num_packages</span><span class="p">)</span>
+
+<span class="c1"># Número de días transcurridos desde que se encargó cada paquete (a más días, mayor prioridad)</span>
+<span class="n">days_since_order</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">num_packages</span><span class="p">)</span>
+
+<span class="c1"># Weight of each package</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">num_packages</span><span class="p">)</span>
+
+<span class="c1"># Peso máximo y número de bultos que puede transportar el camión</span>
+<span class="n">max_weight</span> <span class="o">=</span> <span class="mi">3000</span>  
+<span class="n">max_packages</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Pesos para cada sumando de la función objetivo</span>
+<span class="n">obj_weight_priority</span> <span class="o">=</span> <span class="mf">1.0</span> 
+<span class="n">obj_weight_days</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the CQM</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+
+<span class="c1"># Create the binary variables</span>
+<span class="n">bin_variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Binaries</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos cómo es una variable</span>
+<span class="n">bin_variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BinaryQuadraticModel({0: 1.0}, {}, 0.0, &#39;BINARY&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># quicksum() se utiliza para indicar que es una suma</span>
+
+<span class="c1"># ----------------- Objective functions ----------------- </span>
+
+<span class="c1"># 1. Maximize priority shipping packages</span>
+<span class="n">objective1</span> <span class="o">=</span> <span class="o">-</span><span class="n">obj_weight_priority</span> <span class="o">*</span> <span class="n">quicksum</span><span class="p">(</span><span class="n">priority</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">bin_variables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">))</span>
+
+<span class="c1"># 2. Minimize customers wait time</span>
+<span class="n">objective2</span> <span class="o">=</span> <span class="o">-</span><span class="n">obj_weight_days</span> <span class="o">*</span> <span class="n">quicksum</span><span class="p">(</span><span class="n">days_since_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">bin_variables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">))</span>
+
+<span class="c1"># Add the objectives to the CQM</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">objective1</span> <span class="o">+</span> <span class="n">objective2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ----------------- Constraints ----------------- </span>
+
+<span class="c1"># Add the maximum capacity constraint</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">bin_variables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+<span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="n">max_weight</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;max_weight&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add the maximum package (or truck size) constraint</span>
+<span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">bin_variables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">))</span> 
+                    <span class="o">==</span> <span class="n">max_packages</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;max_packages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;max_packages&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -----------------  Submit to the CQM sampler -----------------</span>
+<span class="n">cqm_sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span> 
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">cqm_sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Truck Packing Demo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No feasible solution found.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">first_feasible_sol</span> <span class="o">=</span> <span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_feasible_sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 1.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 0.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 0.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 0.0, 31: 0.0, 32: 0.0, 33: 1.0, 34: 0.0, 35: 0.0, 36: 0.0, 37: 0.0, 38: 0.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 0.0, 43: 1.0, 44: 0.0, 45: 0.0, 46: 0.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 0.0, 51: 0.0, 52: 0.0, 53: 0.0, 54: 0.0, 55: 1.0, 56: 0.0, 57: 0.0, 58: 0.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 0.0, 63: 0.0, 64: 0.0, 65: 0.0, 66: 0.0, 67: 0.0, 68: 0.0, 69: 1.0, 70: 0.0, 71: 1.0, 72: 1.0, 73: 0.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 0.0, 78: 0.0, 79: 0.0, 80: 0.0, 81: 1.0, 82: 0.0, 83: 0.0, 84: 1.0, 85: 0.0, 86: 0.0, 87: 1.0, 88: 1.0, 89: 0.0, 90: 0.0, 91: 0.0, 92: 0.0, 93: 1.0, 94: 0.0, 95: 1.0, 96: 1.0, 97: 0.0, 98: 0.0, 99: 1.0, 100: 0.0, 101: 0.0, 102: 1.0, 103: 0.0, 104: 0.0, 105: 0.0, 106: 1.0, 107: 0.0, 108: 1.0, 109: 0.0, 110: 1.0, 111: 0.0, 112: 0.0, 113: 0.0, 114: 0.0, 115: 0.0, 116: 1.0, 117: 0.0, 118: 0.0, 119: 0.0, 120: 0.0, 121: 0.0, 122: 0.0, 123: 0.0, 124: 1.0, 125: 0.0, 126: 1.0, 127: 0.0, 128: 0.0, 129: 0.0, 130: 1.0, 131: 1.0, 132: 0.0, 133: 1.0, 134: 0.0, 135: 0.0, 136: 0.0, 137: 1.0, 138: 1.0, 139: 0.0, 140: 0.0, 141: 0.0, 142: 0.0, 143: 0.0, 144: 1.0, 145: 0.0, 146: 1.0, 147: 0.0, 148: 0.0, 149: 0.0, 150: 0.0, 151: 1.0, 152: 1.0, 153: 0.0, 154: 1.0, 155: 1.0, 156: 1.0, 157: 1.0, 158: 0.0, 159: 1.0, 160: 1.0, 161: 1.0, 162: 1.0, 163: 0.0, 164: 0.0, 165: 0.0, 166: 0.0, 167: 1.0, 168: 0.0, 169: 0.0, 170: 1.0, 171: 1.0, 172: 1.0, 173: 0.0, 174: 0.0, 175: 0.0, 176: 1.0, 177: 0.0, 178: 0.0, 179: 0.0, 180: 0.0, 181: 0.0, 182: 0.0, 183: 0.0, 184: 0.0, 185: 0.0, 186: 0.0, 187: 1.0, 188: 0.0, 189: 0.0, 190: 0.0, 191: 0.0, 192: 0.0, 193: 0.0, 194: 0.0, 195: 0.0, 196: 0.0, 197: 1.0, 198: 0.0, 199: 1.0, 200: 0.0, 201: 0.0, 202: 0.0, 203: 0.0, 204: 1.0, 205: 1.0, 206: 0.0, 207: 0.0, 208: 0.0, 209: 0.0, 210: 0.0, 211: 0.0, 212: 0.0, 213: 0.0, 214: 0.0, 215: 0.0, 216: 0.0, 217: 0.0, 218: 0.0, 219: 0.0, 220: 0.0, 221: 0.0, 222: 0.0, 223: 1.0, 224: 0.0, 225: 0.0, 226: 0.0, 227: 1.0, 228: 0.0, 229: 0.0, 230: 0.0, 231: 1.0, 232: 0.0, 233: 1.0, 234: 0.0, 235: 0.0, 236: 0.0, 237: 0.0, 238: 1.0, 239: 1.0, 240: 0.0, 241: 0.0, 242: 0.0, 243: 0.0, 244: 0.0, 245: 0.0, 246: 0.0, 247: 0.0, 248: 1.0, 249: 1.0, 250: 1.0, 251: 0.0, 252: 0.0, 253: 1.0, 254: 1.0, 255: 0.0, 256: 1.0, 257: 1.0, 258: 1.0, 259: 1.0, 260: 0.0, 261: 0.0, 262: 0.0, 263: 0.0, 264: 1.0, 265: 0.0, 266: 0.0, 267: 0.0, 268: 0.0, 269: 1.0, 270: 0.0, 271: 0.0, 272: 0.0, 273: 1.0, 274: 0.0, 275: 1.0, 276: 0.0, 277: 0.0, 278: 0.0, 279: 0.0, 280: 0.0, 281: 0.0, 282: 1.0, 283: 1.0, 284: 0.0, 285: 0.0, 286: 1.0, 287: 0.0, 288: 1.0, 289: 0.0, 290: 0.0, 291: 0.0, 292: 1.0, 293: 1.0, 294: 1.0, 295: 1.0, 296: 0.0, 297: 1.0, 298: 0.0, 299: 1.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ----------------- Process the results -----------------</span>
+<span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">feasible_sampleset</span><span class="p">):</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No feasible solution found.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">first_feasible_sol</span> <span class="o">=</span> <span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+
+    <span class="c1"># Characterize the problem</span>
+    <span class="n">problem_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_packages</span><span class="p">):</span>
+        <span class="n">problem_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">priority</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">3</span><span class="p">)][</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">days_since_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">****************** PROBLEM ******************</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Days since order was placed&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;5s}{:&gt;5s}{:&gt;5s}{:&gt;5s}{:&gt;5s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Priority |&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;5s}{:&gt;10s}{:&gt;5s}{:&gt;5s}{:&gt;5s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span> <span class="mi">3</span><span class="p">)),</span> 
+                <span class="nb">str</span><span class="p">(</span><span class="n">problem_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">problem_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">problem_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">])))</span>
+
+    <span class="c1"># Calculate number of packages with each priority and number of days since</span>
+    <span class="c1"># order in the solution</span>
+    <span class="n">chosen</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">first_feasible_sol</span> <span class="k">if</span> <span class="n">first_feasible_sol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">total_weight</span> <span class="o">=</span> <span class="n">quicksum</span><span class="p">(</span><span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chosen</span><span class="p">)</span> 
+    <span class="n">solution_priorities</span> <span class="o">=</span> <span class="p">[</span><span class="n">priority</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chosen</span><span class="p">]</span> 
+    <span class="n">solution_days_since_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">days_since_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chosen</span><span class="p">]</span>
+
+    <span class="c1"># Characterize the solution </span>
+    <span class="c1"># Packages with higher priority (upper row) and the most days since the</span>
+    <span class="c1"># order (left most column) should be prioritized in the selection</span>
+    <span class="n">results_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chosen</span><span class="p">:</span>
+        <span class="n">results_array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">priority</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">3</span><span class="p">)][</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">days_since_order</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">****************** SOLUTION ******************</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Days since order was placed&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;5s}{:&gt;5s}{:&gt;5s}{:&gt;5s}{:&gt;5s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Priority |&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;5s}{:&gt;10s}{:&gt;5s}{:&gt;5s}{:&gt;5s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">results_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">results_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">results_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">results_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">])))</span>
+
+    <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total number of selected items: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chosen</span><span class="p">))))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total weight of selected items: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_weight</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>****************** PROBLEM ******************
+
+Days since order was placed
+Priority |    3    2    1    0
+----------------------------------------
+    3        20   22   32   19
+    2        25   22   27   28
+    1        31   28   27   19
+
+****************** SOLUTION ******************
+
+Days since order was placed
+Priority |    3    2    1    0
+----------------------------------------
+    3        19   18   17    1
+    2        15    8    4    0
+    1        15    3    0    0
+
+Total number of selected items: 100
+Total weight of selected items: 2992
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos\ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Empleados_Turnos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Indice_ejercicios.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-1">17.1. versión 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-2-con-cqm">17.2. Version 2 (con CQM).</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-3-con-otras-restricciones">17.3. Versión 3 (Con otras restricciones).</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

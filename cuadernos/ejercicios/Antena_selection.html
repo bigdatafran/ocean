@@ -1,0 +1,1107 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>23. Introducción. &#8212; D-Wave Ocean</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Antena_selection';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="18. Introducción." href="ProblemaMochilaMejorar_Rendimiento.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../introduccion.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">D-Wave Ocean</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../introduccion.html">
+                    Programación cuántica
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimización cuántica</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Introduccion.html">1. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instalacion.html">2. Instalación de Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo1.html">3. Introducción a D-Wave Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo2.html">4. Introducción a Ocean.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Modulo3_desarrollarQUBO.html">6. Desarrollo QUBO o Ising</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo4_penalty_functions.html">7. Penalty functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo7_RestriccionesOcean.html">8. Restricciones en Ocean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Modulo09_DCM.html">9. Discrete Quadratic Model (DQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo10_CQM.html">10. Constrained Quadratic Models (CQM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Programacion_Entera.html">11. Programación entera.</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">16. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">17. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">18. Introducción.</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Antena_selection. ubicación antenas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">24. Localizador de problemas o ejercicios</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">25. Índice de términos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">26. Bibliografia</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/cuadernos/ejercicios/Antena_selection.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">23.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">23.1.1. Resolución del problema.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<span id="antena-selection"></span><h1><span class="section-number">23. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>En este apartado vamos a mostrar dos ejemplos de indudable interés para hacer una optimización de problemas encontrados en el mundo real. En el primero de los ejemplos, vamos a contar con uan serie de antenas con un radio de acción igual en todas ellas. De lo que se tratará es de encontrar la menor cantidad de antenas posibles, de tal manera que entre ellas nos haya ningún punto en comúnn en su radio de acción.</p>
+<p>En el segundo ejemplo, vamos a tratar un conjunto de ubicación de antenas dentro del territorio de Alemanía, y lo que trataremos es de ubicar otras antenas, de manera que se encuentren a una distancia máxima de las antenas ya existentes.</p>
+<p>Procedemos a continuación a resolver el primer problema. En la imagen siguiente, se muestra de forma gráfica lo que pretendemos resolver. Tenemos un conjunto de antenas, con un radio de acción determinado, indicado en el gráfico por un círculo que rodea a cada nodo. Se trata de encontra el máximo número de nodos, pero que no haya interferencias en los nodos seleccionados.</p>
+<p>Para resolver el problema, definimos el gráfo de la derecha, de manera que cuando hay interferencia entre dos puntos, se trazará un arco que una esos dos puntos. Entonces, al final de lo que se trata en de encontrar el máximo número de puntos, pero de tal manera que entre ellos no hay ningún arco que los una</p>
+<p><img alt="Selección de antenas" src="../../_images/AntenasSelection.PNG" /></p>
+<p id="index-0">Este problema de optimización es conocido como *maximum independent set y <a href="https://en.wikipedia.org/wiki/Maximal_independent_set" target="_blank"> en este enlace podemos ver más detalles sobre ello </a>. Así pues, nuestro objetivo es maximizar el número de nodos en un conjunto, con la restricción de que el conjunto no contenga aristas. Para resolver en un sistema D-Wave, podemos reformular este problema como un problema de optimización binaria cuadrática sin restricciones (QUBO).</p>
+<p>Para seguir este problema, también puede ser interesante <a href="https://www.youtube.com/watch?v=ckJ59gsFllU" target="_blank"> el video que hay detrás de este enlace </a>.</p>
+<p>Importamos las librerías necesarias para poder resolver este problema.*</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install dwave-networkx</span>
+<span class="c1">#!pip install dwave-system --user</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import networkx for graph tools</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="c1"># Import dwave_networkx for d-wave graph tools/functions</span>
+<span class="kn">import</span> <span class="nn">dwave_networkx</span> <span class="k">as</span> <span class="nn">dnx</span>
+
+<span class="c1"># Import matplotlib.pyplot to draw graphs on screen</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="c1">#matplotlib.use(&quot;tkAgg&quot;) # tkAgg para usar matplotlib con tkinter</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+
+<span class="c1"># Set the solver we&#39;re going to use</span>
+<span class="kn">from</span> <span class="nn">dwave.system.samplers</span> <span class="kn">import</span> <span class="n">DWaveSampler</span>
+<span class="kn">from</span> <span class="nn">dwave.system.composites</span> <span class="kn">import</span> <span class="n">EmbeddingComposite</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos un gráfico vacío</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="c1"># Añadimos nodo y arcos al gráfico.</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)])</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5d3bbb17e974aa0ac08bfa524f5bbf283b4f6e88da2486b737c128b356dc8e27.png" src="../../_images/5d3bbb17e974aa0ac08bfa524f5bbf283b4f6e88da2486b737c128b356dc8e27.png" />
+</div>
+</div>
+<p id="index-1">Procedemos a resolver este problema, bien entendido que Ocean SDK ya tiene el método <a href="https://docs.ocean.dwavesys.com/projects/dwave-networkx/en/stable/reference/algorithms/generated/dwave_networkx.maximum_independent_set.html" target="_blank"> maximum_independent_set </a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampler</span> <span class="o">=</span> <span class="n">EmbeddingComposite</span><span class="p">(</span><span class="n">DWaveSampler</span><span class="p">())</span>
+
+
+<span class="c1"># Encontrar el maximum independent set, S</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">dnx</span><span class="o">.</span><span class="n">maximum_independent_set</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ejemplo - Antenna Selection&#39;</span><span class="p">)</span>
+
+<span class="c1"># Imprimimos la solución para el usuario final</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum independent set size found is&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum independent set size found is 3
+[1, 5, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizamos el resultado</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">notS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="n">othersubgraph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">notS</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mostramos la solución</span>
+<span class="c1"># Nota: Los nodos rojos son la solución, los azules no son elegidos.</span>
+<span class="c1">#solution_name = &quot;antenna_plot_solution.png&quot;</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">othersubgraph</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(solution_name, bbox_inches=&#39;tight&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/771a7f700d812c50fd5c8d6409d0a8096a93cc3155aa227e91f5dee0036e41cc.png" src="../../_images/771a7f700d812c50fd5c8d6409d0a8096a93cc3155aa227e91f5dee0036e41cc.png" />
+</div>
+</div>
+<section id="colocacion-de-antenas-en-alemania">
+<span id="colocacion-antenas"></span><h2><span class="section-number">23.1. </span>Colocación de antenas en Alemania.<a class="headerlink" href="#colocacion-de-antenas-en-alemania" title="Permalink to this heading">#</a></h2>
+<p>Ahora procedemos a resolver el segundo de los problemas planteados. Se trata de lo siguiente.</p>
+<p>Tenemos las ubicaciones (la latitud y la longitud) de las torres de televisión en Alemania (estos datos <a href="https://github.com/dwave-examples/antenna-selection/tree/master/data" target="_blank"> se pueden descargar desde este enlace </a>), entonces sabiendo estos datos de lo que se trata es de determinar dónde deberían construirse nuevas torres de televisión para ampliar la cobertura sobre el territorio de alemania, pero con la restricción de que la interferencia entre ellas sea la menor posible.</p>
+<p>Resolveremos este problema utilizando el sampler <em>LeapHybridCQMSampler</em> y  formulando un problema de tipo Constrained Quadratic Model (CQM) de la manera que vamos a indicar en los siguientes apartados.</p>
+<p>Debemos de tener en cuenta que en lugar de formular este problema como un problema de tipo <em>independent set problem</em>, donde no se tolera la interferencia, optimizaremos para encontrar la cantidad mínima de interferencia, ya que <strong>es poco probable que en el mundo real podamos eliminarla por completo</strong>.</p>
+<section id="resolucion-del-problema">
+<h3><span class="section-number">23.1.1. </span>Resolución del problema.<a class="headerlink" href="#resolucion-del-problema" title="Permalink to this heading">#</a></h3>
+<p>Se proporciona un mapa de Alemania con las ubicaciones de 30 torres y se identifican aleatoriamente 100 nuevas ubicaciones potenciales de torres dentro de las fronteras del país (estos datos <a href="https://github.com/dwave-examples/antenna-selection/tree/master/data" target="_blank"> se pueden descargar desde este enlace </a>).</p>
+<p>Nuestro objetivo va a ser seleccionar un subconjunto de estas posibles ubicaciones de torres nuevas para que <em>las distancias por pares entre todas las torres (existentes y nuevas) sean lo más grandes posible</em>. En el código, hacemos esto calculando primero todas las distancias por pares. Hay que tener en cuenta que si simplemente sumamos estas distancias brutas, podríamos terminar con gran una variedad de distribuciones de distancia. Por ejemplo, podríamos tener pares de torres con distancia 1 y 9, y otros pares con distancia 5 y 5, cada uno de los cuales tiene una suma de 10. En nuestro escenario, preferiremos los pares con distancia 1 y 9.</p>
+<p>Para rectificar esto, elevamos al cuadrado las distancias antes de sumarlas. Observar que elevar al cuadrado las distancias proporciona una distribución más uniforme. En nuestro ejemplo, esto nos proporciona sumas de distancia 1+81=82 y 25+25=50, prefiriendo los pares con distancias 1 y 9 (ya que estamos maximizando la suma).</p>
+<p>Además, dado que la interferencia solo afecta a las torres que se encuentran dentro de cierta proximidad entre sí, vamos a  establecemos un radio de corte de la siguiente manera.</p>
+<p>Cada par de torres con una distancia mayor que el radio de corte recibe un sesgo (bias) de valor mínimo para que no se las penalice por seleccionar ambas. Por el contrario, cada par de torres con una distancia menor que el radio de corte recibe un sesgo del negativo de la distancia al cuadrado.</p>
+<p>Por último, agregamos una restricción para elegir exactamente 10 torres nuevas y arreglamos las variables de torre existentes para que tengan un valor de 1.0. Esto garantiza que las torres existentes se identifiquen como ubicaciones donde deben existir torres.</p>
+<p>A continuación procedemos a implementar todo esto. Procedemos a importar los paquetes necesarios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pandas</span>
+
+<span class="c1"># para instalar shapefile hacemos lo siguiente</span>
+<span class="c1">#!pip install pyshp </span>
+
+<span class="c1">#Para instalar shapely. Esta en https://shapely.readthedocs.io/en/stable/</span>
+<span class="c1">#!pip install shapely</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">asin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">sqrt</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">shapefile</span>
+<span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">Binary</span><span class="p">,</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">quicksum</span>
+<span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">shape</span>
+<span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">unary_union</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos la función que nos va a servir para medir la distancia entre dos puntos, dadas sus coordenadas de latitud y longitud.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">long1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">long2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Compute the distance (miles) between two lat/long points.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        - lat1, long1: float. Lat and long of point 1.</span>
+<span class="sd">        - lat2, long 2: float. Lat and long of point 2.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - dist: float. Distance in miles between points.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Taken from https://www.geeksforgeeks.org/program-distance-two-points-earth/</span>
+
+    <span class="c1"># The math module contains a function named</span>
+    <span class="c1"># radians which converts from degrees to radians.</span>
+    <span class="n">long1</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">long1</span><span class="p">)</span>
+    <span class="n">long2</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">long2</span><span class="p">)</span>
+    <span class="n">lat1</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span>
+    <span class="n">lat2</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span>
+      
+    <span class="c1"># Haversine formula</span>
+    <span class="n">dlong</span> <span class="o">=</span> <span class="n">long2</span> <span class="o">-</span> <span class="n">long1</span>
+    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlat</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">dlong</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+ 
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">asin</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    
+    <span class="c1"># Radius of earth in miles</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">3956</span>
+      
+    <span class="c1"># calculate the result</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora definimos otra función que se encargará de leer los datos donde está la información de las torres existentes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_existing_towers</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Cargar las torres existente.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        - filename: string.Nombre del fichero</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - towers:  un data frame contenido la información de las torres existentes.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lats</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">longs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">lats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">longs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">2</span><span class="p">][:</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="n">towers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="n">points</span><span class="p">,</span> <span class="s1">&#39;Latitude&#39;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s1">&#39;Longitude&#39;</span><span class="p">:</span><span class="n">longs</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">towers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez incorporados estos elementos vamos a operar con ellos. Inicialmente cargamos el fichero de tipo shapefile con los datos geográficos de Alemania. Recordar que estos datos <a href="https://github.com/dwave-examples/antenna-selection/tree/master/data" target="_blank"> se pueden descargar desde este enlace </a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Load and draw country map from geojson file</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cargando los datos de la planimetría ...&quot;</span><span class="p">)</span>
+<span class="n">shp_file</span> <span class="o">=</span> <span class="s2">&quot;data/germany_states.shp&quot;</span>
+<span class="n">germany_map</span> <span class="o">=</span> <span class="n">shapefile</span><span class="o">.</span><span class="n">Reader</span><span class="p">(</span><span class="n">shp_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;CP1252&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">germany_map</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cargando los datos de la planimetría ...
+&lt;class &#39;shapefile.Reader&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cargamos las torres existentes y mostramos los primeros registros del data frame obtenido</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargamos las torres existente</span>
+<span class="n">existing_towers</span> <span class="o">=</span> <span class="n">get_existing_towers</span><span class="p">(</span><span class="s2">&quot;data/locations.txt&quot;</span><span class="p">)</span>
+<span class="n">existing_towers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Holstein Tower, Sierksdorf, Germany</td>
+      <td>54.074089</td>
+      <td>10.77913</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Scream (Heide Park), Soltau, Germany</td>
+      <td>53.027111</td>
+      <td>9.87851</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Bremerhaven Radar Tower, Bremerhaven, Germany</td>
+      <td>53.538406</td>
+      <td>8.58029</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Brocken Transmitter, Weringerode, Germany</td>
+      <td>51.800194</td>
+      <td>10.61436</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GroÃŸer Inselsberg, Thuringia, Germany</td>
+      <td>50.851246</td>
+      <td>10.46551</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Definimos una nueva función que será la que se encargue de generar nuevos puntos de forma aleatoria que serán los candidatos para la ubicación de las antenas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gen_new_points</span><span class="p">(</span><span class="n">num_new_points</span><span class="p">,</span> <span class="n">region_map</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Generamos puntos aleatorios en la zona geográfica correspondiente.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        - num_new_points: Un entero con el número de puntos a elegir.</span>
+<span class="sd">        - region_map: gdf. Region of interes. En nuestro caso el objeto germany_map anteriormente creado</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - new_locs: lista de [float, float]. nuevos puntos con formato [lat, long].</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Load the map boundaries for the region</span>
+    <span class="n">polys</span> <span class="o">=</span> <span class="p">[</span><span class="n">shape</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">region_map</span><span class="o">.</span><span class="n">shapes</span><span class="p">()]</span>
+    <span class="n">boundary</span> <span class="o">=</span> <span class="n">unary_union</span><span class="p">(</span><span class="n">polys</span><span class="p">)</span>
+    <span class="n">min_long</span><span class="p">,</span> <span class="n">min_lat</span><span class="p">,</span> <span class="n">max_long</span><span class="p">,</span> <span class="n">max_lat</span> <span class="o">=</span> <span class="n">boundary</span><span class="o">.</span><span class="n">bounds</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">new_locs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="n">num_new_points</span><span class="p">:</span>
+        <span class="n">new_long</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_long</span> <span class="o">-</span> <span class="n">min_long</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">min_long</span>
+        <span class="n">new_lat</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_lat</span> <span class="o">-</span> <span class="n">min_lat</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">min_lat</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">new_long</span><span class="p">,</span> <span class="n">new_lat</span><span class="p">)</span>
+
+        <span class="c1"># Check that new point is within region before appending</span>
+        <span class="k">if</span> <span class="n">point</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">boundary</span><span class="p">):</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">new_locs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">new_lat</span><span class="p">,</span> <span class="n">new_long</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">new_locs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora elegimos 100 puntos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccione puntos aleatorios dentro de las fronteras del país</span>
+<span class="n">num_new</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">new_locs</span> <span class="o">=</span> <span class="n">gen_new_points</span><span class="p">(</span><span class="n">num_new</span><span class="p">,</span> <span class="n">germany_map</span><span class="p">)</span>
+<span class="c1"># Definimos el núemro de puntos que realmente vamos a seleccionar para ubicar las antenas</span>
+<span class="n">num_to_build</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vemos la información de los nuevos puntos</span>
+<span class="n">new_locs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[48.58466377194616, 8.841205778281564],
+ [52.28687213059558, 9.172066874820487],
+ [50.097464039929555, 6.4872178694741445],
+ [49.06613716386096, 9.225678980863998],
+ [53.104467106217, 13.139366304706638],
+ [48.13392274410077, 10.20169586695017],
+ [50.41668507592712, 11.92042895117186],
+ [50.50558432362518, 8.226340308706636],
+ [51.209478172484545, 9.574283374187536],
+ [49.81802932939402, 10.278169601352534]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez creado toda la infraestructura procedemos a definir la función que nos creará el objeto de tipo Constrained Quadratic Model o CQM que nos resuelve el problema.</p>
+<p>Pero antes y para una mejor comprensión del código que constituye la función build_cqm, vamos a ver algo de su contenido y cómo se construyen algunos de los elementos de esa función.</p>
+<p>Comenzando viendo el elemento <em>towers_vars</em>. Lo que se hace es pasar los datos de un data frame y convertirlos en un diccionario</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tower_vars</span> <span class="o">=</span> <span class="p">{(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]):</span> <span class="n">Binary</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos el contenido del diccionario tower_vars</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">tower_vars</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;key: </span><span class="si">{}</span><span class="s2">, value; </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">tower_vars</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key: (54.074089, 10.77913, &#39;Holstein Tower, Sierksdorf, Germany&#39;), value; BinaryQuadraticModel({&#39;Holstein Tower, Sierksdorf, Germany&#39;: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (53.027111, 9.87851, &#39;Scream (Heide Park), Soltau, Germany&#39;), value; BinaryQuadraticModel({&#39;Scream (Heide Park), Soltau, Germany&#39;: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (53.538406, 8.58029, &#39;Bremerhaven Radar Tower, Bremerhaven, Germany&#39;), value; BinaryQuadraticModel({&#39;Bremerhaven Radar Tower, Bremerhaven, Germany&#39;: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algo similar se hace con <em>new_locs</em>, con estos datos se construye un diccionario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_vars</span> <span class="o">=</span> <span class="p">{(</span><span class="n">new_locs</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">new_locs</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span> <span class="n">Binary</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_locs</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos el contenido del diccionario new_vars</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">new_vars</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;key: </span><span class="si">{}</span><span class="s2">, value; </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">new_vars</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key: (48.58466377194616, 8.841205778281564), value; BinaryQuadraticModel({0: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (52.28687213059558, 9.172066874820487), value; BinaryQuadraticModel({1: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (50.097464039929555, 6.4872178694741445), value; BinaryQuadraticModel({2: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con la expresión <em>all_vars.update(new_vars)</em>, lo que hacemos es integrar los dos diccionarios en uno solo.</p>
+<p>Con la función <em>combinations</em> lo que hacemos es obtener todas las combinaciones posibles entre pares de ubicación de las antenas, tanto de las ya existentes, como de las nuevas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_vars</span> <span class="o">=</span> <span class="n">tower_vars</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">all_vars</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_vars</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">all_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[((54.074089, 10.77913, &#39;Holstein Tower, Sierksdorf, Germany&#39;),
+  (53.027111, 9.87851, &#39;Scream (Heide Park), Soltau, Germany&#39;)),
+ ((54.074089, 10.77913, &#39;Holstein Tower, Sierksdorf, Germany&#39;),
+  (53.538406, 8.58029, &#39;Bremerhaven Radar Tower, Bremerhaven, Germany&#39;)),
+ ((54.074089, 10.77913, &#39;Holstein Tower, Sierksdorf, Germany&#39;),
+  (51.800194, 10.61436, &#39;Brocken Transmitter, Weringerode, Germany&#39;))]
+</pre></div>
+</div>
+</div>
+</div>
+<p id="index-2">Observar la última instrucció <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.ConstrainedQuadraticModel.fix_variables.html" target="_blank">n  cqm.fix_variable </a>, instrucción que obliga al modelo a dar el valor de 1 a las variables qye representan las torres ya existentes.s</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_cqm</span><span class="p">(</span><span class="n">num_to_build</span><span class="p">,</span> <span class="n">existing_towers</span><span class="p">,</span> <span class="n">new_locs</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Creación del modelo CQM buscado.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        - num_to_build: entero. Número de nevas antenas a construir.</span>
+<span class="sd">        - existing_towers: dataframe. Indicación donde están ya están las antenas.</span>
+<span class="sd">        - new_locs: Lista de [float, float]. Lista de potenciales sitios donde colocar las nueva antenas lat/long.</span>
+<span class="sd">        - radius: int or float. Radio de distancia de interferencia.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        - cqm: ConstrainedQuadraticModel representando el problema a optimizar.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># inicializamos el modelo</span>
+    <span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
+
+    <span class="c1"># construcción de variables para el  CQM.</span>
+    <span class="n">tower_vars</span> <span class="o">=</span> <span class="p">{(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]):</span> <span class="n">Binary</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+    <span class="n">new_vars</span> <span class="o">=</span> <span class="p">{(</span><span class="n">new_locs</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">new_locs</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span> <span class="n">Binary</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_locs</span><span class="p">))}</span>
+
+    
+    <span class="c1"># Hacemos una combinación de todas las variables para calcular la función objetivo</span>
+    <span class="n">all_vars</span> <span class="o">=</span> <span class="n">tower_vars</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">all_vars</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_vars</span><span class="p">)</span>
+
+    <span class="c1"># Objectivo: minimizar interferencias / maximizar distancias</span>
+    <span class="n">pair_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">all_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span> 
+    <span class="c1"># Calculamos las distancias entre todos los puntos dos a dos (las combinaciones anteriores)</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">distance</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pair_list</span><span class="p">]</span>
+    <span class="n">max_dist</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> 
+    <span class="n">biases</span> <span class="o">=</span> <span class="p">[</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span> <span class="k">else</span> <span class="n">max_dist</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dist</span><span class="p">))]</span>
+
+    <span class="c1"># Definimos la función objetivo. Ponemos un valor negativo porque queremos maximizar</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="o">-</span><span class="n">biases</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">all_vars</span><span class="p">[</span><span class="n">pair_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="n">all_vars</span><span class="p">[</span><span class="n">pair_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair_list</span><span class="p">))))</span>
+
+    <span class="c1"># restricción:  tomamos exactamente num_to_build  como nuevos lugares para instalar las antenas</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">new_vars</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="n">num_to_build</span><span class="p">)</span>
+
+    <span class="c1"># Fijamos el valor de 1 para las torres de antenas ya existentes.</span>
+    <span class="n">cqm</span><span class="o">.</span><span class="n">fix_variables</span><span class="p">({</span><span class="n">key</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tower_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">()})</span>
+
+    <span class="k">return</span> <span class="n">cqm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora ya utilizamos la función anterior para construir el modelo CQM que se va a utilizar y una vez construido creamos una instancia del solver LeapHybridCQMSampler().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\Construyo el modelo CQM...&quot;</span><span class="p">)</span>
+<span class="n">cqm</span> <span class="o">=</span> <span class="n">build_cqm</span><span class="p">(</span><span class="n">num_to_build</span><span class="p">,</span> <span class="n">existing_towers</span><span class="p">,</span> <span class="n">new_locs</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="c1"># Initialize the CQM solver</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\Construyo el modelo CQM...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolvemos el problema con el CQM solver</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">enviando el rpblema al hybrid solver...&quot;</span><span class="p">)</span>
+<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Example - TV Towers&#39;</span><span class="p">)</span>
+<span class="n">feasible_sampleset</span> <span class="o">=</span> <span class="n">sampleset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">is_feasible</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">feasible_sampleset</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No se han encontrado soluciones factibles.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>enviando el rpblema al hybrid solver...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="n">region_map</span><span class="p">,</span> <span class="n">existing_towers</span><span class="p">,</span> <span class="n">new_locs</span><span class="p">,</span> <span class="n">build_sites</span><span class="p">,</span> <span class="n">guardar</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Visualizamos las torres encontradas.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        - region_map: gdf. Mapa de la región.</span>
+<span class="sd">        - existing_towers: df. Dataframe conteniendo información de las torres.</span>
+<span class="sd">        - new_locs: lista de [float, float]. Nuevos puntos como [lat, long].</span>
+<span class="sd">        - build_sites: lista de [float, float]. Puntos construidos [lat, long].</span>
+<span class="sd">        - guardar: boolen. &#39;N&#39; No se guarda el mapa, si en caso otro valor</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        None.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Visualizando la solución...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Inicializando figura y ejes</span>
+    <span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ax_final</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Dibujar los bordes de la región</span>
+    <span class="n">polys</span> <span class="o">=</span> <span class="p">[</span><span class="n">shape</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">region_map</span><span class="o">.</span><span class="n">shapes</span><span class="p">()]</span>
+    <span class="n">boundary</span> <span class="o">=</span> <span class="n">unary_union</span><span class="p">(</span><span class="n">polys</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">geom</span> <span class="ow">in</span> <span class="n">boundary</span><span class="o">.</span><span class="n">geoms</span><span class="p">:</span>    
+        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">xy</span>    
+        <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#d3d3d3&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax_final</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;#d3d3d3&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Dibujando las torres existentes</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">existing_towers</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">existing_towers</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Dibujar radio de las torres existentes</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">existing_towers</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">existing_towers</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">existing_towers</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Dibujando nuevos puntos potenciales</span>
+    <span class="n">new_locations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">new_locs</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span><span class="s1">&#39;Longitude&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">new_locations</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">new_locations</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Dibujando los nuevos puntos seleccionados</span>
+    <span class="n">new_builds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">build_sites</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">,</span><span class="s1">&#39;Longitude&#39;</span><span class="p">])</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">new_builds</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">new_builds</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Dibujan do radios</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">new_builds</span><span class="o">.</span><span class="n">Longitude</span><span class="p">,</span> <span class="n">new_builds</span><span class="o">.</span><span class="n">Latitude</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Hacemos la figura</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;sitios potenciales&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="n">ax_final</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sitios obtenidos&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">guardar</span><span class="o">==</span><span class="s1">&#39;N&#39;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Gyardamos la figura</span>
+        <span class="n">plot_filename</span> <span class="o">=</span> <span class="s1">&#39;map.png&#39;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Output guardado como&quot;</span><span class="p">,</span> <span class="n">plot_filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilizamos la función anterior para visualizar el mapa con las antenas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_sites</span> <span class="o">=</span> <span class="p">[</span><span class="n">new_locs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Seleccionados&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">build_sites</span><span class="p">),</span> <span class="s2">&quot;build sites.&quot;</span><span class="p">)</span>
+
+<span class="n">visualize</span><span class="p">(</span><span class="n">germany_map</span><span class="p">,</span> <span class="n">existing_towers</span><span class="p">,</span> <span class="n">new_locs</span><span class="p">,</span> <span class="n">build_sites</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seleccionados 10 build sites.
+
+Visualizando la solución...
+</pre></div>
+</div>
+<img alt="../../_images/032f36f1827a7438a34196294bf97c6eb3ccf577cb81aeca4c14c05bfe2852da.png" src="../../_images/032f36f1827a7438a34196294bf97c6eb3ccf577cb81aeca4c14c05bfe2852da.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./cuadernos\ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ProblemaMochilaMejorar_Rendimiento.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Introducción.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Indice_ejercicios.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Introducción.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">23.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">23.1.1. Resolución del problema.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Francisco Rodríguez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

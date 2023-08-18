@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>16. Introducción. &#8212; D-Wave Ocean</title>
+    <title>18. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Empleados_Turnos';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="17. Introducción." href="Problema_Mochila.html" />
-    <link rel="prev" title="15. Introdución" href="InmunizacionEstrategia.html" />
+    <link rel="next" title="19. Introducción." href="Problema_Mochila.html" />
+    <link rel="prev" title="17. Introdución" href="InmunizacionEstrategia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,28 +170,30 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Reparto empleados por turno trabajo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">17. Problema de la mochila</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">18. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example4_graph_partitioning.html">16. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">17. Inmunización-Estrategia</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">19. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">20. Introducción.</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">23. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">25. Antena_selection. ubicación antenas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">24. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">26. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">25. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">27. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">26. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">28. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -341,7 +343,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="reparto-turnos"></span><h1><span class="section-number">16. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<span id="reparto-turnos"></span><h1><span class="section-number">18. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>Supongamos que tenemos un conjunto de M empleados y los tenemos que distribuir en N turnos de trabajo, y cada trabajador manifiesta su preferencia por un determinado turno ( en una escala de valoración que va del cero al N-1). Distribuir esos trabajadores en esos turnos y atendiendo a la preferencia del trabajador puede ser algo bastante tedioso a medida que se incrementa el número de trabajadores y el número de turnos a tener en cuenta. Este problema es el que se pretende resolver en este apartado, de tal manera que los trabajadores acudan a los turnos que se les asigne pero teniendo en cuenta sus preferencias.</p>
 <p>Para resolver este problema utilizaremos un modelo de tipo DQM, aunque como se podrá apreciar durante el desarrollo del ejemplo, en el fondo va a ser un modelo BQM, con las variables <span class="math notranslate nohighlight">\(x_{i,j}\)</span> que toma valores 0 ó 1 y el subíndice i haciendo referencia al turno y el j al empleado j.</p>
 <p>A continuación procedemos a desarrollar el problema y explicando en cada celda el procedimiento que se está utilizando. Comenzamos importando las librerías que vamos a necesitar.</p>
@@ -398,18 +400,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 1, 3, 0],
-       [3, 2, 0, 1],
-       [1, 0, 2, 3],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 2, 1, 0],
+       [3, 0, 2, 1],
+       [0, 1, 3, 2],
+       [2, 3, 0, 1],
+       [0, 3, 2, 1],
+       [1, 2, 0, 3],
+       [2, 0, 1, 3],
+       [3, 1, 2, 0],
        [1, 2, 3, 0],
-       [1, 3, 2, 0],
-       [2, 3, 1, 0],
-       [2, 1, 0, 3],
-       [0, 2, 3, 1],
-       [0, 2, 3, 1],
-       [3, 2, 1, 0],
-       [0, 2, 3, 1],
-       [1, 0, 2, 3]])
+       [2, 3, 0, 1],
+       [0, 2, 1, 3],
+       [1, 0, 3, 2]])
 </pre></div>
 </div>
 </div>
@@ -490,7 +492,7 @@ Teniendo en cuenta todo lo anterior procedemos a construir el modelo. Lo primero
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>horario score: -430.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>horario score: -432.0
 </pre></div>
 </div>
 </div>
@@ -561,10 +563,10 @@ Teniendo en cuenta todo lo anterior procedemos a construir el modelo. Lo primero
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average happiness:	 0.16666666666666666
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average happiness:	 0.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Francisco\AppData\Local\Temp\ipykernel_20324\2811326044.py:37: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Francisco\AppData\Local\Temp\ipykernel_13396\2811326044.py:37: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
   plt.show()
 </pre></div>
 </div>
@@ -610,7 +612,7 @@ Teniendo en cuenta todo lo anterior procedemos a construir el modelo. Lo primero
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Introdución</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Introdución</p>
       </div>
     </a>
     <a class="right-next"
@@ -618,7 +620,7 @@ Teniendo en cuenta todo lo anterior procedemos a construir el modelo. Lo primero
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>23. Introducción. &#8212; D-Wave Ocean</title>
+    <title>25. Introducción. &#8212; D-Wave Ocean</title>
   
   
   
@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Antena_selection';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="24. Introducción." href="../Indice_ejercicios.html" />
-    <link rel="prev" title="18. Introducción." href="ProblemaMochilaMejorar_Rendimiento.html" />
+    <link rel="next" title="26. Introducción." href="../Indice_ejercicios.html" />
+    <link rel="prev" title="20. Introducción." href="ProblemaMochilaMejorar_Rendimiento.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,28 +168,30 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">15. Inmunización-Estrategia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">16. Reparto empleados por turno trabajo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">17. Problema de la mochila</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">18. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example4_graph_partitioning.html">16. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">17. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">18. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">19. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">20. Introducción.</a></li>
 
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">25. Antena_selection. ubicación antenas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">24. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">26. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">25. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">27. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">26. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">28. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -336,8 +338,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">23.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">23.1.1. Resolución del problema.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">25.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">25.1.1. Resolución del problema.</a></li>
 </ul>
 </li>
 </ul>
@@ -352,7 +354,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="antena-selection"></span><h1><span class="section-number">23. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<span id="antena-selection"></span><h1><span class="section-number">25. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
 <p>En este apartado vamos a mostrar dos ejemplos de indudable interés para hacer una optimización de problemas encontrados en el mundo real. En el primero de los ejemplos, vamos a contar con uan serie de antenas con un radio de acción igual en todas ellas. De lo que se tratará es de encontrar la menor cantidad de antenas posibles, de tal manera que entre ellas nos haya ningún punto en comúnn en su radio de acción.</p>
 <p>En el segundo ejemplo, vamos a tratar un conjunto de ubicación de antenas dentro del territorio de Alemanía, y lo que trataremos es de ubicar otras antenas, de manera que se encuentren a una distancia máxima de las antenas ya existentes.</p>
 <p>Procedemos a continuación a resolver el primer problema. En la imagen siguiente, se muestra de forma gráfica lo que pretendemos resolver. Tenemos un conjunto de antenas, con un radio de acción determinado, indicado en el gráfico por un círculo que rodea a cada nodo. Se trata de encontra el máximo número de nodos, pero que no haya interferencias en los nodos seleccionados.</p>
@@ -405,7 +407,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5d3bbb17e974aa0ac08bfa524f5bbf283b4f6e88da2486b737c128b356dc8e27.png" src="../../_images/5d3bbb17e974aa0ac08bfa524f5bbf283b4f6e88da2486b737c128b356dc8e27.png" />
+<img alt="../../_images/8b1aefea4d1ae8781cfe768fb983d6bf06881c5bf88b4ed2e456d15b0924774c.png" src="../../_images/8b1aefea4d1ae8781cfe768fb983d6bf06881c5bf88b4ed2e456d15b0924774c.png" />
 </div>
 </div>
 <p id="index-1">Procedemos a resolver este problema, bien entendido que Ocean SDK ya tiene el método <a href="https://docs.ocean.dwavesys.com/projects/dwave-networkx/en/stable/reference/algorithms/generated/dwave_networkx.maximum_independent_set.html" target="_blank"> maximum_independent_set </a>.</p>
@@ -425,7 +427,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum independent set size found is 3
-[1, 5, 7]
+[1, 4, 7]
 </pre></div>
 </div>
 </div>
@@ -463,17 +465,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/771a7f700d812c50fd5c8d6409d0a8096a93cc3155aa227e91f5dee0036e41cc.png" src="../../_images/771a7f700d812c50fd5c8d6409d0a8096a93cc3155aa227e91f5dee0036e41cc.png" />
+<img alt="../../_images/59fc4e4447eb0784e412d6978aacb1f624cce368a76bc40af1e24519dcbbd7e1.png" src="../../_images/59fc4e4447eb0784e412d6978aacb1f624cce368a76bc40af1e24519dcbbd7e1.png" />
 </div>
 </div>
 <section id="colocacion-de-antenas-en-alemania">
-<span id="colocacion-antenas"></span><h2><span class="section-number">23.1. </span>Colocación de antenas en Alemania.<a class="headerlink" href="#colocacion-de-antenas-en-alemania" title="Permalink to this heading">#</a></h2>
+<span id="colocacion-antenas"></span><h2><span class="section-number">25.1. </span>Colocación de antenas en Alemania.<a class="headerlink" href="#colocacion-de-antenas-en-alemania" title="Permalink to this heading">#</a></h2>
 <p>Ahora procedemos a resolver el segundo de los problemas planteados. Se trata de lo siguiente.</p>
 <p>Tenemos las ubicaciones (la latitud y la longitud) de las torres de televisión en Alemania (estos datos <a href="https://github.com/dwave-examples/antenna-selection/tree/master/data" target="_blank"> se pueden descargar desde este enlace </a>), entonces sabiendo estos datos de lo que se trata es de determinar dónde deberían construirse nuevas torres de televisión para ampliar la cobertura sobre el territorio de alemania, pero con la restricción de que la interferencia entre ellas sea la menor posible.</p>
 <p>Resolveremos este problema utilizando el sampler <em>LeapHybridCQMSampler</em> y  formulando un problema de tipo Constrained Quadratic Model (CQM) de la manera que vamos a indicar en los siguientes apartados.</p>
 <p>Debemos de tener en cuenta que en lugar de formular este problema como un problema de tipo <em>independent set problem</em>, donde no se tolera la interferencia, optimizaremos para encontrar la cantidad mínima de interferencia, ya que <strong>es poco probable que en el mundo real podamos eliminarla por completo</strong>.</p>
 <section id="resolucion-del-problema">
-<h3><span class="section-number">23.1.1. </span>Resolución del problema.<a class="headerlink" href="#resolucion-del-problema" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">25.1.1. </span>Resolución del problema.<a class="headerlink" href="#resolucion-del-problema" title="Permalink to this heading">#</a></h3>
 <p>Se proporciona un mapa de Alemania con las ubicaciones de 30 torres y se identifican aleatoriamente 100 nuevas ubicaciones potenciales de torres dentro de las fronteras del país (estos datos <a href="https://github.com/dwave-examples/antenna-selection/tree/master/data" target="_blank"> se pueden descargar desde este enlace </a>).</p>
 <p>Nuestro objetivo va a ser seleccionar un subconjunto de estas posibles ubicaciones de torres nuevas para que <em>las distancias por pares entre todas las torres (existentes y nuevas) sean lo más grandes posible</em>. En el código, hacemos esto calculando primero todas las distancias por pares. Hay que tener en cuenta que si simplemente sumamos estas distancias brutas, podríamos terminar con gran una variedad de distribuciones de distancia. Por ejemplo, podríamos tener pares de torres con distancia 1 y 9, y otros pares con distancia 5 y 5, cada uno de los cuales tiene una suma de 10. En nuestro escenario, preferiremos los pares con distancia 1 y 9.</p>
 <p>Para rectificar esto, elevamos al cuadrado las distancias antes de sumarlas. Observar que elevar al cuadrado las distancias proporciona una distribución más uniforme. En nuestro ejemplo, esto nos proporciona sumas de distancia 1+81=82 y 25+25=50, prefiriendo los pares con distancias 1 y 9 (ya que estamos maximizando la suma).</p>
@@ -517,17 +519,17 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">long1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">long2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Compute the distance (miles) between two lat/long points.</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Calcular la distancia (en millas) entre dos puntos dadas la lat/lon.</span>
 <span class="sd">    Args:</span>
-<span class="sd">        - lat1, long1: float. Lat and long of point 1.</span>
-<span class="sd">        - lat2, long 2: float. Lat and long of point 2.</span>
+<span class="sd">        - lat1, long1: float. Lat y long del punyo 1.</span>
+<span class="sd">        - lat2, long 2: float. Lat y long del 2.</span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - dist: float. Distance in miles between points.</span>
+<span class="sd">        - dist: float. Distancia en millas entre dos puntos.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># Taken from https://www.geeksforgeeks.org/program-distance-two-points-earth/</span>
+    <span class="c1"># obtenido de https://www.geeksforgeeks.org/program-distance-two-points-earth/</span>
 
-    <span class="c1"># The math module contains a function named</span>
-    <span class="c1"># radians which converts from degrees to radians.</span>
+    <span class="c1"># El módulo math contiene una función llamada </span>
+    <span class="c1"># radians que convierte grados en radianes.</span>
     <span class="n">long1</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">long1</span><span class="p">)</span>
     <span class="n">long2</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">long2</span><span class="p">)</span>
     <span class="n">lat1</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span>
@@ -540,10 +542,10 @@ document.write(`
  
     <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">asin</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
     
-    <span class="c1"># Radius of earth in miles</span>
+    <span class="c1"># Radio de la tierra en millas</span>
     <span class="n">r</span> <span class="o">=</span> <span class="mi">3956</span>
       
-    <span class="c1"># calculate the result</span>
+    <span class="c1"># Devolvemos el resultado</span>
     <span class="k">return</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -721,16 +723,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[48.58466377194616, 8.841205778281564],
- [52.28687213059558, 9.172066874820487],
- [50.097464039929555, 6.4872178694741445],
- [49.06613716386096, 9.225678980863998],
- [53.104467106217, 13.139366304706638],
- [48.13392274410077, 10.20169586695017],
- [50.41668507592712, 11.92042895117186],
- [50.50558432362518, 8.226340308706636],
- [51.209478172484545, 9.574283374187536],
- [49.81802932939402, 10.278169601352534]]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[51.718292357785366, 6.982687250677321],
+ [50.53218285911833, 8.82437088762596],
+ [52.854034866543465, 12.883052674301695],
+ [52.76150846621204, 9.377641874423105],
+ [53.40910036913899, 12.149255757194801],
+ [48.826808776430994, 12.293622177256408],
+ [50.16278581095238, 6.483776740147375],
+ [49.13668802722573, 10.693888343865646],
+ [54.51875245179867, 9.269718397699076],
+ [52.16996278277987, 14.500315168632559]]
 </pre></div>
 </div>
 </div>
@@ -778,9 +780,9 @@ key: (53.538406, 8.58029, &#39;Bremerhaven Radar Tower, Bremerhaven, Germany&#39
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key: (48.58466377194616, 8.841205778281564), value; BinaryQuadraticModel({0: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
-key: (52.28687213059558, 9.172066874820487), value; BinaryQuadraticModel({1: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
-key: (50.097464039929555, 6.4872178694741445), value; BinaryQuadraticModel({2: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key: (51.718292357785366, 6.982687250677321), value; BinaryQuadraticModel({0: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (50.53218285911833, 8.82437088762596), value; BinaryQuadraticModel({1: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
+key: (52.854034866543465, 12.883052674301695), value; BinaryQuadraticModel({2: 1.0}, {}, 0.0, &#39;BINARY&#39;) 
 </pre></div>
 </div>
 </div>
@@ -973,7 +975,7 @@ key: (50.097464039929555, 6.4872178694741445), value; BinaryQuadraticModel({2: 1
 Visualizando la solución...
 </pre></div>
 </div>
-<img alt="../../_images/032f36f1827a7438a34196294bf97c6eb3ccf577cb81aeca4c14c05bfe2852da.png" src="../../_images/032f36f1827a7438a34196294bf97c6eb3ccf577cb81aeca4c14c05bfe2852da.png" />
+<img alt="../../_images/02e7d5ff3133ae295814f1744167491ec71d17314bed9b74d9cebca42c78a0b7.png" src="../../_images/02e7d5ff3133ae295814f1744167491ec71d17314bed9b74d9cebca42c78a0b7.png" />
 </div>
 </div>
 </section>
@@ -1017,7 +1019,7 @@ Visualizando la solución...
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Introducción.</p>
       </div>
     </a>
     <a class="right-next"
@@ -1025,7 +1027,7 @@ Visualizando la solución...
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">24. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1047,8 +1049,8 @@ Visualizando la solución...
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">23.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">23.1.1. Resolución del problema.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colocacion-de-antenas-en-alemania">25.1. Colocación de antenas en Alemania.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resolucion-del-problema">25.1.1. Resolución del problema.</a></li>
 </ul>
 </li>
 </ul>

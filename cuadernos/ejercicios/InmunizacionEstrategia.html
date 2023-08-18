@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>15. Introdución &#8212; D-Wave Ocean</title>
+    <title>17. Introdución &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/InmunizacionEstrategia';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="16. Introducción." href="Empleados_Turnos.html" />
-    <link rel="prev" title="14. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
+    <link rel="next" title="18. Introducción." href="Empleados_Turnos.html" />
+    <link rel="prev" title="16. Introducción" href="part02_example4_graph_partitioning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,28 +170,30 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">14. Partición de un conjunto de números</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Inmunización-Estrategia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">16. Reparto empleados por turno trabajo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">17. Problema de la mochila</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">18. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example4_graph_partitioning.html">16. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">18. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">19. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">20. Introducción.</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">23. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">25. Antena_selection. ubicación antenas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">24. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">26. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">25. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">27. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">26. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">28. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -341,7 +343,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introducion">
-<span id="inmunizacion-2"></span><h1><span class="section-number">15. </span>Introdución<a class="headerlink" href="#introducion" title="Permalink to this heading">#</a></h1>
+<span id="inmunizacion-2"></span><h1><span class="section-number">17. </span>Introdución<a class="headerlink" href="#introducion" title="Permalink to this heading">#</a></h1>
 <p id="index-0">En este apartado se va a desarrollar una estrategia para inmunizar a una población frente a un determinado virus, el cual ya se ha comentado en el apartado dedicado al <a class="reference internal" href="../Modulo09_DCM.html#dqm"><span class="std std-ref">modelo Discrete Quadratic Model</span></a>. Aunque en este apartado se le da el enfoque de resolución de un problema de tipo <a class="reference internal" href="../modulo10_CQM.html#cqm"><span class="std std-ref">Constrained Quadratic Model</span></a>.</p>
 <p>La resolución del problema se puede <a href="https://github.com/dwave-examples/immunization-strategy/blob/main/demo.py" target="_blank"> localizar en internet en este enlace </a>, pero se ha considerado oportuno profundizar más en su desarrollo a fin de que el lector pueda conocer con mayor grado de detalle su solución.</p>
 <p>La idea básica del problema es la siguiente: Existen muchas estrategias  para inmunizar poblaciones con el fin de prevenir la transmisión de un virus o una enfermedad infecciosa utilizando para ello un número mínimo de dosis.</p>
@@ -536,7 +538,7 @@ El gráfico predeterminado es el gráfico de Internet en 1000 nodos. El mayor n�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f40eb1362451547c4f0d594a7e4e91e5062a3aa8ff611a9b9640571a0fe9a7c2.png" src="../../_images/f40eb1362451547c4f0d594a7e4e91e5062a3aa8ff611a9b9640571a0fe9a7c2.png" />
+<img alt="../../_images/5b009a5a79ef60a3cc1d6261d50f24bec77f97dbe30124fdc4c43c2b9c907498.png" src="../../_images/5b009a5a79ef60a3cc1d6261d50f24bec77f97dbe30124fdc4c43c2b9c907498.png" />
 </div>
 </div>
 <p>Ahora ya viene la parte más interesante del problema, construir las instrucciones Python para enviar a los ordenadores de D-Wave para que nos resuelvan el problema, y en este caso lo resolveremos <a href="https://docs.ocean.dwavesys.com/en/stable/concepts/cqm.html" target="_blank"> utilizando la clase ConstrainedQuadraticModel() </a>.</p>
@@ -761,7 +763,7 @@ Number of illegal edges:	 0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Visualizing output...
 </pre></div>
 </div>
-<img alt="../../_images/01ff02985d34845afba9fd7c4cae43736318e410855486b3a073ee0057bfb422.png" src="../../_images/01ff02985d34845afba9fd7c4cae43736318e410855486b3a073ee0057bfb422.png" />
+<img alt="../../_images/8a932763d6fc2e7b26eeaf903c7d1e7c2950a818d12cfda223320247fc1dc31e.png" src="../../_images/8a932763d6fc2e7b26eeaf903c7d1e7c2950a818d12cfda223320247fc1dc31e.png" />
 </div>
 </div>
 </section>
@@ -798,12 +800,12 @@ Number of illegal edges:	 0
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="part02_example3_number_partitioning_practice.html"
+       href="part02_example4_graph_partitioning.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Problema partición un conjunto de números.</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Introducción</p>
       </div>
     </a>
     <a class="right-next"
@@ -811,7 +813,7 @@ Number of illegal edges:	 0
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Introducción.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

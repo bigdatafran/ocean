@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>16. Introducción &#8212; D-Wave Ocean</title>
+    <title>17. Introducción &#8212; D-Wave Ocean</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/part02_example4_graph_partitioning';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="17. Introdución" href="InmunizacionEstrategia.html" />
-    <link rel="prev" title="15. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
+    <link rel="next" title="18. Partición de un gráfo con DQM" href="graph_partitioning_DQM.html" />
+    <link rel="prev" title="16. Partición de un conjunto de números con DQM." href="number_partitioning_DQM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,28 +172,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">17. Inmunización-Estrategia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">18. Reparto empleados por turno trabajo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">19. Problema de la mochila</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">20. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="number_partitioning_DQM.html">16. Partición de un conjunto de números utilizando DQM</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph_partitioning_DQM.html">18. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos y uso DQM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">19. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Empleados_Turnos.html">20. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Problema_Mochila.html">21. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProblemaMochilaMejorar_Rendimiento.html">22. Introducción.</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">25. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Antena_selection.html">27. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part02_example2_clustering.html">28. Creación de clúster</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">26. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Indice_ejercicios.html">29. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">27. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">30. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">28. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../otros/bibliografia.html">31. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -340,13 +343,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-del-grafo">16.1. Creación del grafo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cracion-del-objeto-bqm">16.2. Cración del objeto BQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restriccion">16.3. Restricción</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-del-grafo-en-mas-de-dos-conjuntos">16.4. Partición del grafo en más de dos conjuntos.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-decision">16.5. Variables de decisión.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectivo">16.6. Objectivo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones">16.7. Restricciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-del-grafo">17.1. Creación del grafo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cracion-del-objeto-bqm">17.2. Cración del objeto BQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restriccion">17.3. Restricción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-del-grafo-en-mas-de-dos-conjuntos">17.4. Partición del grafo en más de dos conjuntos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-decision">17.5. Variables de decisión.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectivo">17.6. Objectivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones">17.7. Restricciones</a></li>
 </ul>
             </nav>
         </div>
@@ -359,8 +362,8 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="particion-partes-iguales-grafo"></span><h1><span class="section-number">16. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
-<p>En este ejemplo lo que se pretende es dividir los nodos de un grafo en dos conjuntos de igual tamaño, de manera que los arcos entre estos dos conjuntos sean los menos posibles.</p>
+<span id="particion-partes-iguales-grafo"></span><h1><span class="section-number">17. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<p>En este ejemplo lo que se pretende es dividir los nodos de un grafo en dos conjuntos de igual tamaño, de manera que los arcos entre estos dos conjuntos sean los menos posibles. También se puede resolver utilizando DQM como se puede ver en <a class="reference internal" href="graph_partitioning_DQM.html#particiongraficodqm"><span class="std std-ref">el contenido que hay detrás de este enlace</span></a>.</p>
 <p>Comenzamos cargando los módulos que vamos a necesitar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -374,7 +377,7 @@ document.write(`
 </div>
 </div>
 <section id="creacion-del-grafo">
-<h2><span class="section-number">16.1. </span>Creación del grafo.<a class="headerlink" href="#creacion-del-grafo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Creación del grafo.<a class="headerlink" href="#creacion-del-grafo" title="Permalink to this heading">#</a></h2>
 <p>Vamos a crear un grafo muy simple para comprobar que al final la solución obtenida es la que estamos buscando. Los condicionantes con los que vamos a trabajar son los siguientes:</p>
 <ul class="simple">
 <li><p>Creamos un grafo con 6 nodos</p></li>
@@ -399,12 +402,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fb90c6a3a2ea27aff1b6c679f30f9d53780a76c448ac4bc86fa807ee450b873c.png" src="../../_images/fb90c6a3a2ea27aff1b6c679f30f9d53780a76c448ac4bc86fa807ee450b873c.png" />
+<img alt="../../_images/90c455cdb100264b8e329a7884f147ae3873509c3a8a4f91feefab7855bfc31f.png" src="../../_images/90c455cdb100264b8e329a7884f147ae3873509c3a8a4f91feefab7855bfc31f.png" />
 </div>
 </div>
 </section>
 <section id="cracion-del-objeto-bqm">
-<h2><span class="section-number">16.2. </span>Cración del objeto BQM.<a class="headerlink" href="#cracion-del-objeto-bqm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Cración del objeto BQM.<a class="headerlink" href="#cracion-del-objeto-bqm" title="Permalink to this heading">#</a></h2>
 <p>Construimos las variables binarias <span class="math notranslate nohighlight">\(x_i\)</span> de tal manera que vale 1 si el nodo i pertenece al primer conjunto y vale cero si pernece al segundo conjunto.</p>
 <p>Vamos a construir una función objetivo, y para ello tenemos en cuenta lo siguiente:</p>
 <p>Dados dos nodos, o lo que es lo mismo dos variables binarias x e y, se les deberá asignar energia cero si tienen igual valor ( porque eso quiere decir que están en el mismo grupo), y energía máxima 1 si tienen valores diferentes (porque eso quiere decir que están en grupos diferentes). Expreseamos esto mediante la siguiente tabla de la verdad:</p>
@@ -478,7 +481,7 @@ document.write(`
 </div>
 </section>
 <section id="restriccion">
-<h2><span class="section-number">16.3. </span>Restricción<a class="headerlink" href="#restriccion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Restricción<a class="headerlink" href="#restriccion" title="Permalink to this heading">#</a></h2>
 <p>Añadimos la siguiente restricción para asegurarnos de que el número de nodos en cada conjunto es el mismo:</p>
 <div class="math notranslate nohighlight">
 \[ \sum_i x_i = \sum_i (1 - x_i) \]</div>
@@ -519,7 +522,7 @@ document.write(`
 </div>
 </section>
 <section id="particion-del-grafo-en-mas-de-dos-conjuntos">
-<h2><span class="section-number">16.4. </span>Partición del grafo en más de dos conjuntos.<a class="headerlink" href="#particion-del-grafo-en-mas-de-dos-conjuntos" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Partición del grafo en más de dos conjuntos.<a class="headerlink" href="#particion-del-grafo-en-mas-de-dos-conjuntos" title="Permalink to this heading">#</a></h2>
 <p>Pretendemos ahora hacer algo similar al caso anterior, pero para más de dos grupos de nodos. Construimos el grafo siguiente para trabajar con él.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -536,12 +539,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5fb14defd34238cdfbbca7650011083591bf4ab6e9311b802917ec1d1e14ece5.png" src="../../_images/5fb14defd34238cdfbbca7650011083591bf4ab6e9311b802917ec1d1e14ece5.png" />
+<img alt="../../_images/415242c5db57bc2245e8dce4996729bf50dff2fbbd1c565543a67f1ec2c3db59.png" src="../../_images/415242c5db57bc2245e8dce4996729bf50dff2fbbd1c565543a67f1ec2c3db59.png" />
 </div>
 </div>
 </section>
 <section id="variables-de-decision">
-<h2><span class="section-number">16.5. </span>Variables de decisión.<a class="headerlink" href="#variables-de-decision" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Variables de decisión.<a class="headerlink" href="#variables-de-decision" title="Permalink to this heading">#</a></h2>
 <p>Ahora vamos a construir una variable binaria, pero en este caso con dos subíndices <span class="math notranslate nohighlight">\(x_{i,k}\)</span> para cada nodo <span class="math notranslate nohighlight">\(i\)</span> y conjunto <span class="math notranslate nohighlight">\(k\)</span>. Si el valor es uno el nodo <span class="math notranslate nohighlight">\(i\)</span> va a estar en el grupo <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p>El modelo que construimos es el siguiente:</p>
 <div class="cell docutils container">
@@ -571,7 +574,7 @@ document.write(`
 </div>
 </section>
 <section id="objectivo">
-<h2><span class="section-number">16.6. </span>Objectivo<a class="headerlink" href="#objectivo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.6. </span>Objectivo<a class="headerlink" href="#objectivo" title="Permalink to this heading">#</a></h2>
 <p>En lugar de penalizar dos nodos que no están en el mismo conjunto, recompensamos si</p>
 <ul class="simple">
 <li><p>dos nodos pertenecen al mismo conjunto, y</p></li>
@@ -600,7 +603,7 @@ document.write(`
 </div>
 </section>
 <section id="restricciones">
-<h2><span class="section-number">16.7. </span>Restricciones<a class="headerlink" href="#restricciones" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.7. </span>Restricciones<a class="headerlink" href="#restricciones" title="Permalink to this heading">#</a></h2>
 <p>El tamaño de cada conjunto es n/m</p>
 <ul class="simple">
 <li><p>n es el número de nodos</p></li>
@@ -640,8 +643,8 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (&#39;x_1&#39;, 0) (&#39;x_1&#39;, 1) (&#39;x_1&#39;, 2) (&#39;x_2&#39;, 0) ... (&#39;x_9&#39;, 2) energy num_oc.
-0          1          0          0          1 ...          1   -9.0       1
-1          0          0          1          0 ...          0   -9.0       1
+0          1          0          0          1 ...          0   -9.0       1
+1          0          1          0          0 ...          0   -9.0       1
 2          0          0          1          0 ...          0   -9.0       1
 [&#39;BINARY&#39;, 3 rows, 3 samples, 27 variables]
 </pre></div>
@@ -656,7 +659,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_1&#39;: 0, &#39;x_2&#39;: 0, &#39;x_3&#39;: 0, &#39;x_4&#39;: 1, &#39;x_5&#39;: 1, &#39;x_6&#39;: 1, &#39;x_7&#39;: 2, &#39;x_8&#39;: 2, &#39;x_9&#39;: 2}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x_1&#39;: 0, &#39;x_2&#39;: 0, &#39;x_3&#39;: 0, &#39;x_4&#39;: 2, &#39;x_5&#39;: 2, &#39;x_6&#39;: 2, &#39;x_7&#39;: 1, &#39;x_8&#39;: 1, &#39;x_9&#39;: 1}
 </pre></div>
 </div>
 </div>
@@ -670,7 +673,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3c6d19d6c503d86ebb674a2384c9f466a475118064e6f6d7ef6d56c94cfbc494.png" src="../../_images/3c6d19d6c503d86ebb674a2384c9f466a475118064e6f6d7ef6d56c94cfbc494.png" />
+<img alt="../../_images/11c625a0f23f468e82e679cc2f1228dabb52407bbd1fa6202492faab257367e4.png" src="../../_images/11c625a0f23f468e82e679cc2f1228dabb52407bbd1fa6202492faab257367e4.png" />
 </div>
 </div>
 </section>
@@ -708,20 +711,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="part02_example3_number_partitioning_practice.html"
+       href="number_partitioning_DQM.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Problema partición un conjunto de números.</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Partición de un conjunto de números con DQM.</p>
       </div>
     </a>
     <a class="right-next"
-       href="InmunizacionEstrategia.html"
+       href="graph_partitioning_DQM.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Introdución</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Partición de un gráfo con DQM</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -743,13 +746,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-del-grafo">16.1. Creación del grafo.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cracion-del-objeto-bqm">16.2. Cración del objeto BQM.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restriccion">16.3. Restricción</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-del-grafo-en-mas-de-dos-conjuntos">16.4. Partición del grafo en más de dos conjuntos.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-decision">16.5. Variables de decisión.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectivo">16.6. Objectivo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones">16.7. Restricciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-del-grafo">17.1. Creación del grafo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cracion-del-objeto-bqm">17.2. Cración del objeto BQM.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restriccion">17.3. Restricción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-del-grafo-en-mas-de-dos-conjuntos">17.4. Partición del grafo en más de dos conjuntos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-de-decision">17.5. Variables de decisión.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectivo">17.6. Objectivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restricciones">17.7. Restricciones</a></li>
 </ul>
   </nav></div>
 

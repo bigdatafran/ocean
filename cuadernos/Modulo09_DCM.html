@@ -172,28 +172,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ejercicios/PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejercicios/Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example4_graph_partitioning.html">16. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">17. Inmunización-Estrategia</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/Empleados_Turnos.html">18. Reparto empleados por turno trabajo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/Problema_Mochila.html">19. Problema de la mochila</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/ProblemaMochilaMejorar_Rendimiento.html">20. Introducción.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/number_partitioning_DQM.html">16. Partición de un conjunto de números utilizando DQM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example4_graph_partitioning.html">17. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/graph_partitioning_DQM.html">18. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos y uso DQM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/InmunizacionEstrategia.html">19. Inmunización-Estrategia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/Empleados_Turnos.html">20. Reparto empleados por turno trabajo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/Problema_Mochila.html">21. Problema de la mochila</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/ProblemaMochilaMejorar_Rendimiento.html">22. Introducción.</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="ejercicios/Antena_selection.html">25. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/Antena_selection.html">27. Antena_selection. ubicación antenas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejercicios/part02_example2_clustering.html">28. Creación de clúster</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Indice de Problemas</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Indice_ejercicios.html">26. Localizador de problemas o ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Indice_ejercicios.html">29. Localizador de problemas o ejercicios</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Índice de términos</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">27. Índice de términos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">30. Índice de términos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliografía</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">28. Bibliografia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../otros/bibliografia.html">31. Bibliografia</a></li>
 </ul>
 
     </div>
@@ -377,6 +380,157 @@ document.write(`
 <li><p>Documentación de la clase <a href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/models.html#dimod.DiscreteQuadraticModel" target="_blank"> dimod.DiscreteQuadraticModel </a></p></li>
 <li><p>Documentación de la clase <a href="https://docs.ocean.dwavesys.com/en/stable/docs_system/reference/samplers.html#dwave.system.samplers.LeapHybridDQMSampler" target="_blank"> LeapHybridDQMSampler </a>.</p></li>
 </ul>
+<p>Otra manera de enfocar este problema sería la siguiente:</p>
+<p>Supongamos que tenemos N variables discretas (o N grupos de variables binarias). Cada variable <span class="math notranslate nohighlight">\(x_i\)</span> tiene <span class="math notranslate nohighlight">\(C_i\)</span> casos. Entonces la siguiente ecuación es la forma más general para expresar la energía para un modelo DQM (salvo una constante).</p>
+<div class="math notranslate nohighlight">
+\[\Large H = \sum_{i,k} a_{i,k} x_{i,k} + \sum_{i,k,j,l} w_{i,k,j,l} x_{i,k} x_{j,l}\]</div>
+<div class="math notranslate nohighlight">
+\[\Large i, j \in \left\{0, 1, 2, ..., N - 1\right\}\]</div>
+<div class="math notranslate nohighlight">
+\[\Large k \in \left\{0, 1, 2, ..., C_i - 1 \right\}\]</div>
+<div class="math notranslate nohighlight">
+\[\Large l \in \left\{0, 1, 2, ..., C_j - 1 \right\}\]</div>
+<p>El Hamiltoniano anterior está sujeto a la siguiente restricción:</p>
+<div class="math notranslate nohighlight">
+\[\Large \sum_{k=0}^{C_i - 1} x_{i,k} = 1 ~~~~~ \forall i\]</div>
+<p>Por la propia definición del problema, el coeficiente <span class="math notranslate nohighlight">\(\large w_{i,k,i,l}\)</span> cuando <span class="math notranslate nohighlight">\(k\neq l\)</span> no tiene efecto sobre la energía puesto que:</p>
+<div class="math notranslate nohighlight">
+\[\Large x_{i,k}x_{i, l} = 0 ~~~~~ k\neq l \]</div>
+<p>El número de variable binarias es:</p>
+<div class="math notranslate nohighlight">
+\[ N_b = \sum_i C_i \]</div>
+<p>Como es habitual en python, podemos obtener ayuda sobre esta clase de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">DQM</span>
+
+DQM<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>```{index} ExactDQMSolver, LeapHybridDQMSampler
+```
+Para resolver este problema podemos trabajar con los dos solver que se muestran a continuación
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Cell In[2], line 1
+    ```{index} ExactDQMSolver, LeapHybridDQMSampler
+    ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactDQMSolver</span>
+
+ExactDQMSolver<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Init signature:</span> ExactDQMSolver<span class=" -Color -Color-Bold -Color-Bold-Yellow">()</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>     
+A simple exact solver for testing and debugging code using your local CPU.
+
+Notes:
+    This solver calculates the energy for every possible
+    combination of variable cases. If variable :math:`i` has
+    :math:`k_i` cases, this results in :math:`k_1 * k_2 * ... * k_n` cases,
+    which grows exponentially for constant :math:`k_i` in the
+    number of variables.
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>           c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dimod\reference\samplers\exact_solver.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>           type
+<span class=" -Color -Color-Bold -Color-Bold-Red">Subclasses:</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridDQMSampler</span>
+
+LeapHybridDQMSampler<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Init signature:</span> LeapHybridDQMSampler<span class=" -Color -Color-Bold -Color-Bold-Yellow">(**</span>config<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>     
+A class for using Leap&#39;s cloud-based hybrid DQM solvers.
+
+Leap’s quantum-classical hybrid DQM solvers are intended to solve arbitrary
+application problems formulated as **discrete** quadratic models (DQM).
+
+You can configure your :term:`solver` selection and usage by setting parameters,
+hierarchically, in a configuration file, as environment variables, or
+explicitly as input arguments, as described in
+`D-Wave Cloud Client &lt;https://docs.ocean.dwavesys.com/en/stable/docs_cloud/sdk_index.html&gt;`_.
+
+:ref:`dwave-cloud-client &lt;sdk_index_cloud&gt;`&#39;s
+:meth:`~dwave.cloud.client.Client.get_solvers` method filters solvers you have
+access to by `solver properties &lt;https://docs.dwavesys.com/docs/latest/c_solver_properties.html&gt;`_
+``category=hybrid`` and ``supported_problem_type=dqm``. By default, online
+hybrid DQM solvers are returned ordered by latest ``version``.
+
+The default specification for filtering and ordering solvers by features is
+available as :attr:`.default_solver` property. Explicitly specifying a
+solver in a configuration file, an environment variable, or keyword
+arguments overrides this specification. See the example in :class:`.LeapHybridSampler`
+on how to extend it instead.
+
+Args:
+    **config:
+        Keyword arguments passed to :meth:`dwave.cloud.client.Client.from_config`.
+
+Examples:
+    This example solves a small, illustrative problem: a game of
+    rock-paper-scissors. The DQM has two variables representing two hands,
+    with cases for rock, paper, scissors. Quadratic biases are set to
+    produce a lower value of the DQM for cases of variable ``my_hand``
+    interacting with cases of variable ``their_hand`` such that the former
+    wins over the latter; for example, the interaction of ``rock-scissors`` is
+    set to -1 while ``scissors-rock`` is set to +1.
+
+    &gt;&gt;&gt; import dimod
+    &gt;&gt;&gt; from dwave.system import LeapHybridDQMSampler
+    ...
+    &gt;&gt;&gt; cases = [&quot;rock&quot;, &quot;paper&quot;, &quot;scissors&quot;]
+    &gt;&gt;&gt; win = {&quot;rock&quot;: &quot;scissors&quot;, &quot;paper&quot;: &quot;rock&quot;, &quot;scissors&quot;: &quot;paper&quot;}
+    ...
+    &gt;&gt;&gt; dqm = dimod.DiscreteQuadraticModel()
+    &gt;&gt;&gt; dqm.add_variable(3, label=&#39;my_hand&#39;)
+    &#39;my_hand&#39;
+    &gt;&gt;&gt; dqm.add_variable(3, label=&#39;their_hand&#39;)
+    &#39;their_hand&#39;
+    &gt;&gt;&gt; for my_idx, my_case in enumerate(cases):
+    ...    for their_idx, their_case in enumerate(cases):
+    ...       if win[my_case] == their_case:
+    ...          dqm.set_quadratic(&#39;my_hand&#39;, &#39;their_hand&#39;,
+    ...                            {(my_idx, their_idx): -1})
+    ...       if win[their_case] == my_case:
+    ...          dqm.set_quadratic(&#39;my_hand&#39;, &#39;their_hand&#39;,
+    ...                            {(my_idx, their_idx): 1})
+    ...
+    &gt;&gt;&gt; dqm_sampler = LeapHybridDQMSampler()      # doctest: +SKIP
+    ...
+    &gt;&gt;&gt; sampleset = dqm_sampler.sample_dqm(dqm)   # doctest: +SKIP
+    &gt;&gt;&gt; print(&quot;{} beats {}&quot;.format(cases[sampleset.first.sample[&#39;my_hand&#39;]],
+    ...                            cases[sampleset.first.sample[&#39;their_hand&#39;]]))   # doctest: +SKIP
+    rock beats scissors
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>           c:\users\francisco\desktop\dwaveocean\ocean\lib\site-packages\dwave\system\samplers\leap_hybrid_sampler.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>           type
+<span class=" -Color -Color-Bold -Color-Bold-Red">Subclasses:</span>     
+</pre></div>
+</div>
+</div>
+</div>
 <p>A continuación se procede a mostrar una serie de ejemplos que ayudan a comprender cómo utilizar esta clase.</p>
 <section id="ejemplo-1-map-coloring">
 <span id="mapcoloring"></span><h2><span class="section-number">9.1. </span>Ejemplo 1. Map Coloring.<a class="headerlink" href="#ejemplo-1-map-coloring" title="Permalink to this heading">#</a></h2>
@@ -516,7 +670,7 @@ Utilizaremos en este caso la clase  <a href="https://docs.ocean.dwavesys.com/en/
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energy: 0.0
-Solution: {&#39;&#39;: 1, &#39;AK&#39;: 3, &#39;HI&#39;: 2, &#39;AL&#39;: 1, &#39;MS&#39;: 3, &#39;TN&#39;: 2, &#39;GA&#39;: 0, &#39;FL&#39;: 3, &#39;AR&#39;: 1, &#39;MO&#39;: 0, &#39;LA&#39;: 0, &#39;TX&#39;: 2, &#39;OK&#39;: 3, &#39;AZ&#39;: 2, &#39;CA&#39;: 0, &#39;NV&#39;: 1, &#39;UT&#39;: 3, &#39;CO&#39;: 0, &#39;NM&#39;: 1, &#39;OR&#39;: 3, &#39;WY&#39;: 1, &#39;NE&#39;: 3, &#39;KS&#39;: 1, &#39;CT&#39;: 2, &#39;NY&#39;: 0, &#39;MA&#39;: 3, &#39;RI&#39;: 0, &#39;DC&#39;: 0, &#39;MD&#39;: 1, &#39;VA&#39;: 3, &#39;DE&#39;: 0, &#39;PA&#39;: 3, &#39;NJ&#39;: 2, &#39;NC&#39;: 1, &#39;SC&#39;: 3, &#39;IA&#39;: 1, &#39;MN&#39;: 2, &#39;WI&#39;: 0, &#39;IL&#39;: 2, &#39;SD&#39;: 0, &#39;ID&#39;: 2, &#39;MT&#39;: 3, &#39;WA&#39;: 0, &#39;IN&#39;: 3, &#39;KY&#39;: 1, &#39;MI&#39;: 1, &#39;OH&#39;: 2, &#39;WV&#39;: 0, &#39;NH&#39;: 0, &#39;VT&#39;: 1, &#39;ME&#39;: 3, &#39;ND&#39;: 1}
+Solution: {&#39;&#39;: 2, &#39;AK&#39;: 0, &#39;HI&#39;: 1, &#39;AL&#39;: 0, &#39;MS&#39;: 2, &#39;TN&#39;: 1, &#39;GA&#39;: 2, &#39;FL&#39;: 3, &#39;AR&#39;: 0, &#39;MO&#39;: 2, &#39;LA&#39;: 1, &#39;TX&#39;: 3, &#39;OK&#39;: 1, &#39;AZ&#39;: 1, &#39;CA&#39;: 2, &#39;NV&#39;: 0, &#39;UT&#39;: 3, &#39;CO&#39;: 2, &#39;NM&#39;: 0, &#39;OR&#39;: 3, &#39;WY&#39;: 1, &#39;NE&#39;: 3, &#39;KS&#39;: 0, &#39;CT&#39;: 2, &#39;NY&#39;: 1, &#39;MA&#39;: 0, &#39;RI&#39;: 3, &#39;DC&#39;: 3, &#39;MD&#39;: 0, &#39;VA&#39;: 2, &#39;DE&#39;: 1, &#39;PA&#39;: 2, &#39;NJ&#39;: 0, &#39;NC&#39;: 3, &#39;SC&#39;: 1, &#39;IA&#39;: 0, &#39;MN&#39;: 3, &#39;WI&#39;: 2, &#39;IL&#39;: 3, &#39;SD&#39;: 2, &#39;ID&#39;: 2, &#39;MT&#39;: 0, &#39;WA&#39;: 0, &#39;IN&#39;: 2, &#39;KY&#39;: 0, &#39;MI&#39;: 3, &#39;OH&#39;: 1, &#39;WV&#39;: 3, &#39;NH&#39;: 2, &#39;VT&#39;: 3, &#39;ME&#39;: 3, &#39;ND&#39;: 1}
 </pre></div>
 </div>
 </div>
@@ -536,7 +690,7 @@ Solution: {&#39;&#39;: 1, &#39;AK&#39;: 3, &#39;HI&#39;: 2, &#39;AL&#39;: 1, &#3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5531f4cdb9c77de68337f7eb3f5d29fcbbd7e9e0dcfbd7c1eafa2525d31d4252.png" src="../_images/5531f4cdb9c77de68337f7eb3f5d29fcbbd7e9e0dcfbd7c1eafa2525d31d4252.png" />
+<img alt="../_images/640f0df0d8d720658acff04ca0f1e804a949d6479f42e5c4cec8c81442aeaad8.png" src="../_images/640f0df0d8d720658acff04ca0f1e804a949d6479f42e5c4cec8c81442aeaad8.png" />
 </div>
 </div>
 </section>

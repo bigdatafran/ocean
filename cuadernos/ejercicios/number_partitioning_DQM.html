@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Introducción. &#8212; D-Wave Ocean</title>
+    <title>16. Partición de un conjunto de números con DQM. &#8212; D-Wave Ocean</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/Area_rectangulo_minimizar';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cuadernos/ejercicios/number_partitioning_DQM';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="15. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
-    <link rel="prev" title="13. Introducción." href="PrimerosPasos.html" />
+    <link rel="next" title="17. Introducción" href="part02_example4_graph_partitioning.html" />
+    <link rel="prev" title="15. Problema partición un conjunto de números." href="part02_example3_number_partitioning_practice.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,9 +170,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte práctica</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="PrimerosPasos.html">13. Iniciación a Ocean SDK</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Cálculo área rectángulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Area_rectangulo_minimizar.html">14. Cálculo área rectángulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="part02_example3_number_partitioning_practice.html">15. Partición de un conjunto de números</a></li>
-<li class="toctree-l1"><a class="reference internal" href="number_partitioning_DQM.html">16. Partición de un conjunto de números utilizando DQM</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Partición de un conjunto de números utilizando DQM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="part02_example4_graph_partitioning.html">17. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graph_partitioning_DQM.html">18. Partición grafo en conjuntos iguales. Cada parte igual nº de nodos y uso DQM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="InmunizacionEstrategia.html">19. Inmunización-Estrategia</a></li>
@@ -251,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/cuadernos/ejercicios/Area_rectangulo_minimizar.ipynb" target="_blank"
+      <li><a href="../../_sources/cuadernos/ejercicios/number_partitioning_DQM.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -331,11 +333,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción.</h1>
+    <h1>Partición de un conjunto de números con DQM.</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-para-hacer-una-particion-de-numeros">16.1. Generalización para hacer una partición de números.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-objective-only-constraints">16.2. No objective, only constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado">16.3. Resultado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">16.4. Ejercicio.</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -345,136 +358,155 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<span id="area-rectangulo"></span><h1><span class="section-number">14. </span>Introducción.<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
-<p>en este ejemplo, se trata de encontra los lados de un rectángulo para maximizar el área, dado el perímetro. Este ejemplo es muy apropiado para las personas que quieran iniciar su aprendizaje en Ocean SDK, y además si quieren profundizar en conocimientos relacionados con lo que se expone en este apratado, lo pueden encontrar en el siguiente enlace:</p>
-<p><a class="reference external" href="https://docs.dwavesys.com/docs/latest/c_gs_workflow.html">https://docs.dwavesys.com/docs/latest/c_gs_workflow.html</a></p>
-<p>Igualmente se aconseja ver el contenido del siguiente enlace:</p>
-<p><a class="reference external" href="https://docs.ocean.dwavesys.com/en/stable/docs_dimod/intro/intro_symbolic_math.html">https://docs.ocean.dwavesys.com/en/stable/docs_dimod/intro/intro_symbolic_math.html</a></p>
-<p>En el siguiente bloque procedemosa definir dos variable de tipo entero que llamamos i y j, ambas con un límite superior igual a 4. POsteriormente obtenemos una instancia de la clase ConstrainedQuadraticModel()</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="particion-de-un-conjunto-de-numeros-con-dqm">
+<span id="particiondqm"></span><h1><span class="section-number">16. </span>Partición de un conjunto de números con DQM.<a class="headerlink" href="#particion-de-un-conjunto-de-numeros-con-dqm" title="Permalink to this heading">#</a></h1>
+<p>En <a class="reference internal" href="part02_example3_number_partitioning_practice.html#particionconjuntonumeros"><span class="std std-ref">otro apartado</span></a> ya se ha visto cómo se resuelve este problema utilizando la clase BQM. Ahora vamos a ver otro procedimiento utilizando para ello la clase DQM.</p>
+<section id="generalizacion-para-hacer-una-particion-de-numeros">
+<h2><span class="section-number">16.1. </span>Generalización para hacer una partición de números.<a class="headerlink" href="#generalizacion-para-hacer-una-particion-de-numeros" title="Permalink to this heading">#</a></h2>
+<p>El objetivo es dividir un conjunto de números en varios conjuntos de igual tamaño (que tengan la misma suma). Una variable de decisión que sirve a este propósito es una variable binaria <span class="math notranslate nohighlight">\(x_{i,j}\)</span> donde el subíndice i corresponde al número seleccionado y j al conjunto asginado, y que vale 1 si el número i es asignado a la clase j. Entonces, esto sería equivalente a crear una variable <span class="math notranslate nohighlight">\(x_i\)</span> que toma valores enteros y que vale <span class="math notranslate nohighlight">\(x_i=j\)</span> si el elemneto i es asignado a la clase j.</p>
+<p><strong>NOTA:</strong> Las dos variables, la binaria (<span class="math notranslate nohighlight">\(x_{i,j}=1\)</span>) y la discreta (<span class="math notranslate nohighlight">\(x_i = j\)</span>) pueden utilizarse indistintamente. Para la mayoría de las expresiones matemáticas es más conveniente utilizar la forma binaria.</p>
+<p>Procedemos a resolver el problema de crear tres grupos de números, de manera que la suma sea igual en cada grupo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">,</span> <span class="n">Integer</span>
-<span class="c1"># Definimos la variables de tipo entero que llamamos i y j</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">cqm</span> <span class="o">=</span> <span class="n">ConstrainedQuadraticModel</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos el typo de variable que es i (similar sería para j)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dimod.quadratic.quadratic_model.QuadraticModel
-</pre></div>
-</div>
-</div>
-</div>
-<p>Como queremos obtener el área del rectángulo definimos la variable <em>objetive</em> que es igual al producto de las dos variables definidas anteriormente. Pero como queremeos maximizar el área, y Ocean sólo permite obtener mínimos, lo que hacemos es cambiar el signo del producto.</p>
-<p>Igualmente definimos la restricción de que el perímetro sea menor o igual que 8</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos la función objetivo</span>
-<span class="n">objetive</span> <span class="o">=</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">DiscreteQuadraticModel</span>
 
-<span class="c1"># definimos la restricción de que el perímetro sea menor o igual que 8</span>
-<span class="n">constraint</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">8</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">dqm</span> <span class="o">=</span> <span class="n">DiscreteQuadraticModel</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># num_partitions</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">objetive</span><span class="o">.</span><span class="n">to_polystring</span><span class="p">())</span>
+<span class="c1"># Creamos las variables discretas</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">dqm</span><span class="o">.</span><span class="n">add_variable</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="no-objective-only-constraints">
+<h2><span class="section-number">16.2. </span>No objective, only constraints<a class="headerlink" href="#no-objective-only-constraints" title="Permalink to this heading">#</a></h2>
+<p>En este tipo de problemas no tenemos función objetivo, sólo restricciones</p>
+<p>Para cada par de particiones, debemos asegurar que la suma de sus elementos es la misma.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} \sum_i v_i x_{ij} = \sum_i v_i x_{ik} $$ for all $j$ and $k$\\O lo que es lo mismo (forma que debemos utilizar en este tipo de modelos):\\$$ \sum_i v_i x_{ij} - \sum_i v_i x_{ik} = 0\end{aligned}\end{align} \]</div>
+<p>Creamos esta condición para que sea entendida por Ocean SDK de la siguiente manera</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">dqm</span><span class="o">.</span><span class="n">add_linear_equality_constraint</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">l</span><span class="p">,</span> <span class="o">-</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)],</span>
+    <span class="n">constant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">lagrange_multiplier</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En un problema de este tipo, utilizando BQM se debería añadir una restricción para asegurar de que cada número pertenece a un sólo conjunto. Esta restricción sería la siguiente.</p>
+<div class="math notranslate nohighlight">
+\[\sum_jx_{ij}=1\quad \forall i\]</div>
+<p>Pero utilizando un modelo de tipo BQM no es necesario añadir esta restricción</p>
+<p>Resolvemos el problema utilizando el solver ExactDQMSolver</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod</span> <span class="kn">import</span> <span class="n">ExactDQMSolver</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">ExactDQMSolver</span><span class="p">()</span><span class="o">.</span><span class="n">sample_dqm</span><span class="p">(</span><span class="n">dqm</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-i*j
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0 1 2 3 4 5 6 7 8 energy num_oc.
+0 0 0 2 1 2 0 2 1 1    0.0       1
+1 2 1 0 1 0 2 0 2 1    0.0       1
+2 0 0 1 1 1 0 2 2 2    0.0       1
+3 0 1 2 1 2 0 2 0 1    0.0       1
+4 2 2 0 1 0 2 0 1 1    0.0       1
+[&#39;INTEGER&#39;, 5 rows, 5 samples, 9 variables]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resultado">
+<h2><span class="section-number">16.3. </span>Resultado<a class="headerlink" href="#resultado" title="Permalink to this heading">#</a></h2>
+<p>Pongamos el resultado de una forma más estética y comprobemos que es corercto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">set1</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">sample</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">k</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">set1</span><span class="p">),</span> <span class="n">set1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: 0, 1: 0, 2: 2, 3: 1, 4: 2, 5: 0, 6: 2, 7: 1, 8: 1}
+36
+12 [7, 2, 3]
+12 [1, 2, 9]
+12 [3, 8, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora volvemos a resolver el problema utilizando el solver de Leap’s hybrid solver.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridDQMSampler</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">LeapHybridDQMSampler</span><span class="p">()</span><span class="o">.</span><span class="n">sample_dqm</span><span class="p">(</span><span class="n">dqm</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0 1 2 3 4 5 6 7 8 energy num_oc.
+0 1 1 1 0 2 2 2 0 0    0.0       1
+1 2 2 0 2 1 1 1 2 0    0.0       1
+2 1 1 1 2 0 0 0 2 2    0.0       1
+3 1 1 1 0 0 0 2 2 2    0.0       1
+4 2 2 0 0 0 2 1 1 1    0.0       1
+[&#39;INTEGER&#39;, 5 rows, 5 samples, 9 variables]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">constraint</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">to_polystring</span><span class="p">()</span> <span class="p">)</span>
-<span class="c1">#print(constraint.to_polystring()) # Esto da error</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">set1</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="n">sample</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">k</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">set1</span><span class="p">),</span> <span class="n">set1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2*i + 2*j
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: 1, 1: 1, 2: 1, 3: 0, 4: 2, 5: 2, 6: 2, 7: 0, 8: 0}
+36
+12 [1, 2, 9]
+12 [7, 2, 3]
+12 [8, 3, 1]
 </pre></div>
 </div>
 </div>
 </div>
-<p>El área del rectángulo está dada por la multiplicación del lado i por lado j. El objetivo es maximizar el área,i∗j. Debido a que los muestreadores D-Wave minimizan, el objetivo debe tener su valor más bajo cuando se alcanza este objetivo. Objetivo−i∗jtiene su valor mínimo cuandoi∗j, el área, es mayor:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span><span class="o">.</span><span class="n">set_objective</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Añadimos la restricción 2i+2j&lt;=8</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cqm</span><span class="o">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Max perimeter&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Max perimeter&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Creamos una instancia de un muestreador de CQM híbrido y enviamos el problema para que lo solucione un sampler remoto proporcionado por el servicio de nube cuántica de Leap:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">LeapHybridCQMSampler</span>
-<span class="n">sampler</span> <span class="o">=</span> <span class="n">LeapHybridCQMSampler</span><span class="p">()</span>                
-<span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_cqm</span><span class="p">(</span><span class="n">cqm</span><span class="p">)</span>             
-<span class="nb">print</span><span class="p">(</span><span class="n">sampleset</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>  
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sample(sample={&#39;i&#39;: 4.0, &#39;j&#39;: 4.0}, energy=-16.0, num_occurrences=1, is_satisfied=array([False]), is_feasible=False)
-</pre></div>
-</div>
-</div>
-</div>
-<p id="index-0"><strong>NOTA</strong>. Es importante ver que la primera solución encontrada es una solución factible pues como podemos ver en la salida anterior una de las propiedades que muestra es la siguiente: <em>is_feasible=True</em>. Pero no siempre es así, puesto que con este tipo de solvers se pueden encontra soluciones que no cumplen alguna de las condiciones puestas en las restricciones. Entonces, para obtener soluciones factibles, lo que hay que hacer es utilizar el método <em>filter</em>, tal y como el lector puede ver en el siguiente enlace: <a class="github reference external" href="https://github.com/dwavesystems/dwave-system/issues/460">dwavesystems/dwave-system#460</a>.</p>
-<p>Veamos cómo se comporta la operación con este tipo de variables declaradas como enteras anteriormente. Por ejemplo, definamos la siguiente relación</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relacion</span><span class="o">=</span> <span class="mf">4.4</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mf">2.1</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">j</span>
-<span class="n">relacion</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QuadraticModel({&#39;i&#39;: 4.4, &#39;j&#39;: 2.1}, {(&#39;j&#39;, &#39;i&#39;): 4.0}, 0.0, {&#39;i&#39;: &#39;INTEGER&#39;, &#39;j&#39;: &#39;INTEGER&#39;}, dtype=&#39;float64&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Como podemos observar, el objeto que se obtiene sigue siendo del tipo ‘QuadraticModel’ teniendo términos independientes así como otros que interactúan entre ellos.</p>
-<p>Igualmente, se pueden añadir términos cuadráticos como por ejemplo <span class="math notranslate nohighlight">\(4.1i^2\)</span>, de la siguiente manera</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">3.27</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mf">7.1</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">i</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QuadraticModel({&#39;i&#39;: 3.27}, {(&#39;i&#39;, &#39;i&#39;): 7.1}, 0.0, {&#39;i&#39;: &#39;INTEGER&#39;}, dtype=&#39;float64&#39;)
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="ejercicio">
+<h2><span class="section-number">16.4. </span>Ejercicio.<a class="headerlink" href="#ejercicio" title="Permalink to this heading">#</a></h2>
+<p>Se deja para el lector ampliar la lista de núemros anterior y hacer un ejercicio similar. En concreto se propone lo siguiente:</p>
+<ul class="simple">
+<li><p>Crear una lista de 100 números enteros (se puede hacer una generación aleatoria de estos números)</p></li>
+<li><p>Hacer una partición similar a la de este apartado, pero creando 10 grupos</p></li>
+<li><p>Resolver este problema utilizando <code class="docutils literal notranslate"><span class="pre">LeapHybridDQMSampler</span></code></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -509,20 +541,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="PrimerosPasos.html"
+       href="part02_example3_number_partitioning_practice.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Introducción.</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Problema partición un conjunto de números.</p>
       </div>
     </a>
     <a class="right-next"
-       href="part02_example3_number_partitioning_practice.html"
+       href="part02_example4_graph_partitioning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Problema partición un conjunto de números.</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Introducción</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -535,6 +567,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalizacion-para-hacer-una-particion-de-numeros">16.1. Generalización para hacer una partición de números.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-objective-only-constraints">16.2. No objective, only constraints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado">16.3. Resultado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio">16.4. Ejercicio.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
